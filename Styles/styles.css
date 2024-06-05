@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+     height: 4200px;  /* A retirer à la fin */
+    background-color: #2A2AA9;
+}
+
+.logo{
+    width: 48px;
+}
+
+header{
+    background-color: #2A2AA9;
+    height: 52px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.mobile-menu{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.nav-link{
+    position: relative;
+    list-style-type: none;
+    display: flex;
+    align-content: center;
+    width: 100%;
+    
+}
+
+/*coulor icons nav*/
+.white{
+    color: #ffffff;
+}
+
+.loupe-panier{
+    position: absolute;
+    right: 0;
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    margin-right: 40px;
+    margin-top: 10px;
+}
+
+.menu-logo{
+    position: absolute;
+    left: 0;
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    margin-left: 40px;
+    
+}
+
+.image-en-tete{
+    width: 100%;
+    height: auto;
+}
+
+/*Paragraphe de bienvenue*/
+.bienvenue{
+    text-align: center;
+    background-color: white;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 280px;
+    height: 80px;
+}
+
+/*coulor arrows carrousel*/
+.orange{
+    color: #FFB600;
+}
+
+h2{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    color: white;
+}
