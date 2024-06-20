@@ -25,11 +25,14 @@ li ::placeholder{ /*Alignement du texte au centre des input */
 }
 
 body{
-    background-color: var(--color-tertiary)
+    background-color: var(--color-tertiary);
+    font-family: poppins;
 }
 
 .identifier { /*Texte M'identifier*/
     margin-bottom: 15px;
+    text-align: center;
+    width: 200px;
 }
 
 .liens { /*Liens MDP oublié & Nv client*/
@@ -69,7 +72,7 @@ div{ /*Rectangle bleu clair en premier plan*/
 .btnConnection {
     color: white;
     margin: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     background-color: var(--color-primary);
     padding: 10px 15px;
     border-radius: 10px;
