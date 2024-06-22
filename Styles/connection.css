@@ -8,7 +8,9 @@ body{
     
     --color-primary: #2a2aa9;
     --color-secondary: #FFB600;
-    --color-tertiary: #090958; 
+    --color-tertiary: #090958;
+    --color-text-white: #FFFFFF;
+    --color-text-black: #000000;
 }
 
 .logo { /*Logo GameStore*/
@@ -20,14 +22,15 @@ body{
     padding-bottom: 30px;
 }
 
-li ::placeholder{ /*Alignement du texte au centre des input */
-    text-align: center;
-}
-
 body{
     background-color: var(--color-tertiary);
     font-family: poppins;
 }
+
+li ::placeholder{ /*Alignement du texte au centre des input */
+    text-align: center;
+}
+
 
 .identifier { /*Texte M'identifier*/
     margin-bottom: 15px;
@@ -51,7 +54,7 @@ body{
 ul{
     list-style-type: none;
     font-family: poppins;
-    color: white;
+    color: var(--color-text-white);
 }
 
 .formulaire { /*Alignement des éléments au centre de la page*/
@@ -70,7 +73,7 @@ div{ /*Rectangle bleu clair en premier plan*/
 }
 
 .btnConnection {
-    color: white;
+    color: var(--color-text-white);
     margin: 10px;
     margin-bottom: 10px;
     background-color: var(--color-primary);
