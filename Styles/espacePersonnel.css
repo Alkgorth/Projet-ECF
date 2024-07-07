@@ -13,7 +13,7 @@ body{
 
 body{
     background-color: var(--color-primary);
-    font-family: poppins;
+    font-family: poppins, sans-serif;
     color: var(--color-text-white);
 }
 
@@ -39,12 +39,11 @@ header{
     display: flex;
     align-content: center;
     width: 100%;
-    
 }
 
 /*coulor icons nav*/
-.white{
-    color: var(--color-text-white);
+.iconColor{
+    color: var(--color-secondary);
 }
 
 .loupe-panier{
@@ -69,10 +68,85 @@ header{
 
 .monEspace {
     background-color: var(--color-tertiary);
+    padding-bottom: 2px;
+}
+
+h1 {
+    font-size: 1em;
+    margin-left: 30px;
+    margin-bottom: 15px;
+    padding-top: 15px;
+}
+
+table {
+    margin-left: 30px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+    position: relative;
+    border-collapse: collapse;
+}
+
+.celluleG {
+    border-right: 1px solid var(--color-secondary);
+    border-bottom: 1px solid var(--color-secondary);
+}
+
+.celluleD {
+    border-left: 1px solid var(--color-secondary);
+    border-bottom: 1px solid var(--color-secondary);
+}
+
+.celluleG2 {
+    border-right: 1px solid var(--color-secondary);
+}
+
+.celluleD2 {
+    border-left: 1px solid var(--color-secondary);
+}
+
+td{
+    padding: 12px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 0.7em;
+    margin-left: 30px;
+    margin-bottom: 20px;
+    padding-top: 10px;
+}
+
+.fa-solid {
+    color: red;
+    padding-left: 5px;
 }
 
 .favoris {
     background-color: var(--color-primary);
+    padding-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.Liste {
+    display: flex;
+}
+
+.favorisListeG {
+    display: flex;
+    justify-content: flex-start;    
+}
+
+.favorisListeD {
+    display: flex;
+    justify-content: flex-end;    
+}
+
+.informations {
+    background-color: var(--color-tertiary);
+    padding-bottom: 2%;
 }
 
 .mentions { /*footer*/
@@ -91,10 +165,6 @@ header{
     left: 30%;
     margin-right: 30px;
     margin-bottom: 10px;
-}
-
-.fa-solid {
-    color: red;
 }
 
 .input {
@@ -129,4 +199,10 @@ header{
     border-radius: 10px;
     border: var(--color-secondary) solid 0.5px;
     box-shadow: inset -2px -3px 1.5px rgba(0, 0, 0, 0.25);
+}
+
+.bouton:hover {
+    color: var(--color-tertiary);
+    opacity: 50%;
+    cursor: pointer;
 }

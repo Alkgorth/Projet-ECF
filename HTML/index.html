@@ -5,35 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil GameStore</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="..\Styles\styles.css">
+    <script src="https://kit.fontawesome.com/77d47ba195.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
         <nav class="mobile-menu">
           <ul class="nav-link">
             <li class="menu-logo">
+
               <!-- menu  -->
-              <span class="material-icons white">
-                menu
-                </span>
+
+              
+                <i class="fa-solid fa-bars white"></i>
+                
               <a href="index.html">
               <img src="..\Images\Logo GameStore-2.png" alt="logo" class="logo">
               </a>
             </li>
             <li class="loupe-panier">
               <a href="">
-                <span class="material-icons white">
-                  search
-                </span>
+                <i class="fa-solid fa-magnifying-glass white"></i>
               </a>
               <a href="">
-                <span class="material-icons white">
-                  shopping_bag
-                  </span>
+                <i class="fa-solid fa-bag-shopping white"></i>
               </a>
             </li>
           </ul>
@@ -41,27 +38,78 @@
         </nav>
       </header>
       <main>
-        <img src="..\Images\signal-5153517_1920.jpg" alt="" class="image-en-tete">
-      <div class="bienvenue">
-        <p>Bienvenue chez Gamestore !
-        Venez découvrir les dernières
-        actutalités du monde du jeux vidéo</p>
-      </div>
-      <div class="carrousel">
-        <h2>Derniers arrivés <span class="material-icons">
-          navigate_next
-          </span></h2>
-        
-        <span class="material-icons orange">
-          arrow_circle_left
-          </span>
 
-        <span class="material-icons orange">
-          arrow_circle_right
-          </span>
-      </div>
-      </main>
+      <section>
+        <div> 
+          <img src="..\Images\signal-5153517_1920.jpg" alt="" class="image-en-tete">
+        </div>
+
+        <!-- Texte de présentation GameStore -->
+
+          <div class="bienvenue">
+          <p>Bienvenue chez Gamestore !
+          Venez découvrir les dernières
+          actutalités du monde du jeux vidéo</p>
+        </div>
+      </section>
+
+        <!--Premier carrousel-->
+
+        <section class="produits">
+        <h2>Derniers arrivés <i class="fa-solid fa-angle-right"></i></h2>
+        <div class="carrousel">
+            <div>
+              <i class="fa-solid fa-circle-arrow-left"></i>
+            </div>
+            
+            <div class="grid"> 
+              <img src="../Images/Jeux/AC Valhalla panorama.jpg" alt="Panorama Assassin's Creed Valhalla" class="ACValhalla">
+              <p class="titreJeux">Assassin's Creed Valhalla</p>
+              <p class="pegi"><i class="fa-solid fa-triangle-exclamation"></i>+18</p>
+              <p class="tarif"><br>69€99</p>
+            </div>
+            
+            <div class="grid"> 
+              <img src="../Images/Jeux/far-cry-6.jpg" alt="Panorama Far Cry 6" class="farCry">
+              <p class="titreJeux">Far Cry 6</p>
+              <p class="pegi"><i class="fa-solid fa-triangle-exclamation"></i>+18</p>
+              <p class="tarif"><br>69€99</p>
+            </div>
+            <div>
+              <i class="fa-solid fa-circle-arrow-right"></i>
+            </div>
+          </div>
+        
       
+      
+      <!-- Second carrousel -->
+
+     
+        <h2>Promotions<i class="fa-solid fa-angle-right"></i></h2>
+        <div class="carrousel">
+            <div>
+              <i class="fa-solid fa-circle-arrow-left"></i>
+            </div>
+            
+            <div class="grid"> 
+              <img src="../Images/Jeux/AC Valhalla panorama.jpg" alt="Panorama Assassin's Creed Valhalla" class="ACValhalla">
+              <p class="titreJeux">Assassin's Creed Valhalla</p>
+              <p class="pegi"><i class="fa-solid fa-triangle-exclamation"></i>+18</p>
+              <p class="tarif"><br>69€99</p>
+            </div>
+            
+            <div class="grid"> 
+              <img src="../Images/Jeux/far-cry-6.jpg" alt="Panorama Far Cry 6" class="farCry">
+              <p class="titreJeux">Far Cry 6</p>
+              <p class="pegi"><i class="fa-solid fa-triangle-exclamation"></i>+18</p>
+              <p class="tarif"><br>69€99</p>
+            </div>
+            <div>
+              <i class="fa-solid fa-circle-arrow-right"></i>
+            </div>
+          </div>
+        </section>
+
       <footer>
         <div class="mentions">
             <p>Mentions légales</p>
@@ -73,15 +121,16 @@
         </div>
         <div class="reseauxSociaux">
             <a href="https://www.instagram.com/">
-                <img src="../Images/instagram.png" alt="Logo Instagram">
+              <i class="fa-brands fa-instagram"></i>
             </a>
             <a href="https://www.facebook.com/?locale=fr_FR">
-                <img src="../Images/sociale.png" alt="Logo Facebook">
+              <i class="fa-brands fa-facebook"></i>
             </a>
             <a href="https://x.com/?lang=fr">
-                <img src="../Images/twitter.png" alt="Logo Twitter">
+              <i class="fa-brands fa-x-twitter"></i>
             </a>
         </div>
+      </main>
     </footer>
 </body>
 </html>
