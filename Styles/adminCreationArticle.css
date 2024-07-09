@@ -9,22 +9,18 @@
 }
 
 
-
 body{
-   --color-primary: #2a2aa9;
-   --color-secondary: #FFB600;
-   --color-tertiary: #090958; 
-   --color-text-white: #FFFFFF;
-   --color-text-black: #000000;
-   background-color: var(--color-primary);
-   font-family: poppins;
+    --color-primary: #2a2aa9;
+    --color-secondary: #FFB600;
+    --color-tertiary: #090958; 
+    --color-text-white: #FFFFFF;
+    --color-text-black: #000000;
+    background-color: var(--color-primary);
+    font-family: 'poppins', 'Roboto', sans-serif;
 }
 
-/* Style du header */
-
-.logo{
-    width: 48px;
-}
+/* Header */
+/*coulor icons nav*/
 
 .fa-solid{
     color: var(--color-secondary);
@@ -32,36 +28,42 @@ body{
 
 header{
     background-color: var(--color-primary);
-    height: 52px;
+    height: 3.5em;
+}
+
+/* icones menu navigation */
+
+.logo{
+    width: 48px;
+    margin-left: 10px;
 }
 
 .mobile-menu{
-    width: 100%;
-    display: flex;
-    align-items: center;
     padding: 10px;
-    color: var(--color-text-white);
 }
 
 .nav-link{
     position: relative;
-    
-    display: flex;
-    align-content: center;
-    width: 100%;
 }
 
 .menu-logo{
     position: absolute;
-    left: 0;
     display: flex;
-    gap: 20px;
-    flex-direction: row;
+    margin-left: 10px;
     align-items: center;
-    margin-left: 20px;
 }
 
-/* Style pour le formulaire */
+.espaceAdmin{
+    position: absolute;
+    right: 0;
+    display: flex;
+    margin-right: 20px;
+    margin-top: 10px;
+    font-size: .8em;
+    color: var(--color-text-white);
+}
+
+/*Style pour le formulaire*/
 
 fieldset {
     display: flex;
@@ -88,7 +90,21 @@ legend {
     background: transparent;
     border: none;
     border-bottom: 1px dashed var(--color-secondary);
-    
+}
+
+.imageEnTete {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.alignementBtn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .alignementForm {
@@ -96,6 +112,18 @@ legend {
     flex-direction: row;
     justify-content: center;
     margin: 15px;
+}
+
+select, option {
+    color: var(--color-text-black);
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.textDescrip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .alignementForm ::placeholder{
@@ -120,25 +148,3 @@ legend {
     cursor: pointer;
 }
 
-footer {
-    color: var(--color-text-white);
-}
-
-.mentions {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 0.7em;
-}
-
-.reseauxSociaux a i{
-    width: 19px;
-    display: inline;
-    position: relative;
-    left: 30%;
-    margin-right: 30px;
-    margin-bottom: 10px;
-    color: var(--color-text-white);  
-}
