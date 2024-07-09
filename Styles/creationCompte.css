@@ -1,8 +1,11 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     color: var(--color-text-white);
+    list-style-type: none;
+    text-decoration: none;
 }
 
 
@@ -21,8 +24,14 @@ body{
    font-family: poppins;
 }
 
+/* Style du header */
+
 .logo{
     width: 48px;
+}
+
+.fa-solid{
+    color: var(--color-secondary);
 }
 
 header{
@@ -40,7 +49,7 @@ header{
 
 .nav-link{
     position: relative;
-    list-style-type: none;
+    
     display: flex;
     align-content: center;
     width: 100%;
@@ -55,6 +64,8 @@ header{
     align-items: center;
     margin-left: 20px;
 }
+
+/* Style pour le formulaire */
 
 fieldset {
     display: flex;
@@ -113,6 +124,10 @@ legend {
     cursor: pointer;
 }
 
+footer {
+    color: var(--color-text-white);
+}
+
 .mentions {
     display: flex;
     flex-direction: row;
@@ -122,11 +137,12 @@ legend {
     font-size: 0.7em;
 }
 
-.reseauxSociaux a img{
+.reseauxSociaux a i{
     width: 19px;
     display: inline;
     position: relative;
     left: 30%;
     margin-right: 30px;
-    margin-bottom: 10px;    
+    margin-bottom: 10px;
+    color: var(--color-text-white);  
 }

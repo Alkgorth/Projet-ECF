@@ -1,6 +1,9 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
 }
 
 body{
@@ -53,7 +56,7 @@ li ::placeholder{ /*Alignement du texte au centre des input */
 
 ul{
     list-style-type: none;
-    font-family: poppins;
+    font-family: 'poppins', 'Roboto', 'sans-serif';
     color: var(--color-text-white);
 }
 

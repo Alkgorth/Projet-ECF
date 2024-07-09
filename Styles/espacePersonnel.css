@@ -1,6 +1,9 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
 }
 
 body{
@@ -42,7 +45,8 @@ header{
 }
 
 /*coulor icons nav*/
-.iconColor{
+
+.fa-solid{
     color: var(--color-secondary);
 }
 
@@ -116,7 +120,7 @@ h2 {
     padding-top: 10px;
 }
 
-.fa-solid {
+.fa-heart {
     color: red;
     padding-left: 5px;
 }
@@ -149,23 +153,7 @@ ul {
     padding-bottom: 2%;
 }
 
-.mentions { /*footer*/
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 0.7em;
-}
 
-.reseauxSociaux a img{ /*logo footer*/
-    width: 19px;
-    display: inline;
-    position: relative;
-    left: 30%;
-    margin-right: 30px;
-    margin-bottom: 10px;
-}
 
 .input {
     display: flex;
@@ -205,4 +193,30 @@ ul {
     color: var(--color-tertiary);
     opacity: 50%;
     cursor: pointer;
+}
+
+/* FOOTER */
+
+footer {
+    color: var(--color-text-white);
+}
+
+
+.mentions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 0.7em;
+}
+
+.reseauxSociaux a i{
+    width: 19px;
+    display: inline;
+    position: relative;
+    left: 30%;
+    margin-right: 30px;
+    margin-bottom: 10px;
+    color: var(--color-text-white);  
 }

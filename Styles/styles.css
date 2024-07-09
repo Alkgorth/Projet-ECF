@@ -14,15 +14,11 @@ body{
     --color-tertiary: #090958; 
     --color-text-white: #FFFFFF;
     --color-text-black: #000000;
-}
-
-body{
     background-color: var(--color-primary);
     font-family: 'poppins', 'Roboto', sans-serif;
 }
 
-
-
+/* Header */
 /*coulor icons nav*/
 
 .fa-solid{
@@ -34,14 +30,13 @@ header{
     height: 52px;
 }
 
-
 /* icones menu navigation */
 
 .logo{
     width: 48px;
 }
 
-a{
+.menu-logo a{
     text-decoration: none;
     color: var(--color-text-black);
 }
@@ -179,6 +174,7 @@ h2{
 
 .fa-triangle-exclamation {
     color: var(--color-secondary);
+    padding-right: 8px;
 }
 
 /* Gridpour le jeux Far Cry */
