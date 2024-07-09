@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Création Article</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../Styles/adminCreationArticle.css">
+    <script src="https://kit.fontawesome.com/77d47ba195.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav class="mobile-menu">
+          <ul class="nav-link">
+              <li class="menu-logo">
+
+              <!-- menu  -->
+                
+              <i class="fa-solid fa-bars"></i>
+                  
+              <a href="index.html">
+              <img src="..\Images\Logo GameStore-2.png" alt="logo" class="logo">
+              </a>
+              </li>
+              <li class="espaceAdmin"><h1>Création Article</h1></li>
+          </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="formulaire">
+            <form action="#" method="get">
+                <fieldset>
+                    
+                    <div class="alignementForm"> 
+                        
+                        <input type="text" name="titreDuJeux" id="titreDuJeux" class="input" placeholder="Titre du jeux"><br>
+                    </div>
+
+                    <div class="alignementBtn"> 
+                        <label for="imageEnTete" class="imageEnTete">Choisissez une image de couverture</label>
+                        <input type="file" name="imageEnTete" id="imageEnTete" accept="image/png, image/jpg"><br>
+                    </div>    
+
+                    <div class="alignementForm"> 
+                        
+                        <input type="text" name="pegi" id="pegi" class="input" placeholder="PEGI"><br>
+                    </div>
+                    <div class="alignementForm"> 
+                       
+                        <label for="plateforme">Plateforme :</label>
+
+                            <select name="plateforme" id="plateforme">
+                            <option value="">Plateforme</option>
+                            <option value="PC">PC</option>
+                            <option value="Playstation">Playstation</option>
+                            <option value="Xbox">X-box</option>
+                            <option value="Nintendo">Nintendo</option>
+                            </select><br>
+                    </div>    
+                    <div class="alignementForm"> 
+                        
+                        <input type="text" name="prix" id="prix" class="input" placeholder="Prix TTC"><br>
+                    </div>    
+                    
+                    <div class="alignementForm"> 
+                        
+                        <label for="promotion">Promotion :</label>
+
+                            <select name="promotion" id="promotion">
+                            <option value="">Promotion</option>
+                            <option value="-5%">-5%</option>
+                            <option value="-10%">-10%</option>
+                            <option value="-20%">-20%</option>
+                            </select><br>
+                    </div>    
+                    
+                    <div class="alignementForm"> 
+                        
+                        <input type="number" name="stock" id="stock" class="input" placeholder="Stock"><br>
+                    </div>    
+                    <div class="alignementForm"> 
+                        
+                        <label for="genre">Genre :</label>
+
+                            <select name="genre" id="genre">
+                            <option value="">Genre</option>
+                            <option value="Action">Action</option>
+                            <option value="Aventure">Aventure</option>
+                            <option value="RPG">RPG</option>
+                            <option value="MMO">MMO</option>
+                            <option value="Strategie">Stratégie</option>
+                            <option value="Casual">Casual</option>
+                            </select><br>
+                    </div>
+
+                    <div class="textDescrip">
+                        <label for="descriptif">Descriptif :</label>
+                        <textarea name="descriptif" id="descriptif" rows="10" cols="30"></textarea>
+                    </div>
+
+                    <div class="alignementForm">
+                        <input type="button" value="Valider" class="bouton">
+                    </div>
+                    </fieldset>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

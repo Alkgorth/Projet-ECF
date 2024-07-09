@@ -1,0 +1,150 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-text-white);
+    list-style-type: none;
+    text-decoration: none;
+}
+
+
+body{
+    --color-primary: #2a2aa9;
+    --color-secondary: #FFB600;
+    --color-tertiary: #090958; 
+    --color-text-white: #FFFFFF;
+    --color-text-black: #000000;
+    background-color: var(--color-primary);
+    font-family: 'poppins', 'Roboto', sans-serif;
+}
+
+/* Header */
+/*coulor icons nav*/
+
+.fa-solid{
+    color: var(--color-secondary);
+}
+
+header{
+    background-color: var(--color-primary);
+    height: 3.5em;
+}
+
+/* icones menu navigation */
+
+.logo{
+    width: 48px;
+    margin-left: 10px;
+}
+
+.mobile-menu{
+    padding: 10px;
+}
+
+.nav-link{
+    position: relative;
+}
+
+.menu-logo{
+    position: absolute;
+    display: flex;
+    margin-left: 10px;
+    align-items: center;
+}
+
+.espaceAdmin{
+    position: absolute;
+    right: 0;
+    display: flex;
+    margin-right: 20px;
+    margin-top: 10px;
+    font-size: .8em;
+    color: var(--color-text-white);
+}
+
+/*Style pour le formulaire*/
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    border: none;
+}
+
+legend {
+    text-align: center;
+    padding-top: 30px;
+    border-bottom: 2px solid var(--color-secondary);
+    margin-bottom: 15px;
+}
+
+.formulaire {
+    background: linear-gradient(90deg, var(--color-tertiary),var(--color-primary) 20%, var(--color-primary) 80%, var(--color-tertiary) 100%);
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: stretch;
+    background: transparent;
+    border: none;
+    border-bottom: 1px dashed var(--color-secondary);
+}
+
+.imageEnTete {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.alignementBtn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.alignementForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 15px;
+}
+
+select, option {
+    color: var(--color-text-black);
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.textDescrip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.alignementForm ::placeholder{
+    color: var(--color-text-white);
+    text-align: center;
+}
+
+.bouton {
+    color: var(--color-text-white);
+    margin: 10px;
+    margin-bottom: 20px;
+    background-color: var(--color-primary);
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: var(--color-secondary) solid 0.5px;
+    box-shadow: inset -2px -3px 1.5px rgba(0, 0, 0, 0.25);
+}
+
+.bouton:hover {
+    color: var(--color-tertiary);
+    opacity: 50%;
+    cursor: pointer;
+}
+

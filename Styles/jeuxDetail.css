@@ -1,0 +1,359 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body{
+    --color-primary: #2a2aa9;
+    --color-secondary: #FFB600;
+    --color-tertiary: #090958; 
+    --color-text-white: #FFFFFF;
+    --color-text-black: #000000;
+    background-color: var(--color-primary);
+    font-family: 'poppins', 'Roboto', sans-serif;
+}
+
+/* Header */
+/*coulor icons nav*/
+
+.fa-solid{
+    color: var(--color-secondary);
+}
+
+header{
+    background-color: var(--color-primary);
+    height: 52px;
+}
+
+/* icones menu navigation */
+
+.logo{
+    width: 48px;
+}
+
+.menu-logo a{
+    text-decoration: none;
+    color: var(--color-text-black);
+}
+
+.mobile-menu{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.nav-link{
+    position: relative;
+    list-style-type: none;
+    display: flex;
+    align-content: center;
+    width: 100%;
+}
+
+.loupe-panier{
+    position: absolute;
+    right: 0;
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    margin-right: 40px;
+    margin-top: 10px;
+}
+
+.menu-logo{
+    position: absolute;
+    left: 0;
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    margin-left: 20px;
+    align-items: center;
+}
+
+/* MAIN */
+/* grid */
+
+.enTete {
+    background-color: var(--color-tertiary);
+}
+
+.grid {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 150px;
+    grid-template-rows: 1fr 1fr 50px;
+}
+
+.imageDuJeux {
+    width: 100vw;
+    border-right: 3px var(--color-tertiary) solid;
+    border-left: 3px var(--color-tertiary) solid;
+    grid-column: 1/3;
+    grid-row: 1/3;
+    margin-right: 5px;
+}
+
+.titreJeux {
+    color: var(--color-text-white);
+    grid-column: 1/2;
+    grid-row: 3/4;
+    margin-left: 20px;
+}
+
+.fa-triangle-exclamation { /* triangle danger pegi*/
+    color: var(--color-secondary);
+    margin-right: 8px;
+}
+
+.pegi {
+    color: var(--color-text-white);
+    grid-column: 2/3;
+    grid-row: 3/4;
+    margin-right: 20px;
+    text-align: right;
+}
+
+.menuPlateform { /* menu déroulant choix plateforme */
+    color: var(--color-text-white);
+    grid-column: 1/2;
+    grid-row: 3/4;
+    margin-left: 20px;
+}
+
+.fa-angle-down { /*fleche pour ouvrir menu plateforme*/
+    padding-left: 5px;
+}
+
+.tarif {
+    color: var(--color-text-white);
+    grid-column: 1/2;
+    grid-row: 3/4;
+    margin-right: 20px;
+    text-align: right;
+}
+
+.stock {
+    color: var(--color-text-white);
+    grid-column: 2/3;
+    grid-row: 3/4;
+    padding-right: 20px;
+    text-align: right;
+}
+
+.fa-heart {
+    color: var(--color-secondary);
+    display: flex;
+    margin-right: 10px;
+    border: 2px var(--color-secondary) solid;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.AjoutPanier {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnAjouterAuPanier {
+    color: var(--color-tertiary);
+    margin: 10px;
+    margin-bottom: 10px;
+    background-color: var(--color-secondary);
+    padding: 5px 60px;
+    border-radius: 20px;
+    border: var(--color-text-white) solid 0.5px;
+    box-shadow: inset -2px -3px 1.5px rgba(0, 0, 0, 0.25);
+}
+
+/* Carrousel visuels */
+
+.carrousel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
+}
+
+h2{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    color: var(--color-text-white);
+    margin-left: 1.25em;
+    padding-top: .6em;
+    font-size: .9em;
+}
+
+.fa-circle-arrow-right {
+    display: flex;
+}
+
+.fa-circle-arrow-right, .fa-circle-arrow-left{ /*couleur arrows carrousel*/
+    color: var(--color-secondary);
+    display: flex;
+    
+}
+
+.fa-angle-right {
+    padding: 5px;
+    position: relative;
+    right: 0px;
+    z-index: 99;
+}
+
+.ACValhalla {
+    width: 60vw;
+    margin-right: 5px;
+}
+
+.farCry {
+    width: 60vw;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+/* Zone descriptions */
+
+.descriptif {
+    background-color: var(--color-tertiary);
+}
+
+.descriptif p {
+    margin-left: 70px;
+    margin-right: 70px;
+    color: var(--color-text-white);
+}
+
+.aPropos {
+    padding-bottom: 15px;
+}
+
+/* Actualités*/
+
+.actualite h2 {
+    text-decoration: underline;
+}
+
+.imageActu {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.imageActu img{
+    width: 30vw;
+    display: flex;
+    float: left;
+    margin: auto;
+}
+
+.date {
+    color: grey;
+    font-size: .45em;
+    width: 20vw;
+    height: 2vh;
+}
+
+.textes :last-child {
+    display: flex;
+    width: 50vw;
+    height: 8vh;
+    margin-right: 15px;
+    padding-right: 10px;
+    overflow: scroll;
+    color: var(--color-text-white);
+}
+
+/* Produits Similaires */
+
+.produitsSimilaires {
+    background-color: var(--color-tertiary);
+}
+
+.carrousel2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
+}
+
+.grid2 {
+    width: 60vw;
+    display: grid;
+    grid-template-columns: 1fr 60px;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.ACValhalla2 {
+    width: 60vw;
+    grid-column: 1/3;
+    grid-row: 1/3;
+    margin-right: 5px;
+}
+
+.farCry2 {
+    width: 60vw;
+    grid-column: 1/3;
+    grid-row: 1/3;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.titreJeux2 {
+    color: var(--color-text-white);
+    grid-column: 1/2;
+    grid-row: 3/4;
+    padding-right: 3px;
+    padding-left: 5px;
+}
+
+.pegi2 {
+    color: var(--color-text-white);
+    grid-column: 2/3;
+    grid-row: 3/4;
+    padding-right: 5px;
+    text-align: right;
+}
+
+.tarif2 {
+    color: var(--color-text-white);
+    grid-column: 2/3;
+    grid-row: 3/4;
+    padding-right: 5px;
+    text-align: right;
+}
+
+.fa-triangle-exclamation {
+    color: var(--color-secondary);
+    margin-right: 8px;
+}
+
+/* FOOTER */
+
+footer {
+    color: var(--color-text-white);
+}
+
+.mentions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 0.7em;
+}
+
+.reseauxSociaux a i{
+    width: 19px;
+    display: inline;
+    position: relative;
+    left: 30%;
+    margin-right: 30px;
+    margin-bottom: 10px;
+    color: var(--color-text-white);  
+}

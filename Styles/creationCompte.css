@@ -1,0 +1,144 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-text-white);
+    list-style-type: none;
+    text-decoration: none;
+}
+
+
+
+body{
+   --color-primary: #2a2aa9;
+   --color-secondary: #FFB600;
+   --color-tertiary: #090958; 
+   --color-text-white: #FFFFFF;
+   --color-text-black: #000000;
+   background-color: var(--color-primary);
+   font-family: poppins;
+}
+
+/* Style du header */
+
+.logo{
+    width: 48px;
+}
+
+.fa-solid{
+    color: var(--color-secondary);
+}
+
+header{
+    background-color: var(--color-primary);
+    height: 52px;
+}
+
+.mobile-menu{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    color: var(--color-text-white);
+}
+
+.nav-link{
+    position: relative;
+    
+    display: flex;
+    align-content: center;
+    width: 100%;
+}
+
+.menu-logo{
+    position: absolute;
+    left: 0;
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 20px;
+}
+
+/* Style pour le formulaire */
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    border: none;
+}
+
+legend {
+    text-align: center;
+    padding-top: 30px;
+    border-bottom: 2px solid var(--color-secondary);
+    margin-bottom: 15px;
+}
+
+.formulaire {
+    background: linear-gradient(90deg, var(--color-tertiary),var(--color-primary) 20%, var(--color-primary) 80%, var(--color-tertiary) 100%);
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: stretch;
+    background: transparent;
+    border: none;
+    border-bottom: 1px dashed var(--color-secondary);
+    
+}
+
+.alignementForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 15px;
+}
+
+.alignementForm ::placeholder{
+    color: var(--color-text-white);
+    text-align: center;
+}
+
+.bouton {
+    color: var(--color-text-white);
+    margin: 10px;
+    margin-bottom: 20px;
+    background-color: var(--color-primary);
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: var(--color-secondary) solid 0.5px;
+    box-shadow: inset -2px -3px 1.5px rgba(0, 0, 0, 0.25);
+}
+
+.bouton:hover {
+    color: var(--color-tertiary);
+    opacity: 50%;
+    cursor: pointer;
+}
+
+footer {
+    color: var(--color-text-white);
+}
+
+.mentions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 0.7em;
+}
+
+.reseauxSociaux a i{
+    width: 19px;
+    display: inline;
+    position: relative;
+    left: 30%;
+    margin-right: 30px;
+    margin-bottom: 10px;
+    color: var(--color-text-white);  
+}

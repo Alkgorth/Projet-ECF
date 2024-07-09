@@ -1,25 +1,44 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
 }
 
 body{
-     /* height: 4200px;  A retirer à la fin */
-    background-color: #2A2AA9;
+     height: 4200px;  /* A retirer à la fin */
+    
+    --color-primary: #2a2aa9;
+    --color-secondary: #FFB600;
+    --color-tertiary: #090958; 
+    --color-text-white: #FFFFFF;
+    --color-text-black: #000000;
+    background-color: var(--color-primary);
+    font-family: 'poppins', 'Roboto', sans-serif;
 }
+
+/* Header */
+/*coulor icons nav*/
+
+.fa-solid{
+    color: var(--color-secondary);
+}
+
+header{
+    background-color: var(--color-primary);
+    height: 52px;
+}
+
+/* icones menu navigation */
 
 .logo{
     width: 48px;
 }
 
-header{
-    background-color: #2A2AA9;
-    height: 52px;
-}
-
-a{
+.menu-logo a{
     text-decoration: none;
-    color: black;
+    color: var(--color-text-black);
 }
 
 .mobile-menu{
@@ -35,12 +54,6 @@ a{
     display: flex;
     align-content: center;
     width: 100%;
-    
-}
-
-/*coulor icons nav*/
-.white{
-    color: #ffffff;
 }
 
 .loupe-panier{
@@ -59,38 +72,142 @@ a{
     display: flex;
     gap: 20px;
     flex-direction: row;
-    margin-left: 40px;
-    
+    margin-left: 20px;
+    align-items: center;
 }
 
-.image-en-tete{
-    width: 100%;
+.image-en-tete{ /* image manette */
+    width: 100vw;
+    height: auto;
+    display: block;
+}
+
+.bienvenue{ /*Paragraphe de bienvenue*/
+    text-align: center;
+    background-color: var(--color-text-white);
+    margin-left: auto;
+    margin-right: auto;
+    width: 80vw;
     height: auto;
 }
 
-/*Paragraphe de bienvenue*/
-.bienvenue{
-    text-align: center;
-    background-color: white;
-    display: block;
+/* Carrousel */
+
+.carrousel {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-    width: 280px;
-    height: 80px;
+    margin: 10px;
 }
 
-/*coulor arrows carrousel*/
-.orange{
-    color: #FFB600;
+.produits {
+    background-color: var(--color-tertiary);
+
 }
 
 h2{
     display: flex;
     align-items: center;
     padding: 5px;
-    color: white;
-    margin-left: 20px;
+    color: var(--color-text-white);
+    margin-left: 1.25em;
+    padding-top: .6em;
+    font-size: .9em;
+}
+
+.fa-circle-arrow-right {
+    display: flex;
+}
+
+.fa-circle-arrow-right, .fa-circle-arrow-left{ /*couleur arrows carrousel*/
+    color: var(--color-secondary);
+    display: flex;
+    
+}
+
+.fa-angle-right {
+    padding: 5px;
+    position: relative;
+    right: 0px;
+    z-index: 99;
+}
+
+/* Grid pour le jeux ACValhalla */
+
+.grid {
+    width: 60vw;
+    display: grid;
+    grid-template-columns: 1fr 60px;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.ACValhalla {
+    width: 60vw;
+    grid-column: 1/3;
+    grid-row: 1/3;
+    margin-right: 5px;
+}
+
+.titreJeux {
+    color: var(--color-text-white);
+    grid-column: 1/2;
+    grid-row: 3/4;
+    padding-right: 3px;
+    padding-left: 5px;
+}
+
+.pegi {
+    color: var(--color-text-white);
+    grid-column: 2/3;
+    grid-row: 3/4;
+    padding-right: 5px;
+    text-align: right;
+}
+
+.tarif {
+    color: var(--color-text-white);
+    grid-column: 2/3;
+    grid-row: 3/4;
+    padding-right: 5px;
+    text-align: right;
+}
+
+.fa-triangle-exclamation {
+    color: var(--color-secondary);
+    padding-right: 8px;
+}
+
+/* Gridpour le jeux Far Cry */
+
+.farCry {
+    width: 60vw;
+    grid-column: 1/3;
+    grid-row: 1/3;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+/* FOOTER */
+
+footer {
+    color: var(--color-text-white);
+}
+
+.mentions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 0.7em;
+}
+
+.reseauxSociaux a i{
+    width: 19px;
+    display: inline;
+    position: relative;
+    left: 30%;
+    margin-right: 30px;
+    margin-bottom: 10px;
+    color: var(--color-text-white);  
 }
