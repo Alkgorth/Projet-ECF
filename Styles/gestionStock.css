@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-text-white);
+    list-style-type: none;
+    text-decoration: none;
+}
+
+
+body{
+    --color-primary: #2a2aa9;
+    --color-secondary: #FFB600;
+    --color-tertiary: #090958; 
+    --color-text-white: #FFFFFF;
+    --color-text-black: #000000;
+    background-color: var(--color-primary);
+    font-family: 'poppins', 'Roboto', sans-serif;
+   
+}
+
+/* Header */
+/*coulor icons nav*/
+
+.fa-solid{
+    color: var(--color-secondary);
+}
+
+header{
+    background-color: var(--color-primary);
+    height: 3.5em;
+}
+
+/* icones menu navigation */
+
+.logo{
+    width: 48px;
+    margin-left: 10px;
+}
+
+.mobile-menu{
+    padding: 10px;
+}
+
+.nav-link{
+    position: relative;
+}
+
+.menu-logo{
+    position: absolute;
+    display: flex;
+    margin-left: 10px;
+    align-items: center;
+}
+
+.espaceAdmin{
+    position: absolute;
+    right: 0;
+    display: flex;
+    margin-right: 20px;
+    margin-top: 10px;
+    font-size: .8em;
+    color: var(--color-text-white);
+}
+
+/* MAIN */
+
+main {
+    background-color: var(--color-tertiary);
+    padding: 5px;
+}
+
+.recherche {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.recherche p{
+    border: 2px var(--color-secondary) solid;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.recherche i{
+    margin: 10px;
+}
