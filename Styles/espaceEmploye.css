@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-text-white);
+    list-style-type: none;
+    text-decoration: none;
+}
+
+
+body{
+    --color-primary: #2a2aa9;
+    --color-secondary: #FFB600;
+    --color-tertiary: #090958; 
+    --color-text-white: #FFFFFF;
+    --color-text-black: #000000;
+    background-color: var(--color-primary);
+    font-family: 'poppins', 'Roboto', sans-serif;
+   
+}
+
+/* Header */
+/*coulor icons nav*/
+
+
+header{
+    background-color: var(--color-primary);
+    height: 3.5em;
+}
+
+/* icones menu navigation */
+
+.logo{
+    width: 48px;
+    margin-left: 10px;
+}
+
+.mobile-menu{
+    padding: 10px;
+}
+
+
+
+.menu-logo{
+    position: absolute;
+    display: flex;
+    margin-left: 10px;
+    align-items: center;
+}
+
+/*MAIN*/
+
+/*Tableau commandes en attente*/
+
+h1 {
+    font-size: 1em;
+    margin: 10px;
+    margin-left: 20px;
+}
+
+.fa-solid {
+    padding-left: 5px;
+}
+
+.commandes {
+    background-color: var(--color-tertiary);
+    padding-bottom: 2px;
+    padding-top: 5px;
+}
+
+table {
+    margin-left: 30px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    position: relative;
+    border-collapse: collapse;
+}
+
+.celluleG {
+    border-right: 1px solid var(--color-secondary);
+    border-bottom: 1px solid var(--color-secondary);
+}
+
+.celluleD {
+    border-left: 1px solid var(--color-secondary);
+    border-bottom: 1px solid var(--color-secondary);
+}
+
+.celluleG2 {
+    border-right: 1px solid var(--color-secondary);
+}
+
+.celluleD2 {
+    border-left: 1px solid var(--color-secondary);
+}
+
+.celluleC {
+    border-bottom: 1px solid var(--color-secondary);
+}
+
+td{
+    padding: 12px;
+    text-align: center;
+}
+
+/*Bouton*/
+
+.bouton {
+    color: var(--color-text-white);
+    margin: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    background-color: var(--color-primary);
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: var(--color-secondary) solid 0.5px;
+    box-shadow: inset -2px -3px 1.5px rgba(0, 0, 0, 0.25);
+}
