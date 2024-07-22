@@ -75,34 +75,43 @@ header{
     visibility: hidden;
 }
 
-/* Image manette */
+/* MAIN */
 
-.image-en-tete{
-    width: 100vw;
-    height: auto;
-    display: block;
+/* menu choix plateforme */
+
+.menuPlateform {
+    background-color: var(--color-text-black);
+    display: flex;
+    justify-content: space-evenly;
 }
 
-.bienvenue{ /*Paragraphe de bienvenue*/
-    text-align: center;
-    background-color: var(--color-text-white);
-    margin-left: auto;
-    margin-right: auto;
-    width: 80vw;
+.filtrePlateform {
+    display: flex;
+    
 }
 
-/* Carrousel */
+.consoles {
+    color: var(--color-text-white);
+    font-size: .7em;
+    display: flex;
+    justify-content: space-evenly;
+    margin: .6em;
+}
 
-.carrousel {
+.filtrePlateform li {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    margin: 10px;
 }
 
-.produits {
-    background-color: var(--color-tertiary);
+.separat {
+    color: var(--color-text-white);
+}
 
+
+/* CARDS */
+
+main {
+    background-color: var(--color-tertiary);
 }
 
 h2{
@@ -115,81 +124,29 @@ h2{
     font-size: .9em;
 }
 
-.fa-circle-arrow-right {
+.cards {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: .1em;
 }
 
-.fa-circle-arrow-right, .fa-circle-arrow-left{ /*couleur arrows carrousel*/
-    color: var(--color-secondary);
+.card {
+    width: 15rem;
+    margin: .2em;
+    border: 2px solid var(--color-primary);
+}
+
+.btn {
+    background-color: var(--color-secondary);
+}
+
+.pages {
     display: flex;
-    
-}
-
-.fa-angle-right {
-    padding: 5px;
-    position: relative;
-    right: 0px;
-    z-index: 99;
-}
-
-/* Grid pour le jeux ACValhalla */
-
-.arrow {
-    color: var(--color-secondary);
-}
-
-.grid {
-    width: 60vw;
-    display: grid;
-    grid-template-columns: 1fr 60px;
-    grid-template-rows: 1fr 1fr 1fr;
-}
-
-.ACValhalla {
-    width: 60vw;
-    grid-column: 1/3;
-    grid-row: 1/3;
-    margin-right: 5px;
-}
-
-.titreJeux {
+    justify-content: center;
+    align-items: center;
     color: var(--color-text-white);
-    grid-column: 1/2;
-    grid-row: 3/4;
-    padding-right: 3px;
-    padding-left: 5px;
-    font-size: 1em;
-}
-
-.pegi {
-    color: var(--color-text-white);
-    grid-column: 2/3;
-    grid-row: 3/4;
-    padding-right: 5px;
-    text-align: right;
-}
-
-.tarif {
-    color: var(--color-text-white);
-    grid-column: 2/3;
-    grid-row: 3/4;
-    padding-right: 5px;
-    text-align: right;
-}
-
-.fa-triangle-exclamation {
-    color: var(--color-secondary);
-    padding-right: 8px;
-}
-
-/* Gridpour le jeux Far Cry */
-
-.farCry {
-    width: 60vw;
-    grid-column: 1/3;
-    grid-row: 1/3;
-    margin-left: 5px;
-    margin-right: 5px;
 }
 
 /* FOOTER */
