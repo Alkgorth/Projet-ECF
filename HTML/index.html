@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil GameStore</title>
+    <link rel="stylesheet" href="../Assets/Bootstrap/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="..\Styles\styles.css">
     <script src="https://kit.fontawesome.com/77d47ba195.js" crossorigin="anonymous"></script>
+    <title>Accueil GameStore</title>
 </head>
 <body>
     <header>
@@ -49,10 +50,45 @@
         </div>
       </section>
 
-        <!--Premier carrousel-->
+
+      <!-- Test Carrousel Bootstrap -->
+
+      <h2>Derniers arrivés <i class="fa-solid fa-angle-right"></i></h2>
+        
+
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="../Images/Jeux/AC Valhalla panorama.jpg" class="d-block w-100" alt="Panorama Assassin's Creed Valhalla" class="ACValhalla">
+            <div>
+              <p class="titreJeux">Assassin's Creed Valhalla</p>
+              <p class="pegi"><i class="fa-solid fa-triangle-exclamation"></i>+18</p>
+              <p class="tarif"><br>69€99</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="../Images/Jeux/far-cry-6.jpg" class="d-block w-100" alt="Panorama Far Cry 6">
+          </div>
+          <div class="carousel-item">
+            <img src="../Images/Jeux/Elden Ring.jpeg" class="d-block w-100" alt="Panorama Elden Ring">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon arrow" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+          <span class="carousel-control-next-icon arrow" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+        
+      <!--Premier carrousel-->
 
         <section class="produits">
-        <h2>Derniers arrivés <i class="fa-solid fa-angle-right"></i></h2>
+          <a href="#">
+            <h2>Derniers arrivés <i class="fa-solid fa-angle-right"></i></h2>
+          </a>
         <div class="carrousel">
             <div>
               <i class="fa-solid fa-circle-arrow-left"></i>
@@ -129,5 +165,7 @@
         </div>
       
     </footer>
+    <script src="../Assets/Bootstrap/js/bootstrap.min.js"></script>
+    <script src="../Scripts/script.js"></script>
 </body>
 </html>

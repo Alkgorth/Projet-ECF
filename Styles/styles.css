@@ -71,6 +71,10 @@ header{
     margin-top: 10px;
 }
 
+.fa-bag-shopping {
+    visibility: hidden;
+}
+
 /* Image manette */
 
 .image-en-tete{
@@ -129,6 +133,10 @@ h2{
 }
 
 /* Grid pour le jeux ACValhalla */
+
+.arrow {
+    color: var(--color-secondary);
+}
 
 .grid {
     width: 60vw;
