@@ -18,15 +18,15 @@ class GameRepository
         $query = $pdo->prepare('SELECT * FROM games WHERE id = :id');
         $query->bindValue(':id', $id, $pdo::PARAM_INT);
         $query->execute();
-        
+
         $game = $query->fetch($pdo::FETCH_ASSOC);
         $gameEntity = new Game();
 
-        
+
         foreach ($game as $key => $value) {
-            $gameEntity->{'set'.StringTools::toPascalCase($key)  }($value);
+            $gameEntity->{'set' . StringTools::toPascalCase($key)}($value);
         }
-        
+
         return $gameEntity;
     }
 }

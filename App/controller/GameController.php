@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use APP\Repository\GameController;
+use APP\repository\GameRepository;
 
 class GameController extends Controller
 {
@@ -13,7 +13,7 @@ class GameController extends Controller
             if (isset($_GET['action'])) {
                 switch ($_GET['action']) {
                     case 'show':
-                        // Pour affihcer un jeu
+                        // Pour afficher un jeu
                         $this->show();
                         break;
                     case 'list':
@@ -54,7 +54,7 @@ class GameController extends Controller
                 $gameRepository = new GameRepository();
                 $game = $gameRepository->findOneById($id);
                 
-                $this->render('game/show', [
+                $this->render('jeux/show', [
                     'game' => $game
                     
                 ]);
