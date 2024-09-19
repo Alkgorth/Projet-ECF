@@ -10,26 +10,49 @@ class Controller
         try {
             if (isset($_GET['controller'])) {
                 switch ($_GET['controller']) {
-                    case 'value':
-                        # code...
+                    case 'page':
+                        $pageController = new PageController();
+                        // on appelle la méthode route du fichier PageController
+                        $pageController->route();
                         break;
-                    case 'value':
-                        # code...
+                    case 'book':
+                        // charger controller jeux
+                        $pageController = new GameController();
+                        $pageController->route();
                         break;
-                    case 'value':
-                        # code...
-                        break;
-                    case 'value':
-                        # code...
-                        break;
-
                     default:
-                        # code...
+                        throw new \Exception("Le controleur n'existe pas");
                         break;
                 }
+            } else {
+
+                $pageController = new PageController();
+                $pageController->home();
             }
-        } catch (\Throwable $th) {
-            //throw $th;
+        } catch (\Exception $e) {
+            $this->render('errors/default', [
+                'error' => $e->getMessage()
+            ]);
+        }
+    }
+
+
+    protected function render(string $path, array $params = []): void
+    {
+
+        $filePath = _ROOTPATH_ . '/templates/' . $path . '.php';
+
+        try {
+            if (!file_exists($filePath)) {
+                throw new \Exception("Fichier non trouvé : " . $filePath);
+            } else {
+                extract($params);
+                require_once $filePath;
+            }
+        } catch (\Exception $e) {
+            $this->render('errors/default', [
+                'error' => $e->getMessage()
+            ]);
         }
     }
 }

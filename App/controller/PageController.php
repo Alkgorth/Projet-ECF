@@ -38,7 +38,7 @@ class PageController extends Controller
         // controller=page&action=about
     protected function about()
     {
-        $this->render('page/about', [
+        $this->render('pages/about', [
 
         ]);
         
@@ -49,7 +49,7 @@ class PageController extends Controller
     protected function home()
     {
       
-        $this->render('page/home', [
+        $this->render('pages/home', [
 
         ]);
         
