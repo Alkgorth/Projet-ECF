@@ -20,11 +20,11 @@ class GameController extends Controller
                         // Pour appler la méthode list(), tout les jeux
                         $this->jeuxGlobal();
                         break;
-                    case 'edit':
-                        // Pour appler la méthode edit()
+                    case 'promos':
+                        $this->promos();
                         break;
-                    case 'add':
-                        // Pour appler la méthode add()
+                    case 'derniersArrive':
+                        $this->derniersArrive();
                         break;
                     case 'delete':
                         // Pour appler la méthode delete()
@@ -78,5 +78,15 @@ class GameController extends Controller
     protected function jeuxGlobal()
     {
         $this->render('games/jeuxGlobal', []);
+    }
+
+    protected function promos()
+    {
+        $this->render('games/promos', []);
+    }
+
+    protected function derniersArrive()
+    {
+        $this->render('games/derniersArrive', []);
     }
 }

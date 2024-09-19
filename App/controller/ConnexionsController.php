@@ -7,7 +7,7 @@ class ConnexionsController extends Controller
     public function route(): void
     {
         try {
-             //on mes en place une condition pour lancer le bon controller
+            //on mes en place une condition pour lancer le bon controller
             if (isset($_GET['action'])) {
                 switch ($_GET['action']) {
                     case 'connexion':
@@ -15,11 +15,16 @@ class ConnexionsController extends Controller
                         $this->connexion();
                         break;
                     case 'mdpOublie':
-                        // charger controller home
                         $this->mdpOublie();
                         break;
+                    case 'mdpReinitialise':
+                        $this->mdpReinitialise();
+                        break;
+                    case 'reinitialiserMdp':
+                        $this->reinitialiserMdp();
+                        break;
                     default:
-                        throw new \Exception("Cette action n'existe pas : ".$_GET['action']);
+                        throw new \Exception("Cette action n'existe pas : " . $_GET['action']);
                         break;
                 }
             } else {
@@ -30,31 +35,26 @@ class ConnexionsController extends Controller
                 'error' => $e->getMessage()
             ]);
         }
-       
     }
 
 
-     // exemple d'appel depuis l'url
-        // controller=page&action=about
     protected function connexion()
     {
-        $this->render('connexions/connexion', [
-
-        ]);
-        
+        $this->render('connexions/connexion', []);
     }
 
-    // exemple d'appel depuis l'url
-        // controller=page&action=home
     protected function mdpOublie()
     {
-      
-        $this->render('connexions/mdpOublie', [
-
-        ]);
-        
+        $this->render('connexions/mdpOublie', []);
     }
-    
-}
 
-?>
+    protected function mdpReinitialise()
+    {
+        $this->render('connexions/mdpReinitialise', []);
+    }
+
+    protected function reinitialiserMdp()
+    {
+        $this->render('connexions/reinitialiserMdp', []);
+    }
+}

@@ -7,19 +7,23 @@ class PageController extends Controller
     public function route(): void
     {
         try {
-             //on mes en place une condition pour lancer le bon controller
+            //on mes en place une condition pour lancer le bon controller
             if (isset($_GET['action'])) {
                 switch ($_GET['action']) {
-                    case 'creationCompte':
-                        // On appelLe la méthode about() qui est plus bas
-                        $this->creationCompte();
-                        break;
                     case 'home':
-                        // charger controller home
                         $this->home();
                         break;
+                    case 'creationCompte':
+                        $this->creationCompte();
+                        break;
+                    case 'espacePersonnel':
+                        $this->espacePersonnel();
+                        break;
+                    case 'panier':
+                        $this->panier();
+                        break;
                     default:
-                        throw new \Exception("Cette action n'existe pas : ".$_GET['action']);
+                        throw new \Exception("Cette action n'existe pas : " . $_GET['action']);
                         break;
                 }
             } else {
@@ -30,31 +34,33 @@ class PageController extends Controller
                 'error' => $e->getMessage()
             ]);
         }
-       
     }
 
 
-     // exemple d'appel depuis l'url
-        // controller=page&action=about
+    // exemple d'appel depuis l'url
+    // controller=page&action=about
     protected function creationCompte()
     {
-        $this->render('pages/creationCompte', [
-
-        ]);
-        
+        $this->render('pages/creationCompte', []);
     }
 
     // exemple d'appel depuis l'url
-        // controller=page&action=home
+    // controller=page&action=home
     protected function home()
     {
-      
-        $this->render('pages/home', [
 
-        ]);
-        
+        $this->render('pages/home', []);
     }
-    
+
+    protected function espacePersonnel()
+    {
+
+        $this->render('pages/espacePersonnel', []);
+    }
+
+    protected function panier()
+    {
+        $this->render('pages/panier', []);
+    }
 }
 
-?>

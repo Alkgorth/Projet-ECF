@@ -69,6 +69,7 @@ require_once _ROOTPATH_ . '\templates\header.php';
 
 <section class="container-fluid mt-4 bg-primary">
     <!-- Deuxieme carrousel -->
+     <a href=""></a>
 <h1>Les promotions<i class="bi bi-caret-right text-warning"></i></h1>
     <div id="carouselPrecommande" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">

@@ -28,7 +28,3 @@ require_once _ROOTPATH_ . '\templates\header.php';
 require_once _ROOTPATH_ . '\templates\footer.php';
 
 ?>
-
-
-
-

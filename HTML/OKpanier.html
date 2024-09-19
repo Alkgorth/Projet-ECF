@@ -118,14 +118,21 @@
         <!-- Choix de la date et du lieu de retrait -->
 
         <section class="calendrier">
-            <div class="retrait">
-                <ul>
-                    <li class="texteLieu">Lieu de retrait :</li>
-                    <li class="menuDeroulant">Proche de moi<i class="fa-solid fa-angle-down"></i></li>
-                </ul>
-            </div>
-            <span class="choixDate">Quand retirer : &#x1F4C5;</span>
             
+            <div class="alignementForm text-center">
+                <label for="lieuDeTravail">Lieu de retrait :</label>
+                
+                <select name="lieuDeRetrait" id="lieuDeRetrait">
+                    <option value="">Proche de moi</option>
+                    <option value="Bordeaux">Bordeaux</option>
+                    <option value="Lille">Lille</option>
+                    <option value="Nantes">Nantes</option>
+                    <option value="Paris">Paris</option>
+                    <option value="Toulouse">Toulouse</option>
+                </select><br>
+            </div>
+            
+            <span class="choixDate">Quand retirer : &#x1F4C5;</span>
         </section>
 
         <div class="Valider">
