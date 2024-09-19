@@ -8,5 +8,3 @@ use App\Controller\Controller;
 
 $controller = new Controller;
 $controller->route();
-
-?>
