@@ -7,10 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="..\node_modules\bootstrap-icons\font\bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../override-bootstrap.css">
     <link rel="stylesheet" href="../scss/style.css">
-    <script src="https://kit.fontawesome.com/77d47ba195.js" crossorigin="anonymous"></script>
-    <title>Accueil GameStore</title>
+    <title>GameStore</title>
 </head>
 
 <body class="bg-primary">

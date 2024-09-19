@@ -12,12 +12,13 @@ class GameController extends Controller
             //on mes en place une condition pour lancer le bon controller
             if (isset($_GET['action'])) {
                 switch ($_GET['action']) {
-                    case 'show':
+                    case 'jeuxDetail':
                         // Pour afficher un jeu
-                        $this->show();
+                        $this->jeuxDetail();
                         break;
-                    case 'list':
+                    case 'jeuxGlobal':
                         // Pour appler la méthode list(), tout les jeux
+                        $this->jeuxGlobal();
                         break;
                     case 'edit':
                         // Pour appler la méthode edit()
@@ -43,7 +44,7 @@ class GameController extends Controller
     }
 
     // exemple d'appel depuis l'url
-        // controller=book&action=show&id=1
+    // controller=book&action=show&id=1
     protected function show()
     {
         try {
@@ -53,10 +54,10 @@ class GameController extends Controller
                 // Charger le jeu par un appel au repository
                 $gameRepository = new GameRepository();
                 $game = $gameRepository->findOneById($id);
-                
-                $this->render('jeux/show', [
+
+                $this->render('games/jeuxDetail', [
                     'game' => $game
-                    
+
                 ]);
             } else {
                 throw new \Exception("L'id est manquant en paramètre");
@@ -66,5 +67,16 @@ class GameController extends Controller
                 'error' => $e->getMessage()
             ]);
         }
+    }
+
+    protected function jeuxDetail()
+    {
+        $this->render('games/jeuxDetail', []);
+    }
+
+
+    protected function jeuxGlobal()
+    {
+        $this->render('games/jeuxGlobal', []);
     }
 }

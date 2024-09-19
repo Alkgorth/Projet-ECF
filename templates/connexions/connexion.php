@@ -1,7 +1,6 @@
 <?php
 
-require_once 'head.php';
-
+require_once _ROOTPATH_.'\templates\head.php';
 
 ?>
 
@@ -27,13 +26,13 @@ require_once 'head.php';
         <div>
             <div class="text-center">
             <button class="mb-3 text-center">
-            <a href="mdpOublie.php">Mot de passe oublié</a>
+            <a href="index.php?controller=connexions&action=mdpOublie">Mot de passe oublié</a>
             </button>
             </div>
             
             <div class="text-center">
             <button class="mb-3 text-center">
-            <a href="mdpOublie.php">Créer un compte</a>
+            <a href="index.php?controller=pages&action=creationCompte">Créer un compte</a>
             </button>
             </div>
         </div>

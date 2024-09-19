@@ -1,9 +1,9 @@
 <?php
 
-require_once 'head.php';
-
+require_once _ROOTPATH_.'\templates\head.php';
 
 ?>
+
 
 <div class="container-fluid px-5 mt-5">
     <a href="index.html">
@@ -20,7 +20,7 @@ require_once 'head.php';
             <button type="submit" class="btn btn-dark">Envoyer</button>
         </div>
         <button>
-        <a href="connexion.php">Annuler</a>
+        <a href="index.php?controller=connexions&action=connexion">Annuler</a>
         </button>
     
     </form>

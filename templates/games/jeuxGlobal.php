@@ -1,12 +1,10 @@
 <?php
 
-require_once 'head.php';
-require_once 'header.php';
-
+require_once _ROOTPATH_ . '\templates\head.php';
+require_once _ROOTPATH_ . '\templates\header.php';
 
 
 ?>
-
 <section>
     <!-- Barre du menu plateformes -->
     <div>
@@ -164,5 +162,5 @@ require_once 'header.php';
 </section>
 
 <?php
-require_once 'footer.php';
+require_once _ROOTPATH_ . '\templates\footer.php';
 ?>

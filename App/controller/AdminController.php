@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-class PageController extends Controller
+class AdminController extends Controller
 {
     public function route(): void
     {
@@ -10,13 +10,13 @@ class PageController extends Controller
              //on mes en place une condition pour lancer le bon controller
             if (isset($_GET['action'])) {
                 switch ($_GET['action']) {
-                    case 'creationCompte':
+                    case 'adminAccueil':
                         // On appelLe la méthode about() qui est plus bas
-                        $this->creationCompte();
+                        $this->adminAccueil();
                         break;
-                    case 'home':
+                    case 'adminCreationArticle':
                         // charger controller home
-                        $this->home();
+                        $this->adminCreationArticle();
                         break;
                     default:
                         throw new \Exception("Cette action n'existe pas : ".$_GET['action']);
@@ -36,9 +36,9 @@ class PageController extends Controller
 
      // exemple d'appel depuis l'url
         // controller=page&action=about
-    protected function creationCompte()
+    protected function adminAccueil()
     {
-        $this->render('pages/creationCompte', [
+        $this->render('admin/adminAccueil', [
 
         ]);
         
@@ -46,10 +46,10 @@ class PageController extends Controller
 
     // exemple d'appel depuis l'url
         // controller=page&action=home
-    protected function home()
+    protected function adminCreationArticle()
     {
       
-        $this->render('pages/home', [
+        $this->render('admin/adminCreationArticle', [
 
         ]);
         
