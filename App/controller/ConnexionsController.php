@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-class PageController extends Controller
+class ConnexionsController extends Controller
 {
     public function route(): void
     {
@@ -10,17 +10,18 @@ class PageController extends Controller
             //on mes en place une condition pour lancer le bon controller
             if (isset($_GET['action'])) {
                 switch ($_GET['action']) {
-                    case 'home':
-                        $this->home();
+                    case 'connexion':
+                        // On appelLe la méthode connexion() qui est plus bas
+                        $this->connexion();
                         break;
-                    case 'creationCompte':
-                        $this->creationCompte();
+                    case 'mdpOublie':
+                        $this->mdpOublie();
                         break;
-                    case 'espacePersonnel':
-                        $this->espacePersonnel();
+                    case 'mdpReinitialise':
+                        $this->mdpReinitialise();
                         break;
-                    case 'panier':
-                        $this->panier();
+                    case 'reinitialiserMdp':
+                        $this->reinitialiserMdp();
                         break;
                     default:
                         throw new \Exception("Cette action n'existe pas : " . $_GET['action']);
@@ -37,30 +38,23 @@ class PageController extends Controller
     }
 
 
-    // exemple d'appel depuis l'url
-    // controller=page&action=about
-    protected function creationCompte()
+    protected function connexion()
     {
-        $this->render('pages/creationCompte', []);
+        $this->render('connexions/connexion', []);
     }
 
-    // exemple d'appel depuis l'url
-    // controller=page&action=home
-    protected function home()
+    protected function mdpOublie()
     {
-
-        $this->render('pages/home', []);
+        $this->render('connexions/mdpOublie', []);
     }
 
-    protected function espacePersonnel()
+    protected function mdpReinitialise()
     {
-
-        $this->render('pages/espacePersonnel', []);
+        $this->render('connexions/mdpReinitialise', []);
     }
 
-    protected function panier()
+    protected function reinitialiserMdp()
     {
-        $this->render('pages/panier', []);
+        $this->render('connexions/reinitialiserMdp', []);
     }
 }
-

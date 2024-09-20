@@ -10,18 +10,28 @@ class Controller
         try {
             if (isset($_GET['controller'])) {
                 switch ($_GET['controller']) {
-                    case 'page':
+                    case 'pages':
                         $pageController = new PageController();
                         // on appelle la méthode route du fichier PageController
                         $pageController->route();
                         break;
-                    case 'book':
+                    case 'connexions':
+                        // charger controller jeux
+                        $pageController = new ConnexionsController();
+                        $pageController->route();
+                        break;
+                    case 'games':
                         // charger controller jeux
                         $pageController = new GameController();
                         $pageController->route();
                         break;
+                    case 'admin':
+                        // charger controller jeux
+                        $pageController = new AdminController();
+                        $pageController->route();
+                        break;
                     default:
-                        throw new \Exception("Le controleur n'existe pas");
+                        throw new \Exception("Désolé cette page n'existe pas 😣");
                         break;
                 }
             } else {

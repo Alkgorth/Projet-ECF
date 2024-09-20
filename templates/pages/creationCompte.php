@@ -1,11 +1,11 @@
 <?php
 
-require_once 'head.php';
-require_once 'header.php';
-
+require_once _ROOTPATH_ . '\templates\head.php';
+require_once _ROOTPATH_ . '\templates\header.php';
 
 
 ?>
+
 <main class="container mx-5">
 <form class="mx-4 p-4">
     <h1 class="text-center">Créer mon compte</h1>
@@ -46,5 +46,7 @@ require_once 'header.php';
 </main>
 
 <?php
-require_once 'footer.php';
+
+require_once _ROOTPATH_ . '\templates\footer.php';
+
 ?>

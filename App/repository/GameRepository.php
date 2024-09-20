@@ -15,7 +15,7 @@ class GameRepository
         $pdo = $mysql->getPDO();
 
 
-        $query = $pdo->prepare('SELECT * FROM games WHERE id = :id');
+        $query = $pdo->prepare('SELECT * FROM gamestore_bdd WHERE id = :id');
         $query->bindValue(':id', $id, $pdo::PARAM_INT);
         $query->execute();
 
