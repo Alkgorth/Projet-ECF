@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+
 use App\Entity\Game;
 use App\Db\Mysql;
 use App\Tools\StringTools;
@@ -15,7 +16,7 @@ class GameRepository
         $pdo = $mysql->getPDO();
 
 
-        $query = $pdo->prepare('SELECT * FROM gamestore_bdd WHERE id = :id');
+        $query = $pdo->prepare('SELECT * FROM games WHERE id_jeu = :id');
         $query->bindValue(':id', $id, $pdo::PARAM_INT);
         $query->execute();
 
