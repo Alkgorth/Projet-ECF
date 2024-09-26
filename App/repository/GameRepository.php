@@ -1,6 +1,8 @@
 <?php
 
+// indique où ce situe le fichier
 namespace App\Repository;
+
 
 use App\Entity\Game;
 use App\Db\Mysql;
@@ -15,7 +17,7 @@ class GameRepository
         $pdo = $mysql->getPDO();
 
 
-        $query = $pdo->prepare('SELECT * FROM gamestore_bdd WHERE id = :id');
+        $query = $pdo->prepare('SELECT * FROM games WHERE id_jeu = :id');
         $query->bindValue(':id', $id, $pdo::PARAM_INT);
         $query->execute();
 
@@ -28,5 +30,35 @@ class GameRepository
         }
 
         return $gameEntity;
+    }
+
+    public function findNameById(int $id)
+    {
+        $mysql = Mysql::getInstance();
+        $pdo = $mysql->getPDO();
+
+
+        $query = $pdo->prepare('SELECT name FROM games WHERE id_jeu = :id');
+        $query->bindValue(':id', $id, $pdo::PARAM_INT);
+        $query->execute();
+
+        $name = $query->fetchColumn();
+
+        return $name;
+    }
+
+    public function findPegiById(int $id)
+    {
+        $mysql = Mysql::getInstance();
+        $pdo = $mysql->getPDO();
+
+
+        $query = $pdo->prepare('SELECT id_pegi FROM games WHERE id_jeu = :id');
+        $query->bindValue(':id', $id, $pdo::PARAM_INT);
+        $query->execute();
+
+        $pegi = $query->fetchColumn();
+
+        return $pegi;
     }
 }
