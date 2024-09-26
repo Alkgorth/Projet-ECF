@@ -46,23 +46,20 @@ use App\Repository\SpecificationsRepository;
                                         $gameRepository = new GameRepository;
                                         $datas = $gameRepository->findNameById(1);
                                         echo '<h1 class="p-2 mt-auto fs-2">'.$datas.'</h1>';
-                                    ?>
-                                
-                                <p class="p-2 mt-auto ms-auto fs-2"><i class="bi bi-exclamation-triangle text-warning"></i>
-                                    <?php
+                                    
                                         $gameRepository = new GameRepository;
                                         $datas = $gameRepository->findPegiById(1);
-                                        echo '<h1 class="p-2 mt-auto fs-2">'.'Pegi '.$datas.'</h1>';
-                                    ?>
-                                </p>
-                                <div class="vr"></div>
-                                <p class="p-2 fs-2"><br>
-                                    <?php
+                                        echo '<p class="p-2 mt-auto ms-auto fs-2">
+                                            <i class="bi bi-exclamation-triangle text-warning"></i>
+                                            <h1 class="p-2 mt-auto fs-2">'.'Pegi '.$datas.'</h1>';
+                                    
                                         $specificationsRepository = new SpecificationsRepository;
                                         $datas = $specificationsRepository->findPriceById(1);
-                                        echo '<h1 class="p-2 mt-auto fs-2">'.$datas.'</h1>';
+                                        echo '<div class="vr"></div>
+                                            <p class="p-2 fs-2"><br>
+                                            <h1 class="p-2 mt-auto fs-2">'.$datas.'</h1>';
                                     ?>
-                                </p>
+                                
                             </div>
                     </a>
                 </div>
@@ -71,27 +68,24 @@ use App\Repository\SpecificationsRepository;
                         <img src="..\Images\Jeux\dark-souls-3.jpg" class="d-block w-100" alt="...">
                         <div class="hstack gap-3">
                             
-                                <?php
-                                    $gameRepository = new GameRepository;
-                                    $datas = $gameRepository->findNameById(2);
-                                    echo '<h1 class="p-2 mt-auto fs-2">'.$datas.'</h1>';
-                                ?>
-                            
-                            <p class="p-2 mt-auto ms-auto fs-2"><i class="bi bi-exclamation-triangle text-warning"></i>
-                                <?php
-                                    $gameRepository = new GameRepository;
-                                    $datas = $gameRepository->findPegiById(2);
-                                    echo '<h1 class="p-2 mt-auto ms-auto fs-2">'.'Pegi '.$datas.'</h1>';
-                                ?>
-                            </p>
-                            <div class="vr"></div>
-                            <p class="p-2 fs-2"><br>
                                     <?php
+                                        $gameRepository = new GameRepository;
+                                        $datas = $gameRepository->findNameById(2);
+                                        echo '<h1 class="p-2 mt-auto fs-2">'.$datas.'</h1>';
+                                    
+                                        $gameRepository = new GameRepository;
+                                        $datas = $gameRepository->findPegiById(2);
+                                        echo '<p class="p-2 mt-auto ms-auto fs-2">
+                                            <i class="bi bi-exclamation-triangle text-warning"></i>
+                                            <h1 class="p-2 mt-auto fs-2">'.'Pegi '.$datas.'</h1>';
+                                    
                                         $specificationsRepository = new SpecificationsRepository;
                                         $datas = $specificationsRepository->findPriceById(2);
-                                        echo '<h1 class="p-2 mt-auto fs-2">'.$datas.'</h1>';
+                                        echo '<div class="vr"></div>
+                                            <p class="p-2 fs-2"><br>
+                                            <h1 class="p-2 mt-auto fs-2">'.$datas.'</h1>';
                                     ?>
-                            </p>
+                            
                         </div>
                     </a>
                 </div>
@@ -100,27 +94,24 @@ use App\Repository\SpecificationsRepository;
                         <img src="..\Images\Jeux\fallout-new-vegas.jpg" class="d-block w-100" alt="...">
                         <div class="hstack gap-3">
                             
-                                <?php
-                                    $gameRepository = new GameRepository;
-                                    $datas = $gameRepository->findNameById(3);
-                                    echo '<h1 class="p-2 mt-auto fs-2">'.$datas.'</h1>';
-                                ?>
-                            
-                            <p class="p-2 mt-auto ms-auto fs-2"><i class="bi bi-exclamation-triangle text-warning"></i>
-                                <?php
-                                    $gameRepository = new GameRepository;
-                                    $datas = $gameRepository->findPegiById(3);
-                                    echo '<h1 class="p-2 mt-auto fs-2">'.'Pegi '.$datas.'</h1>';
-                                ?>
-                            </p>
-                            <div class="vr"></div>
-                            <p class="p-2 fs-2"><br>
                                     <?php
+                                        $gameRepository = new GameRepository;
+                                        $datas = $gameRepository->findNameById(3);
+                                        echo '<h1 class="p-2 mt-auto fs-2">'.$datas.'</h1>';
+                                    
+                                        $gameRepository = new GameRepository;
+                                        $datas = $gameRepository->findPegiById(3);
+                                        echo '<p class="p-2 mt-auto ms-auto fs-2">
+                                            <i class="bi bi-exclamation-triangle text-warning"></i>
+                                            <h1 class="p-2 mt-auto fs-2">'.'Pegi '.$datas.'</h1>';
+                                    
                                         $specificationsRepository = new SpecificationsRepository;
                                         $datas = $specificationsRepository->findPriceById(3);
-                                        echo '<h1 class="p-2 mt-auto fs-2">'.$datas.'</h1>';
+                                        echo '<div class="vr"></div>
+                                            <p class="p-2 fs-2"><br>
+                                            <h1 class="p-2 mt-auto fs-2">'.$datas.'</h1>';
                                     ?>
-                            </p>
+                            
                         </div>
                     </a>
                 </div>

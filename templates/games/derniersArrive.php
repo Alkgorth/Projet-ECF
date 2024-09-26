@@ -30,12 +30,12 @@ use App\Repository\SpecificationsRepository;
 
         <!-- Cards jeux -->
         <h2>Derniers Arrivés<i class="fa-solid fa-angle-right"></i></h2>
-        <section class="container cards row d-flex justify-content-center">
+        <section class="cards row d-flex justify-content-center">
           
             <!-- Première Card -->
             <div class="card col-sm-6 mb-3 mb-sm-0 py-2">
                 <img src="../Images/Jeux/AC_Valhalla_panorama.jpg" class="card-img-top" alt="AC Valhalla">
-                <div class="card-body">
+                <div class="card-body hstack gap-4">
                   
                     <?php
                       $gameRepository = new GameRepository;
@@ -56,7 +56,7 @@ use App\Repository\SpecificationsRepository;
               </div>
 
               <!-- Seconde Card -->
-              <div class="card col-sm-6 mb-3 mb-sm-0">
+              <div class="card col-sm-6 mb-3 mb-sm-0 py-2">
                 <img src="../Images/Jeux/dark-souls-3.jpg" class="card-img-top" alt="Dark Souls 3">
                 <div class="card-body">
 
@@ -79,9 +79,10 @@ use App\Repository\SpecificationsRepository;
               </div>
 
               <!-- Troisième Card -->
-              <div class="card col-sm-6 mb-3 mb-sm-0">
+              <div class="card col-sm-6 mb-3 mb-sm-0 py-2">
                 <img src="../Images/Jeux/fallout-new-vegas.jpg" class="card-img-top" alt="Dark Souls 3">
                 <div class="card-body">
+                  
 
                     <?php
                         $gameRepository = new GameRepository;
@@ -96,13 +97,13 @@ use App\Repository\SpecificationsRepository;
                         $datas = $specificationsRepository->findPriceById(3);
                         echo '<p class="card-text">'.$datas.'</p>';
                     ?>
-
+                  
                   <a href="#" class="btn btn-primary">Ajouter au panier</a>
                 </div>
               </div>
 
               <!-- Quatrième Card -->
-              <div class="card col-sm-6 mb-3 mb-sm-0">
+              <div class="card col-sm-6 mb-3 mb-sm-0 py-2">
                 <img src="..\images\Jeux\Elden_Ring.jpeg" class="card-img-top" alt="Dark Souls 3">
                 <div class="card-body">
 
@@ -123,6 +124,7 @@ use App\Repository\SpecificationsRepository;
                   <a href="#" class="btn btn-primary">Ajouter au panier</a>
                 </div>
               </div>
+              
         </section>
 
         <!-- Choix de page -->
