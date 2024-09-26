@@ -4,6 +4,7 @@ require_once _ROOTPATH_ . '\templates\head.php';
 require_once _ROOTPATH_ . '\templates\header.php';
 
 use App\Repository\GameRepository;
+use App\Repository\SpecificationsRepository;
 
 ?>
 
@@ -37,39 +38,91 @@ use App\Repository\GameRepository;
         <div id="carouselTendances" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <a href="index.php?controller=games&action=jeuxDetail" class="text-decoration-none link-opacity-100">
+                    <a href="index.php?controller=games&action=jeuxDetail" id="jeu_carrousel" class="text-decoration-none text-white">
                         <img src="..\Images\Jeux\AC Valhalla panorama.jpg" class="d-block w-100" alt="Assassin's Creed Vahlalla">
+                            <div class="hstack gap-3">
+                                
+                                    <?php
+                                        $gameRepository = new GameRepository;
+                                        $datas = $gameRepository->findNameById(1);
+                                        echo '<h1 class="p-2 mt-auto fs-2">'.$datas.'</h1>';
+                                    ?>
+                                
+                                <p class="p-2 mt-auto ms-auto fs-2"><i class="bi bi-exclamation-triangle text-warning"></i>
+                                    <?php
+                                        $gameRepository = new GameRepository;
+                                        $datas = $gameRepository->findPegiById(1);
+                                        echo '<h1 class="p-2 mt-auto fs-2">'.'Pegi '.$datas.'</h1>';
+                                    ?>
+                                </p>
+                                <div class="vr"></div>
+                                <p class="p-2 fs-2"><br>
+                                    <?php
+                                        $specificationsRepository = new SpecificationsRepository;
+                                        $datas = $specificationsRepository->findPriceById(1);
+                                        echo '<h1 class="p-2 mt-auto fs-2">'.$datas.'</h1>';
+                                    ?>
+                                </p>
+                            </div>
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="index.php?controller=games&action=jeuxDetail" id="jeu_carrousel" class="text-decoration-none text-white">
+                        <img src="..\Images\Jeux\dark-souls-3.jpg" class="d-block w-100" alt="...">
                         <div class="hstack gap-3">
-                            <p class="p-2 mt-auto fs-2">
+                            
                                 <?php
                                     $gameRepository = new GameRepository;
-                                    $datas = $gameRepository->findNameById(1);
-                                    echo '<h1>'.$datas.'</h1>';
+                                    $datas = $gameRepository->findNameById(2);
+                                    echo '<h1 class="p-2 mt-auto fs-2">'.$datas.'</h1>';
+                                ?>
+                            
+                            <p class="p-2 mt-auto ms-auto fs-2"><i class="bi bi-exclamation-triangle text-warning"></i>
+                                <?php
+                                    $gameRepository = new GameRepository;
+                                    $datas = $gameRepository->findPegiById(2);
+                                    echo '<h1 class="p-2 mt-auto ms-auto fs-2">'.'Pegi '.$datas.'</h1>';
                                 ?>
                             </p>
-                            <p class="p-2 mt-auto ms-auto fs-2"><i class="bi bi-exclamation-triangle"></i>+18</p>
                             <div class="vr"></div>
-                            <p class="p-2 fs-2"><br>69€99</p>
+                            <p class="p-2 fs-2"><br>
+                                    <?php
+                                        $specificationsRepository = new SpecificationsRepository;
+                                        $datas = $specificationsRepository->findPriceById(2);
+                                        echo '<h1 class="p-2 mt-auto fs-2">'.$datas.'</h1>';
+                                    ?>
+                            </p>
                         </div>
                     </a>
                 </div>
                 <div class="carousel-item">
-                    <img src="..\Images\Jeux\dark-souls-3.jpg" class="d-block w-100" alt="...">
-                    <div class="hstack gap-3">
-                        <p class="p-2 mt-auto fs-2">Dark Soul's 3</p>
-                        <p class="p-2 mt-auto ms-auto fs-2"><i class="bi bi-exclamation-triangle"></i>+18</p>
-                        <div class="vr"></div>
-                        <p class="p-2 fs-2"><br>69€99</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="..\Images\Jeux\fallout-new-vegas.jpg" class="d-block w-100" alt="...">
-                    <div class="hstack gap-3">
-                        <p class="p-2 mt-auto fs-2">Fallout New Vegas</p>
-                        <p class="p-2 mt-auto ms-auto fs-2"><i class="bi bi-exclamation-triangle"></i>+18</p>
-                        <div class="vr"></div>
-                        <p class="p-2 fs-2"><br>69€99</p>
-                    </div>
+                    <a href="index.php?controller=games&action=jeuxDetail" id="jeu_carrousel" class="text-decoration-none text-white">
+                        <img src="..\Images\Jeux\fallout-new-vegas.jpg" class="d-block w-100" alt="...">
+                        <div class="hstack gap-3">
+                            
+                                <?php
+                                    $gameRepository = new GameRepository;
+                                    $datas = $gameRepository->findNameById(3);
+                                    echo '<h1 class="p-2 mt-auto fs-2">'.$datas.'</h1>';
+                                ?>
+                            
+                            <p class="p-2 mt-auto ms-auto fs-2"><i class="bi bi-exclamation-triangle text-warning"></i>
+                                <?php
+                                    $gameRepository = new GameRepository;
+                                    $datas = $gameRepository->findPegiById(3);
+                                    echo '<h1 class="p-2 mt-auto fs-2">'.'Pegi '.$datas.'</h1>';
+                                ?>
+                            </p>
+                            <div class="vr"></div>
+                            <p class="p-2 fs-2"><br>
+                                    <?php
+                                        $specificationsRepository = new SpecificationsRepository;
+                                        $datas = $specificationsRepository->findPriceById(3);
+                                        echo '<h1 class="p-2 mt-auto fs-2">'.$datas.'</h1>';
+                                    ?>
+                            </p>
+                        </div>
+                    </a>
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselTendances" data-bs-slide="prev">

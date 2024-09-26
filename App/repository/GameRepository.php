@@ -46,4 +46,19 @@ class GameRepository
 
         return $name;
     }
+
+    public function findPegiById(int $id)
+    {
+        $mysql = Mysql::getInstance();
+        $pdo = $mysql->getPDO();
+
+
+        $query = $pdo->prepare('SELECT id_pegi FROM games WHERE id_jeu = :id');
+        $query->bindValue(':id', $id, $pdo::PARAM_INT);
+        $query->execute();
+
+        $pegi = $query->fetchColumn();
+
+        return $pegi;
+    }
 }
