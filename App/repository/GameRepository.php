@@ -31,4 +31,19 @@ class GameRepository
 
         return $gameEntity;
     }
+
+    public function findNameById(int $id)
+    {
+        $mysql = Mysql::getInstance();
+        $pdo = $mysql->getPDO();
+
+
+        $query = $pdo->prepare('SELECT name FROM games WHERE id_jeu = :id');
+        $query->bindValue(':id', $id, $pdo::PARAM_INT);
+        $query->execute();
+
+        $name = $query->fetchColumn();
+
+        return $name;
+    }
 }

@@ -3,6 +3,7 @@
 require_once _ROOTPATH_ . '\templates\head.php';
 require_once _ROOTPATH_ . '\templates\header.php';
 
+use App\Repository\GameRepository;
 
 ?>
 
@@ -36,11 +37,17 @@ require_once _ROOTPATH_ . '\templates\header.php';
         <div id="carouselTendances" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <a href="index.php?controller=games&action=jeuxDetail">
+                    <a href="index.php?controller=games&action=jeuxDetail" class="text-decoration-none link-opacity-100">
                         <img src="..\Images\Jeux\AC Valhalla panorama.jpg" class="d-block w-100" alt="Assassin's Creed Vahlalla">
                         <div class="hstack gap-3">
-                            <p class="p-2 mt-auto fs-2">Assassin's Creed Valhalla</p>
-                            <p class="p-2 mt-auto ms-auto fs-2"><i class="fa-solid fa-triangle-exclamation"></i>+18</p>
+                            <p class="p-2 mt-auto fs-2">
+                                <?php
+                                    $gameRepository = new GameRepository;
+                                    $datas = $gameRepository->findNameById(1);
+                                    echo '<h1>'.$datas.'</h1>';
+                                ?>
+                            </p>
+                            <p class="p-2 mt-auto ms-auto fs-2"><i class="bi bi-exclamation-triangle"></i>+18</p>
                             <div class="vr"></div>
                             <p class="p-2 fs-2"><br>69€99</p>
                         </div>
@@ -50,7 +57,7 @@ require_once _ROOTPATH_ . '\templates\header.php';
                     <img src="..\Images\Jeux\dark-souls-3.jpg" class="d-block w-100" alt="...">
                     <div class="hstack gap-3">
                         <p class="p-2 mt-auto fs-2">Dark Soul's 3</p>
-                        <p class="p-2 mt-auto ms-auto fs-2"><i class="fa-solid fa-triangle-exclamation"></i>+18</p>
+                        <p class="p-2 mt-auto ms-auto fs-2"><i class="bi bi-exclamation-triangle"></i>+18</p>
                         <div class="vr"></div>
                         <p class="p-2 fs-2"><br>69€99</p>
                     </div>
@@ -59,7 +66,7 @@ require_once _ROOTPATH_ . '\templates\header.php';
                     <img src="..\Images\Jeux\fallout-new-vegas.jpg" class="d-block w-100" alt="...">
                     <div class="hstack gap-3">
                         <p class="p-2 mt-auto fs-2">Fallout New Vegas</p>
-                        <p class="p-2 mt-auto ms-auto fs-2"><i class="fa-solid fa-triangle-exclamation"></i>+18</p>
+                        <p class="p-2 mt-auto ms-auto fs-2"><i class="bi bi-exclamation-triangle"></i>+18</p>
                         <div class="vr"></div>
                         <p class="p-2 fs-2"><br>69€99</p>
                     </div>
