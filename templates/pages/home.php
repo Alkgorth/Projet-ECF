@@ -39,7 +39,7 @@ use App\Repository\SpecificationsRepository;
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <a href="index.php?controller=games&action=jeuxDetail" id="jeu_carrousel" class="text-decoration-none text-white">
-                        <img src="..\Images\Jeux\AC Valhalla panorama.jpg" class="d-block w-100" alt="Assassin's Creed Vahlalla">
+                        <img src="..\Images\Jeux\AC_Valhalla_panorama.jpg" class="d-block w-100" alt="Assassin's Creed Vahlalla">
                             <div class="hstack gap-3">
                                 
                                     <?php

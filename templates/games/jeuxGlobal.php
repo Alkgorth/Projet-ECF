@@ -26,7 +26,7 @@ require_once _ROOTPATH_ . '\templates\header.php';
     <div id="carouselTendances" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="..\Images\Jeux\AC Valhalla panorama.jpg" class="d-block w-100" alt="...">
+                <img src="..\Images\Jeux\AC_Valhalla_panorama.jpg" class="d-block w-100" alt="...">
                 <div class="hstack gap-3">
                     <p class="p-2 mt-auto fs-2">Assassin's Creed Valhalla</p>
                     <p class="p-2 mt-auto ms-auto fs-2"><i class="fa-solid fa-triangle-exclamation"></i>+18</p>
