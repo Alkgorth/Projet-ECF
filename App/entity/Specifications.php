@@ -13,11 +13,7 @@ class Specifications
     protected ?float $promo = null;
 
 
-    public function __toString()
-    {
-        return $this->price."€";
-    }
-
+   
 
     /**
      * Get the value of id_store

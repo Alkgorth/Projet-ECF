@@ -2,8 +2,11 @@
 
 namespace App\Controller;
 
+use App\Repository\GameRepository;
+
 class PageController extends Controller
 {
+    
     public function route(): void
     {
         try {
@@ -48,8 +51,12 @@ class PageController extends Controller
     // controller=page&action=home
     protected function home()
     {
+        $gameRepository = new GameRepository();
+        $game = $gameRepository->findOneById2();
 
-        $this->render('pages/home', []);
+        $this->render('pages/home', [
+            'games' => $game
+        ]);
     }
 
     protected function espacePersonnel()

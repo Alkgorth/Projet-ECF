@@ -33,21 +33,19 @@ use App\Repository\SpecificationsRepository;
                 <div class="hstack gap-3">
 
                     <?php
-                        $gameRepository = new GameRepository;
-                        $datas = $gameRepository->findNameById(1);
-                        echo '<h1 class="p-2 mt-auto fs-2">'.$datas.'</h1>';
+                        
+                        echo '<h1 class="p-2 mt-auto fs-2">'.$datas->getName().'</h1>';
                                     
-                        $gameRepository = new GameRepository;
-                        $datas = $gameRepository->findPegiById(1);
+                        
                         echo '<p class="p-2 mt-auto ms-auto fs-2">
                         <i class="bi bi-exclamation-triangle text-warning"></i>
-                        <h1 class="p-2 mt-auto fs-2">'.'Pegi '.$datas.'</h1>';
+                        <h1 class="p-2 mt-auto fs-2">'.'Pegi '.$datas->getIdPegi().'</h1>';
                                     
                         $specificationsRepository = new SpecificationsRepository;
-                        $datas = $specificationsRepository->findPriceById(1);
+                        $price = $specificationsRepository->findPriceById(1);
                         echo '<div class="vr"></div>
                         <p class="p-2 fs-2"><br>
-                        <h1 class="p-2 mt-auto fs-2">'.$datas.'</h1>';
+                        <h1 class="p-2 mt-auto fs-2">'.$price->getPrice().'</h1>';
                     ?>
 
                 </div>
