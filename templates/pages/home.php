@@ -37,61 +37,56 @@ use App\Repository\SpecificationsRepository;
 
         <div id="carouselTendances" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active">
+            <?php for($i = 0; $i < 3; $i++){?>
+                <div class="carousel-item <?= $i === 0 ? 'active' : '' ?>">
                     <a href="index.php?controller=games&action=jeuxDetail" id="jeu_carrousel" class="text-decoration-none text-white">
-                        <img src="..\Images\Jeux\AC Valhalla panorama.jpg" class="d-block w-100" alt="Assassin's Creed Vahlalla">
-                            <div class="hstack gap-3">
-                                
-                                    <?php
-                                        $gameRepository = new GameRepository;
-                                        $datas = $gameRepository->findNameById(1);
-                                        echo '<h1 class="p-2 mt-auto fs-2">'.$datas.'</h1>';
-                                    ?>
-                                
-                                <p class="p-2 mt-auto ms-auto fs-2"><i class="bi bi-exclamation-triangle text-warning"></i>
-                                    <?php
-                                        $gameRepository = new GameRepository;
-                                        $datas = $gameRepository->findPegiById(1);
-                                        echo '<h1 class="p-2 mt-auto fs-2">'.'Pegi '.$datas.'</h1>';
-                                    ?>
-                                </p>
-                                <div class="vr"></div>
-                                <p class="p-2 fs-2"><br>
-                                    <?php
-                                        $specificationsRepository = new SpecificationsRepository;
-                                        $datas = $specificationsRepository->findPriceById(1);
-                                        echo '<h1 class="p-2 mt-auto fs-2">'.$datas.'</h1>';
-                                    ?>
-                                </p>
-                            </div>
+                        <img src="..\Images\Jeux\AC_Valhalla_panorama.jpg" class="d-block w-100" alt="...">
+                        <div class="hstack gap-3">
+
+
+                       
+
+                            <h1 class="p-2 mt-auto fs-2"><?= $games[$i]['name']?></h1>
+
+
+
+                            <p class="p-2 mt-auto ms-auto fs-2">
+                                <i class="bi bi-exclamation-triangle text-warning"></i></p>
+                            <h1 class="p-2 mt-auto fs-2"><?= $games[$i]['pegi_name']?></h1>
+
+
+                            <div class="vr"></div>
+                            <p class="p-2 fs-2"></p><br>
+                            <h1 class="p-2 mt-auto fs-2"><?= $games[$i]['specification_price']?></h1>
+
+                            
+
+                        </div>
                     </a>
                 </div>
-                <div class="carousel-item">
+                <?php } ?>
+
+
+                <!-- <div class="carousel-item">
                     <a href="index.php?controller=games&action=jeuxDetail" id="jeu_carrousel" class="text-decoration-none text-white">
                         <img src="..\Images\Jeux\dark-souls-3.jpg" class="d-block w-100" alt="...">
                         <div class="hstack gap-3">
-                            
-                                <?php
-                                    $gameRepository = new GameRepository;
-                                    $datas = $gameRepository->findNameById(2);
-                                    echo '<h1 class="p-2 mt-auto fs-2">'.$datas.'</h1>';
-                                ?>
-                            
-                            <p class="p-2 mt-auto ms-auto fs-2"><i class="bi bi-exclamation-triangle text-warning"></i>
-                                <?php
-                                    $gameRepository = new GameRepository;
-                                    $datas = $gameRepository->findPegiById(2);
-                                    echo '<h1 class="p-2 mt-auto ms-auto fs-2">'.'Pegi '.$datas.'</h1>';
-                                ?>
-                            </p>
+
+                          
+
+                            <h1 class="p-2 mt-auto fs-2"><?= $games[1]['name']?></h1>
+
+
+
+                            <p class="p-2 mt-auto ms-auto fs-2">
+                                <i class="bi bi-exclamation-triangle text-warning"></i></p>
+                            <h1 class="p-2 mt-auto fs-2"><?= $games[1]['pegi_name']?></h1>
+
+
                             <div class="vr"></div>
-                            <p class="p-2 fs-2"><br>
-                                    <?php
-                                        $specificationsRepository = new SpecificationsRepository;
-                                        $datas = $specificationsRepository->findPriceById(2);
-                                        echo '<h1 class="p-2 mt-auto fs-2">'.$datas.'</h1>';
-                                    ?>
-                            </p>
+                            <p class="p-2 fs-2"></p><br>
+                            <h1 class="p-2 mt-auto fs-2"><?= $games[1]['specification_price']?></h1>
+
                         </div>
                     </a>
                 </div>
@@ -99,43 +94,38 @@ use App\Repository\SpecificationsRepository;
                     <a href="index.php?controller=games&action=jeuxDetail" id="jeu_carrousel" class="text-decoration-none text-white">
                         <img src="..\Images\Jeux\fallout-new-vegas.jpg" class="d-block w-100" alt="...">
                         <div class="hstack gap-3">
-                            
-                                <?php
-                                    $gameRepository = new GameRepository;
-                                    $datas = $gameRepository->findNameById(3);
-                                    echo '<h1 class="p-2 mt-auto fs-2">'.$datas.'</h1>';
-                                ?>
-                            
-                            <p class="p-2 mt-auto ms-auto fs-2"><i class="bi bi-exclamation-triangle text-warning"></i>
-                                <?php
-                                    $gameRepository = new GameRepository;
-                                    $datas = $gameRepository->findPegiById(3);
-                                    echo '<h1 class="p-2 mt-auto fs-2">'.'Pegi '.$datas.'</h1>';
-                                ?>
-                            </p>
+
+                         
+
+                            <h1 class="p-2 mt-auto fs-2"><?= $games[2]['name']?></h1>
+
+
+
+                            <p class="p-2 mt-auto ms-auto fs-2">
+                                <i class="bi bi-exclamation-triangle text-warning"></i></p>
+                            <h1 class="p-2 mt-auto fs-2"><?= $games[2]['pegi_name']?></h1>
+
+
                             <div class="vr"></div>
-                            <p class="p-2 fs-2"><br>
-                                    <?php
-                                        $specificationsRepository = new SpecificationsRepository;
-                                        $datas = $specificationsRepository->findPriceById(3);
-                                        echo '<h1 class="p-2 mt-auto fs-2">'.$datas.'</h1>';
-                                    ?>
-                            </p>
+                            <p class="p-2 fs-2"></p><br>
+                            <h1 class="p-2 mt-auto fs-2"><?= $games[2]['specification_price']?></h1>
+
                         </div>
                     </a>
-                </div>
+                </div> -->
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselTendances" data-bs-slide="prev">
-                <span class="bi bi-arrow-left-circle fs-1 text-warning" aria-hidden="true"></span>
-                <span class="visually-hidden-focusable">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselTendances" data-bs-slide="next">
-                <span class="bi bi-arrow-right-circle fs-1 text-warning" aria-hidden="true"></span>
-                <span class="visually-hidden-focusable">Next</span>
-            </button>
-        </div>
-        <div>
+        
+           
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselTendances" data-bs-slide="prev">
+                    <span class="bi bi-arrow-left-circle fs-1 text-warning" aria-hidden="true"></span>
+                    <span class="visually-hidden-focusable">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselTendances" data-bs-slide="next">
+                    <span class="bi bi-arrow-right-circle fs-1 text-warning" aria-hidden="true"></span>
+                    <span class="visually-hidden-focusable">Next</span>
+                </button>
 
+            
         </div>
     </section>
 </main>

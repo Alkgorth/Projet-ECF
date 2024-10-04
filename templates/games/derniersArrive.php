@@ -3,89 +3,137 @@
 require_once _ROOTPATH_ . '\templates\head.php';
 require_once _ROOTPATH_ . '\templates\header.php';
 
+use App\Repository\GameRepository;
+use App\Repository\SpecificationsRepository;
 
 ?>
 
 <main>
-        <section>
-            <div class="menuPlateform">
-                <ul class="filtrePlateform">
-                    <li><a href="#" class="consoles">PC</a></li>
-                    <span class="separat">|</span>
-                    <li><a href="#" class="consoles">Playstation</a></li>
-                    <span class="separat">|</span>
-                    <li><a href="#" class="consoles">X-box</a></li>
-                    <span class="separat">|</span>
-                    <li><a href="#" class="consoles">Nintendo</a></li>
-                    <span class="separat">|</span>
-                    <li class="consoles">+ de filtres</li>
-                </ul>
-            </div>
-        </section>
+      <section>
+          <!-- Barre du menu plateformes -->
+          <div>
+              <nav class="nav nav-pills nav-fill flex-column flex-sm-row">
+                  <a class="flex-sm-fill text-sm-center nav-link active fs-3" aria-current="page" href="#">PC</a>
+                  <div class="vr text-white"></div>
+                  <a class="flex-sm-fill text-sm-center nav-link text-white fs-3" href="#">Playstation</a>
+                  <div class="vr text-white"></div>
+                  <a class="flex-sm-fill text-sm-center nav-link text-white fs-3" href="#">Xbox</a>
+                  <div class="vr text-white"></div>
+                  <a class="flex-sm-fill text-sm-center nav-link text-white fs-3" aria-disabled="true">Nintendo</a>
+                  <div class="vr text-white"></div>
+                  <a class="flex-sm-fill text-sm-center nav-link text-white fs-3" aria-disabled="true">+ de filtres</a>
+
+              </nav>
+
+          </div>
+      </section>
 
         <!-- Cards jeux -->
         <h2>Derniers Arrivés<i class="fa-solid fa-angle-right"></i></h2>
-        <section class="cards">
+        <section class="cards row d-flex justify-content-center">
+          
             <!-- Première Card -->
-            <div class="card">
-                <img src="../Images/Jeux/AC Valhalla panorama.jpg" class="card-img-top" alt="AC Valhalla">
-                <div class="card-body">
-                  <h5 class="card-title">Assassin's Creed Valhalla</h5>
-                  <p class="card-text"><i class="fa-solid fa-triangle-exclamation"></i>+18</p>
-                  <p class="card-text">69€99</p>
+            <div class="card col-sm-6 mb-3 mb-sm-0 py-2">
+                <img src="../Images/Jeux/AC_Valhalla_panorama.jpg" class="card-img-top" alt="AC Valhalla">
+                <div class="card-body hstack gap-4">
+                  
+                    <?php
+                      $gameRepository = new GameRepository;
+                      $datas = $gameRepository->findNameById(1);
+                      echo '<h5 class="card-title">'.$datas.'</h5>';
+                    
+                      $gameRepository = new GameRepository;
+                      $datas = $gameRepository->findPegiById(1);
+                      echo '<p class="card-text"><i class="bi bi-exclamation-triangle text-warning pe-2"></i>'.'Pegi '.$datas.'</p>';
+                    
+                      $specificationsRepository = new SpecificationsRepository;
+                      $datas = $specificationsRepository->findPriceById(1);
+                      echo '<p class="card-text">'.$datas.'</p>';
+                    ?>
+                  
                   <a href="#" class="btn btn-primary">Ajouter au panier</a>
                 </div>
               </div>
 
               <!-- Seconde Card -->
-              <div class="card">
+              <div class="card col-sm-6 mb-3 mb-sm-0 py-2">
                 <img src="../Images/Jeux/dark-souls-3.jpg" class="card-img-top" alt="Dark Souls 3">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+                    <?php
+                        $gameRepository = new GameRepository;
+                        $datas = $gameRepository->findNameById(2);
+                        echo '<h5 class="card-title">'.$datas.'</h5>';
+                      
+                        $gameRepository = new GameRepository;
+                        $datas = $gameRepository->findPegiById(2);
+                        echo '<p class="card-text"><i class="bi bi-exclamation-triangle text-warning pe-2"></i>'.'Pegi '.$datas.'</p>';
+                      
+                        $specificationsRepository = new SpecificationsRepository;
+                        $datas = $specificationsRepository->findPriceById(2);
+                        echo '<p class="card-text">'.$datas.'</p>';
+                    ?>
+                 
                   <a href="#" class="btn btn-primary">Ajouter au panier</a>
                 </div>
               </div>
 
               <!-- Troisième Card -->
-              <div class="card">
+              <div class="card col-sm-6 mb-3 mb-sm-0 py-2">
                 <img src="../Images/Jeux/fallout-new-vegas.jpg" class="card-img-top" alt="Dark Souls 3">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  
+
+                    <?php
+                        $gameRepository = new GameRepository;
+                        $datas = $gameRepository->findNameById(3);
+                        echo '<h5 class="card-title">'.$datas.'</h5>';
+                      
+                        $gameRepository = new GameRepository;
+                        $datas = $gameRepository->findPegiById(3);
+                        echo '<p class="card-text"><i class="bi bi-exclamation-triangle text-warning pe-2"></i>'.'Pegi '.$datas.'</p>';
+                      
+                        $specificationsRepository = new SpecificationsRepository;
+                        $datas = $specificationsRepository->findPriceById(3);
+                        echo '<p class="card-text">'.$datas.'</p>';
+                    ?>
+                  
                   <a href="#" class="btn btn-primary">Ajouter au panier</a>
                 </div>
               </div>
+
+              <!-- Quatrième Card -->
+              <div class="card col-sm-6 mb-3 mb-sm-0 py-2">
+                <img src="..\images\Jeux\Elden_Ring.jpeg" class="card-img-top" alt="Dark Souls 3">
+                <div class="card-body">
+
+                    <?php
+                        $gameRepository = new GameRepository;
+                        $datas = $gameRepository->findNameById(4);
+                        echo '<h5 class="card-title">'.$datas.'</h5>';
+                      
+                        $gameRepository = new GameRepository;
+                        $datas = $gameRepository->findPegiById(4);
+                        echo '<p class="card-text"><i class="bi bi-exclamation-triangle text-warning pe-2"></i>'.'Pegi '.$datas.'</p>';
+                      
+                        $specificationsRepository = new SpecificationsRepository;
+                        $datas = $specificationsRepository->findPriceById(4);
+                        echo '<p class="card-text">'.$datas.'</p>';
+                    ?>
+
+                  <a href="#" class="btn btn-primary">Ajouter au panier</a>
+                </div>
+              </div>
+              
         </section>
 
         <!-- Choix de page -->
          <div class="pages">
             <span>
-                1 <i class="fa-solid fa-angle-right"></i>
+                 <i class="fa-solid fa-angle-right"></i>
             </span>
         </div>
     </main>
-
-    <footer>
-        <div class="mentions">
-            <p>Mentions légales</p>
-            <p>Nos magasins</p>
-        </div>
-        <div class="mentions">
-            <p>Contacts</p>
-            <p>Qui sommes-nous ?</p>
-        </div>
-        <div class="reseauxSociaux">
-            <a href="https://www.instagram.com/">
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="https://www.facebook.com/?locale=fr_FR">
-              <i class="fa-brands fa-facebook"></i>
-            </a>
-            <a href="https://x.com/?lang=fr">
-              <i class="fa-brands fa-x-twitter"></i>
-            </a>
-        </div>
 
 <?php
 

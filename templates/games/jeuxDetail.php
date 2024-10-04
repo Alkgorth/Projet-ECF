@@ -3,19 +3,34 @@
 require_once _ROOTPATH_ . '\templates\head.php';
 require_once _ROOTPATH_ . '\templates\header.php';
 
+use App\Repository\GameRepository;
+use App\Repository\SpecificationsRepository;
 
 ?>
 
 <!-- Image en-tête -->
-<section class="container-fluid m-4">
-    <div>
-        <img src="" alt="">
+<section >
+    <div class="container mt-4">
+        
+        <img src="..\Images\Jeux\AC_Valhalla_panorama.jpg" class="d-block w-100" alt="Assassin's Creed Valhalla">
     </div>
-    <img src="..\Images\Jeux\AC Valhalla panorama.jpg" class="d-block w-100" alt="Assassin's Creed Valhalla">
     <div class="container p-4">
         <div class="row row-cols-1 row-cols-md-2 align-items-center">
-            <p class="text-center fs-2">Nom Jeu</p>
-            <p class="text-center fs-2"><i class="fa-solid fa-triangle-exclamation px-3"></i>PEGI</p>
+            
+            <?php
+                $gameRepository = new GameRepository;
+                $datas = $gameRepository->findNameById(1);
+                echo '<p class="text-center fs-2">'.$datas.'</p>';
+
+                $gameRepository = new GameRepository;
+                $datas = $gameRepository->findPegiById(1);
+                echo ' <p class="text-center fs-2">
+                <i class="bi bi-exclamation-triangle text-warning me-2"></i>'
+                .' Pegi '.$datas.'</p>';
+            ?>
+
+            
+           
         </div>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 align-items-center">
             <div class="dropdown text-center">
@@ -29,7 +44,13 @@ require_once _ROOTPATH_ . '\templates\header.php';
                     <li><a class="dropdown-item fs-2" href="#">PC</a></li>
                 </ul>
             </div>
-            <p class="fs-2 text-center">Prix</p>
+
+            <?php
+                $specificationsRepository = new SpecificationsRepository;
+                $datas = $specificationsRepository->findPriceById(1);
+                echo '<p class="fs-2 text-center">'.$datas->getPrice().'</p>';
+            ?>
+            
             <p class="fs-2 text-center"><br>En stock : <span>0</span></p>
         </div>
     </div>

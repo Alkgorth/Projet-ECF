@@ -2,7 +2,8 @@
 
 namespace App\Controller;
 
-use APP\repository\GameRepository;
+use APP\Repository\GameRepository;
+use APP\Repository\SpecificationsRepository;
 
 class GameController extends Controller
 {
@@ -44,7 +45,7 @@ class GameController extends Controller
     }
 
     // exemple d'appel depuis l'url
-    // controller=book&action=show&id=1
+    // controller=games&action=show&id=1
     protected function show()
     {
         try {
@@ -68,6 +69,22 @@ class GameController extends Controller
             ]);
         }
     }
+
+
+/**
+* Zone de test
+*
+*/
+    protected function showTest()
+    {
+        $id = rand(1,6);
+        $gameRepositoryTest = new GameRepository();
+        $gameTest = $gameRepositoryTest->findOneById2($id);
+    }
+
+/**
+ * Fin zone de test
+ */
 
     protected function jeuxDetail()
     {
