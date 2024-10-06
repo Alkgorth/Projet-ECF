@@ -3,34 +3,33 @@
 require_once _ROOTPATH_ . '\templates\head.php';
 require_once _ROOTPATH_ . '\templates\header.php';
 
-use App\Repository\GameRepository;
-use App\Repository\SpecificationsRepository;
+
 
 ?>
 
 <!-- Image en-tête -->
-<section >
+<section>
     <div class="container mt-4">
-        
+
+    <?php var_dump($gameDetail); ?>
         <img src="..\Images\Jeux\AC_Valhalla_panorama.jpg" class="d-block w-100" alt="Assassin's Creed Valhalla">
     </div>
     <div class="container p-4">
         <div class="row row-cols-1 row-cols-md-2 align-items-center">
-            
-            <?php
-                $gameRepository = new GameRepository;
-                $datas = $gameRepository->findNameById(1);
-                echo '<p class="text-center fs-2">'.$datas.'</p>';
 
-                $gameRepository = new GameRepository;
-                $datas = $gameRepository->findPegiById(1);
-                echo ' <p class="text-center fs-2">
-                <i class="bi bi-exclamation-triangle text-warning me-2"></i>'
-                .' Pegi '.$datas.'</p>';
-            ?>
-
-            
            
+            
+            <p class="text-center fs-2"><?= $games[$i]['name'] ?></p>
+
+            
+            <p class="text-center fs-2">
+                <i class="bi bi-exclamation-triangle text-warning me-2"></i>
+                <?= $games[$i]['pegi_name'] ?>
+                </p>
+            <p class="text-center fs-2"><?= $games[$i]['specification_price'] ?></p>
+           
+
+
         </div>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 align-items-center">
             <div class="dropdown text-center">
@@ -45,12 +44,9 @@ use App\Repository\SpecificationsRepository;
                 </ul>
             </div>
 
-            <?php
-                $specificationsRepository = new SpecificationsRepository;
-                $datas = $specificationsRepository->findPriceById(1);
-                echo '<p class="fs-2 text-center">'.$datas->getPrice().'</p>';
-            ?>
+            <p class="fs-2 text-center">Prix :</p>
             
+
             <p class="fs-2 text-center"><br>En stock : <span>0</span></p>
         </div>
     </div>

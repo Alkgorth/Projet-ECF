@@ -54,10 +54,10 @@ class GameController extends Controller
                 $id = (int)$_GET['id'];
                 // Charger le jeu par un appel au repository
                 $gameRepository = new GameRepository();
-                $game = $gameRepository->findOneById($id);
+                $gameDetail = $gameRepository->findDetail($id);
 
                 $this->render('games/jeuxDetail', [
-                    'game' => $game
+                    'gamesDetails' => $gameDetail
 
                 ]);
             } else {
@@ -88,7 +88,12 @@ class GameController extends Controller
 
     protected function jeuxDetail()
     {
-        $this->render('games/jeuxDetail', []);
+        $gameRepository = new GameRepository();
+        $gameDetail = $gameRepository->findOneById2();
+
+        $this->render('games/jeuxDetail', [
+            'gamesDetail' => $gameDetail
+        ]);
     }
 
 
