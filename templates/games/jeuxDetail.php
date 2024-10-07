@@ -19,14 +19,14 @@ require_once _ROOTPATH_ . '\templates\header.php';
 
            
             
-            <p class="text-center fs-2"><?= $games[$i]['name'] ?></p>
+            <p class="text-center fs-2"><?= $gamesDetail[$_GET['id']]['name'] ?></p>
 
             
             <p class="text-center fs-2">
                 <i class="bi bi-exclamation-triangle text-warning me-2"></i>
-                <?= $games[$i]['pegi_name'] ?>
+                <?= $gamesDetail[$i]['pegi_name'] ?>
                 </p>
-            <p class="text-center fs-2"><?= $games[$i]['specification_price'] ?></p>
+            <p class="text-center fs-2"><?= $gamesDetail[$i]['specification_price'] ?></p>
            
 
 

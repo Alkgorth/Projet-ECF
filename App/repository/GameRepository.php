@@ -4,6 +4,7 @@
 namespace App\Repository;
 
 use App\Db\Mysql;
+use App\Entity\Game;
 
 class GameRepository extends MainRepository
 {
@@ -31,10 +32,10 @@ class GameRepository extends MainRepository
     }
 
     
-      public function findDetail(int $id)
+      public function findDetail()
      {
-        $id = $_GET['id'];
         
+
           $query = $this->pdo->prepare('SELECT
             g.name AS name,
             p.label AS pegi_name,
@@ -48,17 +49,19 @@ class GameRepository extends MainRepository
             WHERE g.id_jeu = :id
           ');
           
-          $query->bindParam(':id', $id, $this->pdo::PARAM_INT);
+          $query->bindParam(':id', $_GET['id'], $this->pdo::PARAM_INT);
 
-          try {
             $query->execute();
-            $gameDetail = $query->fetch($this->pdo::FETCH_ASSOC);
-            return $gameDetail;
-          } catch (\Exception $e) {
-            throw new \Exception("Erreur lors de la récupération des détails du jeu : " . $e->getMessage());
-          }
+            $detail = $query->fetch($this->pdo::FETCH_ASSOC);
+            if ($detail) {
+                $gameDetail = new Game();
+                $gameDetail->createAndHydrate($detail);
+                return $gameDetail;
+            }
+            return false;
+        }
             
-       }
+    
      
 
 
