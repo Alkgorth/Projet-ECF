@@ -3,10 +3,8 @@
 // indique où ce situe le fichier
 namespace App\Repository;
 
-
-use App\Entity\Game;
 use App\Db\Mysql;
-use App\Tools\StringTools;
+use App\Entity\Game;
 
 class GameRepository extends MainRepository
 {
@@ -16,7 +14,8 @@ class GameRepository extends MainRepository
             g.name AS name,
             p.label AS pegi_name,
             s.price AS specification_price,
-            pl.name AS plateforme_name
+            pl.name AS plateforme_name,
+            g.id_jeu AS id
             FROM games AS g
             JOIN specifications s ON g.id_jeu = s.id_jeu
             JOIN plateforme pl ON s.id_plateforme = pl.id_plateforme
@@ -33,27 +32,36 @@ class GameRepository extends MainRepository
     }
 
     
-      public function findOneById(int $id)
+      public function findDetail()
      {
-        // Appel de la bdd
-      $mysql = Mysql::getInstance();
-      $pdo = $mysql->getPDO();
+        
+
+          $query = $this->pdo->prepare('SELECT
+            g.name AS name,
+            p.label AS pegi_name,
+            s.price AS specification_price,
+            pl.name AS plateforme_name,
+            g.id_jeu AS id
+            FROM games AS g
+            JOIN specifications s ON g.id_jeu = s.id_jeu
+            JOIN plateforme pl ON s.id_plateforme = pl.id_plateforme
+            JOIN pegi p ON g.id_pegi = p.id_pegi
+            WHERE g.id_jeu = :id
+          ');
+          
+          $query->bindParam(':id', $_GET['id'], $this->pdo::PARAM_INT);
+
+            $query->execute();
+            $detail = $query->fetch($this->pdo::FETCH_ASSOC);
+            if ($detail) {
+                $gameDetail = new Game();
+                $gameDetail->createAndHydrate($detail);
+                return $gameDetail;
+            }
+            return false;
+        }
+            
     
-     
-          $query = $pdo->prepare('SELECT * FROM games WHERE id_jeu = :id');
-          $query->bindValue(':id', $id, $pdo::PARAM_INT);
-          $query->execute();
-     
-           $game = $query->fetch($pdo::FETCH_ASSOC);
-           $gameEntity = new Game();
-     
-     
-          foreach ($game as $key => $value) {
-               $gameEntity->{'set' . StringTools::toPascalCase($key)}($value);
-          }
-     
-              return $gameEntity;
-       }
      
 
 

@@ -15,7 +15,7 @@ class GameController extends Controller
                 switch ($_GET['action']) {
                     case 'jeuxDetail':
                         // Pour afficher un jeu
-                        $this->jeuxDetail();
+                        $this->jeuxDetail($_GET['id']);
                         break;
                     case 'jeuxGlobal':
                         // Pour appler la méthode list(), tout les jeux
@@ -44,20 +44,20 @@ class GameController extends Controller
         }
     }
 
-    // exemple d'appel depuis l'url
-    // controller=games&action=show&id=1
-    protected function show()
+    protected function jeuxDetail()
     {
+        $id = $_GET['id'];
+
         try {
             if (isset($_GET['id'])) {
 
-                $id = (int)$_GET['id'];
+                
                 // Charger le jeu par un appel au repository
                 $gameRepository = new GameRepository();
-                $game = $gameRepository->findOneById($id);
+                $gameDetail = $gameRepository->findDetail($_GET['id']);
 
                 $this->render('games/jeuxDetail', [
-                    'game' => $game
+                    'gamesDetails' => $gameDetail
 
                 ]);
             } else {
@@ -68,27 +68,6 @@ class GameController extends Controller
                 'error' => $e->getMessage()
             ]);
         }
-    }
-
-
-/**
-* Zone de test
-*
-*/
-    protected function showTest()
-    {
-        $id = rand(1,6);
-        $gameRepositoryTest = new GameRepository();
-        $gameTest = $gameRepositoryTest->findOneById2($id);
-    }
-
-/**
- * Fin zone de test
- */
-
-    protected function jeuxDetail()
-    {
-        $this->render('games/jeuxDetail', []);
     }
 
 

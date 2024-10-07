@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-class Game
+class Game extends MainEntity
 {
     protected ?int $id_jeu = null;
     protected string $name = '';

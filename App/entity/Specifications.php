@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-class Specifications
+class Specifications extends MainEntity
 {
     protected ?int $id_store = null;
     protected ?int $id_jeu = null;

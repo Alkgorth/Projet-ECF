@@ -39,14 +39,6 @@ class PageController extends Controller
         }
     }
 
-
-    // exemple d'appel depuis l'url
-    // controller=page&action=about
-    protected function creationCompte()
-    {
-        $this->render('pages/creationCompte', []);
-    }
-
     // exemple d'appel depuis l'url
     // controller=page&action=home
     protected function home()
@@ -58,6 +50,14 @@ class PageController extends Controller
             'games' => $game
         ]);
     }
+
+    // exemple d'appel depuis l'url
+    // controller=page&action=about
+    protected function creationCompte()
+    {
+        $this->render('pages/creationCompte', []);
+    }
+
 
     protected function espacePersonnel()
     {
