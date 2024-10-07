@@ -1,5 +1,5 @@
 INSERT INTO `app_user` 
-(`last_name`, `first_name`, `mail`, `street`, `number_street`, `zip_code`, `city`, `password`, `role`, `id_store`) 
+(`last_name`, `first_name`, `mail`, `street`, `number_street`, `zip_code`, `city`, `password`, `role`, `fk_id_store`) 
 VALUES
 ('Percheron', 'Arnaud', 'mailtest@test.com', 'rue du lac', 10, '01234', 'Maville', 'MonMotDePasse', 'Utilisateur', 1),
 ('Garcia', 'José', 'patron@test.com', 'rue du bout', 12, '43321', 'Laville', 'UnMotDePasse', 'Administrateur', 2);
