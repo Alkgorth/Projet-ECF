@@ -3,7 +3,7 @@
 require_once _ROOTPATH_ . '\templates\head.php';
 require_once _ROOTPATH_ . '\templates\header.php';
 
-
+var_dump($games);
 
 ?>
 
@@ -38,7 +38,7 @@ require_once _ROOTPATH_ . '\templates\header.php';
             <div class="carousel-inner">
                 <?php for ($i = 0; $i < 3; $i++) { ?>
                     <div class="carousel-item <?= $i === 0 ? 'active' : '' ?>">
-                        <a href="index.php?controller=games&action=jeuxDetail&id=<?php $games[$i]['id'] ?>" id="jeu_carrousel" class="text-decoration-none text-white">
+                        <a href="index.php?controller=games&action=jeuxDetail&id=<?= $games[$i]['id'] ?>" id="jeu_carrousel" class="text-decoration-none text-white">
                             <img src="..\Images\Jeux\AC_Valhalla_panorama.jpg" class="d-block w-100" alt="<?= $games[$i]['name'] ?>">
                                 <div class="hstack gap-3">
                                     <h1 class="p-2 mt-auto fs-2"><?= $games[$i]['name'] ?></h1>

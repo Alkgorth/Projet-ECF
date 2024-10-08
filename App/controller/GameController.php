@@ -46,15 +46,15 @@ class GameController extends Controller
 
     protected function jeuxDetail()
     {
-        $id = $_GET['id'];
-
+        
         try {
             if (isset($_GET['id'])) {
+                $id = $_GET['id'];
 
                 
                 // Charger le jeu par un appel au repository
                 $gameRepository = new GameRepository();
-                $gameDetail = $gameRepository->findDetail($_GET['id']);
+                $gameDetail = $gameRepository->findDetail($id);
 
                 $this->render('games/jeuxDetail', [
                     'gamesDetails' => $gameDetail
