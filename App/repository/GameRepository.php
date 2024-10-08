@@ -17,9 +17,9 @@ class GameRepository extends MainRepository
             pl.name AS plateforme_name,
             g.id_jeu AS id
             FROM games AS g
-            JOIN specifications s ON g.id_jeu = s.id_jeu
-            JOIN plateforme pl ON s.id_plateforme = pl.id_plateforme
-            JOIN pegi p ON g.id_pegi = p.id_pegi
+            INNER JOIN specifications s ON g.id_jeu = s.id_jeu
+            INNER JOIN plateforme pl ON s.id_plateforme = pl.id_plateforme
+            INNER JOIN pegi p ON g.id_pegi = p.id_pegi
             ORDER BY RAND()
             LIMIT 3');
 
@@ -32,7 +32,7 @@ class GameRepository extends MainRepository
     }
 
     
-      public function findDetail()
+      public function findDetail(int $id)
      {
         
 
@@ -43,20 +43,19 @@ class GameRepository extends MainRepository
             pl.name AS plateforme_name,
             g.id_jeu AS id
             FROM games AS g
-            JOIN specifications s ON g.id_jeu = s.id_jeu
-            JOIN plateforme pl ON s.id_plateforme = pl.id_plateforme
-            JOIN pegi p ON g.id_pegi = p.id_pegi
+            INNER JOIN specifications s ON g.id_jeu = s.id_jeu
+            INNER JOIN plateforme pl ON s.id_plateforme = pl.id_plateforme
+            INNER JOIN pegi p ON g.id_pegi = p.id_pegi
             WHERE g.id_jeu = :id
           ');
           
-          $query->bindParam(':id', $_GET['id'], $this->pdo::PARAM_INT);
+          $query->bindParam(':id', $id, $this->pdo::PARAM_INT);
 
             $query->execute();
             $detail = $query->fetch($this->pdo::FETCH_ASSOC);
             if ($detail) {
-                $gameDetail = new Game();
-                $gameDetail->createAndHydrate($detail);
-                return $gameDetail;
+                
+                return $detail;
             }
             return false;
         }

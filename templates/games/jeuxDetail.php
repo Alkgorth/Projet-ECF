@@ -11,7 +11,7 @@ require_once _ROOTPATH_ . '\templates\header.php';
 <section>
     <div class="container mt-4">
 
-    <?php var_dump($gameDetail); ?>
+    <?php var_dump($gamesDetails); ?>
         <img src="..\Images\Jeux\AC_Valhalla_panorama.jpg" class="d-block w-100" alt="Assassin's Creed Valhalla">
     </div>
     <div class="container p-4">
@@ -19,14 +19,14 @@ require_once _ROOTPATH_ . '\templates\header.php';
 
            
             
-            <p class="text-center fs-2"><?= $gamesDetail[$_GET['id']]['name'] ?></p>
+            <p class="text-center fs-2"><?= $gamesDetails['name'] ?></p>
 
             
             <p class="text-center fs-2">
                 <i class="bi bi-exclamation-triangle text-warning me-2"></i>
-                <?= $gamesDetail[$i]['pegi_name'] ?>
+                <?= $gamesDetails['pegi_name'] ?>
                 </p>
-            <p class="text-center fs-2"><?= $gamesDetail[$i]['specification_price'] ?></p>
+            <p class="text-center fs-2"></p>
            
 
 
@@ -44,7 +44,7 @@ require_once _ROOTPATH_ . '\templates\header.php';
                 </ul>
             </div>
 
-            <p class="fs-2 text-center">Prix :</p>
+            <p class="fs-2 text-center">Prix :<?= $gamesDetails['specification_price'] ?></p>
             
 
             <p class="fs-2 text-center"><br>En stock : <span>0</span></p>
