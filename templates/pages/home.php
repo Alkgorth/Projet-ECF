@@ -3,7 +3,7 @@
 require_once _ROOTPATH_ . '\templates\head.php';
 require_once _ROOTPATH_ . '\templates\header.php';
 
-var_dump($games);
+
 
 ?>
 
@@ -34,7 +34,7 @@ var_dump($games);
             </h1>
         </a>
 
-        <div id="carouselTendances" class="carousel slide mt-4" data-bs-ride="carousel">
+        <div id="carouselNews" class="carousel slide mt-4" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <?php for ($i = 0; $i < 3; $i++) { ?>
                     <div class="carousel-item <?= $i === 0 ? 'active' : '' ?>">
@@ -42,6 +42,7 @@ var_dump($games);
                             <img src="..\Images\Jeux\AC_Valhalla_panorama.jpg" class="d-block w-100" alt="<?= $games[$i]['name'] ?>">
                                 <div class="hstack gap-3">
                                     <h1 class="p-2 mt-auto fs-2"><?= $games[$i]['name'] ?></h1>
+                                    <p class="card-text ps-5 fs-2 mt-auto"><?= $games[$i]['plateforme_name'] ?></p>
                                     <p class="p-2 mt-auto ms-auto fs-2">
                                         <i class="bi bi-exclamation-triangle text-warning"></i>
                                     </p>
@@ -55,11 +56,11 @@ var_dump($games);
                     </div>
                 <?php } ?>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselTendances" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselNews" data-bs-slide="prev">
                 <span class="bi bi-arrow-left-circle fs-1 text-warning" aria-hidden="true"></span>
                 <span class="visually-hidden-focusable">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselTendances" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselNews" data-bs-slide="next">
                 <span class="bi bi-arrow-right-circle fs-1 text-warning" aria-hidden="true"></span>
                 <span class="visually-hidden-focusable">Next</span>
             </button>
@@ -76,7 +77,7 @@ var_dump($games);
             </h1>
         </a>
 
-        <div id="carouselTendances" class="carousel slide mt-4" data-bs-ride="carousel">
+        <div id="carouselPromotions" class="carousel slide mt-4" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <?php for ($i = 0; $i < 3; $i++) { ?>
                     <div class="carousel-item <?= $i === 0 ? 'active' : '' ?>">
@@ -97,11 +98,11 @@ var_dump($games);
                     </div>
                 <?php } ?>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselTendances" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselPromotions" data-bs-slide="prev">
                 <span class="bi bi-arrow-left-circle fs-1 text-warning" aria-hidden="true"></span>
                 <span class="visually-hidden-focusable">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselTendances" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselPromotions" data-bs-slide="next">
                 <span class="bi bi-arrow-right-circle fs-1 text-warning" aria-hidden="true"></span>
                 <span class="visually-hidden-focusable">Next</span>
             </button>
