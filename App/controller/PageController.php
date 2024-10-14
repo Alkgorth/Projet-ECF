@@ -55,6 +55,7 @@ class PageController extends Controller
     // controller=page&action=about
     protected function creationCompte()
     {
+        
         $this->render('pages/creationCompte', []);
     }
 

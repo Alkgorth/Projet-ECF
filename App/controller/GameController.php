@@ -93,6 +93,11 @@ class GameController extends Controller
 
     protected function derniersArrive()
     {
-        $this->render('games/derniersArrive', []);
+        $gameRepository = new GameRepository();
+        $game = $gameRepository->promoDisplay();
+
+        $this->render('games/derniersArrive', [
+            'games' => $game
+        ]);
     }
 }

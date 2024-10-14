@@ -41,14 +41,14 @@ use App\Repository\SpecificationsRepository;
       <div class="card col-sm-6 mb-3 mb-sm-0 py-2">
         <a href="index.php?controller=games&action=jeuxDetail&id=<?= $game['id'] ?>" id="jeu_promo" class="text-decoration-none text-white">
           <img src="../Images/Jeux/AC_Valhalla_panorama.jpg" class="card-img-top" alt="<?= $game['name'] ?>">
-          <div class="card-body hstack gap-4">
         </a>
-        <h5 class="card-title"><?= $game['name'] ?></h5>
-        <p class="card-text"><?= $game['plateforme_name'] ?></p>
-        <p class="card-text"><i class="bi bi-exclamation-triangle text-warning pe-2"></i><?= $game['pegi_name'] ?></p>
-        <p class="card-text"><?= $game['specification_price'] ?></p>
-        <a href="#" class="btn btn-primary">Ajouter au panier</a>
-      </div>
+        <div class="card-body hstack gap-4">
+          <h5 class="card-title"><?= $game['name'] ?></h5>
+          <p class="card-text"><?= $game['plateforme_name'] ?></p>
+          <p class="card-text"><i class="bi bi-exclamation-triangle text-warning pe-2"></i><?= $game['pegi_name'] ?></p>
+          <p class="card-text"><?= $game['specification_price'] ?></p>
+          <a href="#" class="btn btn-primary">Ajouter au panier</a>
+        </div>
       </div>
     <?php } ?>
   </section>

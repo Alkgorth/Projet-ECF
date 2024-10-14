@@ -41,7 +41,6 @@ require_once _ROOTPATH_ . '\templates\header.php';
                             </select><br>
                         </div> -->
 
-                    
                         <div class="alignementForm">
                         
                         <input type="email" name="email" id="email" class="input" placeholder="Mail"><br>

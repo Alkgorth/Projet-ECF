@@ -4,10 +4,11 @@ require_once _ROOTPATH_ . '\templates\head.php';
 require_once _ROOTPATH_ . '\templates\header.php';
 
 
+
 ?>
 
 <main class="container mx-5">
-<form class="mx-4 p-4">
+<form class="mx-4 p-4" method="POST" action="">
     <h1 class="text-center">Créer mon compte</h1>
     <div class="mb-3 text-center">
         <label for="name" class="form-label">Nom</label>

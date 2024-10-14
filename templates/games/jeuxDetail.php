@@ -3,7 +3,7 @@
 require_once _ROOTPATH_ . '\templates\head.php';
 require_once _ROOTPATH_ . '\templates\header.php';
 
-
+var_dump($gamesDetails);
 
 ?>
 
@@ -36,10 +36,10 @@ require_once _ROOTPATH_ . '\templates\header.php';
                 </ul>
             </div>
 
-            <p class="fs-2 text-center">Prix :<?= $gamesDetails['specification_price'] ?></p>
+            <p class="fs-2 text-center">Prix : <?= $gamesDetails['specification_price'] ?>€</p>
 
 
-            <p class="fs-2 text-center"><br>En stock : <span>0</span></p>
+            <p class="fs-2 text-center">En stock : <span><?= $gamesDetails['quantity'] ?></span></p>
         </div>
     </div>
     <div class="d-flex justify-content-center">
@@ -56,13 +56,13 @@ require_once _ROOTPATH_ . '\templates\header.php';
         <div id="carouselPrecommande" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="..\Images\Jeux\AC Valhalla\assassin-s-creed-valhalla-pc-jeu-ubisoft-connect-europe-wallpaper-1.jpg" class="d-block w-100" alt="...">
+                    <img src="..\Images\Jeux\AC Valhalla\assassin-s-creed-valhalla-pc-jeu-ubisoft-connect-europe-wallpaper-1.jpg" class="d-block w-100" alt="<?= $gamesDetails['name'] ?>">
                 </div>
                 <div class="carousel-item">
-                    <img src="..\Images\Jeux\AC Valhalla\assassin-s-creed-valhalla-pc-jeu-ubisoft-connect-europe-wallpaper-2.jpg" class="d-block w-100" alt="...">
+                    <img src="..\Images\Jeux\AC Valhalla\assassin-s-creed-valhalla-pc-jeu-ubisoft-connect-europe-wallpaper-2.jpg" class="d-block w-100" alt="<?= $gamesDetails['name'] ?>">
                 </div>
                 <div class="carousel-item">
-                    <img src="..\Images\Jeux\AC Valhalla\assassin-s-creed-valhalla-pc-jeu-ubisoft-connect-europe-wallpaper-3.jpg" class="d-block w-100" alt="...">
+                    <img src="..\Images\Jeux\AC Valhalla\assassin-s-creed-valhalla-pc-jeu-ubisoft-connect-europe-wallpaper-3.jpg" class="d-block w-100" alt="<?= $gamesDetails['name'] ?>">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselPrecommande" data-bs-slide="prev">
@@ -102,7 +102,7 @@ require_once _ROOTPATH_ . '\templates\header.php';
                 Développeur:<?= $gamesDetails['developpeur'] ?><br>
                 Editeur: <?= $gamesDetails['editeur'] ?><br>
                 Date de sortie: <?= $gamesDetails['date_de_sortie'] ?><br>
-                Genre:Action, Aventure<br>
+                Genre:<?= $gamesDetails['genre'] ?><br>
             </p>
         </div>
 </section>

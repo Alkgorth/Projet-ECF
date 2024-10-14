@@ -41,12 +41,20 @@ class GameRepository extends MainRepository
             g.description AS description,
             p.label AS pegi_name,
             s.price AS specification_price,
+            s.quantity AS quantity,
             pl.name AS plateforme_name,
+            a.developpeur AS developpeur,
+            a.editeur AS editeur,
+            a.date_de_sortie AS date_de_sortie,
+            GROUP_CONCAT(DISTINCT ge.name) AS genre,
             g.id_jeu AS id
             FROM games AS g
             INNER JOIN specifications s ON g.id_jeu = s.id_jeu
             INNER JOIN plateforme pl ON s.id_plateforme = pl.id_plateforme
             INNER JOIN pegi p ON g.id_pegi = p.id_pegi
+            INNER JOIN about a ON g.id_about = a.id_about
+            INNER JOIN style st ON g.id_jeu = st.id_jeu
+            INNER JOIN genre ge ON st.id_genre = ge.id_genre
             WHERE g.id_jeu = :id
           ');
 
@@ -57,27 +65,6 @@ class GameRepository extends MainRepository
         if ($detail) {
 
             return $detail;
-        }
-        return false;
-    }
-
-    public function findAbout()
-    {
-        $query = $this->pdo->prepare('SELECT
-            a.developpeur AS developpeur,
-            a.editeur AS editeur,
-            a.date_de_sortie AS date_de_sortie,
-            FROM about AS a
-            WHERE a.id_about = :id
-            ');
-
-        $query->bindParam(':id', $id, $this->pdo::PARAM_INT);
-
-        $query->execute();
-        $about = $query->fetch($this->pdo::FETCH_ASSOC);
-        if ($about) {
-
-            return $about;
         }
         return false;
     }
