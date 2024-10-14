@@ -7,7 +7,12 @@ $primary : #2a2aa9;
 $secondary: #FFB600;
 $tertiary: #090958; 
 
-
+.body{
+    background-image: 
+    rotate(42deg)
+    opacity(0.5)
+    url(C:\Users\apper\Documents\Projet-ECF\images\Background_test_2.jpg)
+}  
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 

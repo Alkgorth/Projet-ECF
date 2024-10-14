@@ -3,33 +3,25 @@
 require_once _ROOTPATH_ . '\templates\head.php';
 require_once _ROOTPATH_ . '\templates\header.php';
 
-
+var_dump($gamesDetails);
 
 ?>
 
 <!-- Image en-tête -->
-<section>
+<section class="text-white">
     <div class="container mt-4">
 
-    <?php var_dump($gamesDetails); ?>
+
         <img src="..\Images\Jeux\AC_Valhalla_panorama.jpg" class="d-block w-100" alt="Assassin's Creed Valhalla">
     </div>
     <div class="container p-4">
         <div class="row row-cols-1 row-cols-md-2 align-items-center">
-
-           
-            
             <p class="text-center fs-2"><?= $gamesDetails['name'] ?></p>
-
-            
             <p class="text-center fs-2">
                 <i class="bi bi-exclamation-triangle text-warning me-2"></i>
                 <?= $gamesDetails['pegi_name'] ?>
-                </p>
+            </p>
             <p class="text-center fs-2"></p>
-           
-
-
         </div>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 align-items-center">
             <div class="dropdown text-center">
@@ -44,10 +36,10 @@ require_once _ROOTPATH_ . '\templates\header.php';
                 </ul>
             </div>
 
-            <p class="fs-2 text-center">Prix :<?= $gamesDetails['specification_price'] ?></p>
-            
+            <p class="fs-2 text-center">Prix : <?= $gamesDetails['specification_price'] ?>€</p>
 
-            <p class="fs-2 text-center"><br>En stock : <span>0</span></p>
+
+            <p class="fs-2 text-center">En stock : <span><?= $gamesDetails['quantity'] ?></span></p>
         </div>
     </div>
     <div class="d-flex justify-content-center">
@@ -64,13 +56,13 @@ require_once _ROOTPATH_ . '\templates\header.php';
         <div id="carouselPrecommande" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="..\Images\Jeux\AC Valhalla\assassin-s-creed-valhalla-pc-jeu-ubisoft-connect-europe-wallpaper-1.jpg" class="d-block w-100" alt="...">
+                    <img src="..\Images\Jeux\AC Valhalla\assassin-s-creed-valhalla-pc-jeu-ubisoft-connect-europe-wallpaper-1.jpg" class="d-block w-100" alt="<?= $gamesDetails['name'] ?>">
                 </div>
                 <div class="carousel-item">
-                    <img src="..\Images\Jeux\AC Valhalla\assassin-s-creed-valhalla-pc-jeu-ubisoft-connect-europe-wallpaper-2.jpg" class="d-block w-100" alt="...">
+                    <img src="..\Images\Jeux\AC Valhalla\assassin-s-creed-valhalla-pc-jeu-ubisoft-connect-europe-wallpaper-2.jpg" class="d-block w-100" alt="<?= $gamesDetails['name'] ?>">
                 </div>
                 <div class="carousel-item">
-                    <img src="..\Images\Jeux\AC Valhalla\assassin-s-creed-valhalla-pc-jeu-ubisoft-connect-europe-wallpaper-3.jpg" class="d-block w-100" alt="...">
+                    <img src="..\Images\Jeux\AC Valhalla\assassin-s-creed-valhalla-pc-jeu-ubisoft-connect-europe-wallpaper-3.jpg" class="d-block w-100" alt="<?= $gamesDetails['name'] ?>">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselPrecommande" data-bs-slide="prev">
@@ -89,24 +81,30 @@ require_once _ROOTPATH_ . '\templates\header.php';
 </section>
 
 <section class="container-fluid">
-    <div class="container">
-        <h2>Descrition</h2>
-        <p class="fs-2  text-center">
-            Assassin's Creed Valhalla pour PC est le 12ème épisode de la série Assassin's
-            Creed, et ce dernier se déroule au 9ème siècle (à partir de 873) et vous emmène
-            partout en Europe pour faire voyager votre clan d'une Norvège grav...
-        </p>
-    </div>
 
-    <div class="container">
-        <h2>A propos</h2>
-        <p class="text-center fs-2">
-            Développeur: Ubisoft<br>
-            Editeur: Ubisoft<br>
-            Date de sortie: 10 novembre 2020<br>
-            Genre:Action, Aventure<br>
-        </p>
-    </div>
+    <div class="accordion container" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button tertiary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseTwo">
+                    Description
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <p class="fs-2 text-center"><?= $gamesDetails['description'] ?></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2>A propos</h2>
+            <p class="text-center fs-2">
+                Développeur:<?= $gamesDetails['developpeur'] ?><br>
+                Editeur: <?= $gamesDetails['editeur'] ?><br>
+                Date de sortie: <?= $gamesDetails['date_de_sortie'] ?><br>
+                Genre:<?= $gamesDetails['genre'] ?><br>
+            </p>
+        </div>
 </section>
 
 <section class="container-fluid">

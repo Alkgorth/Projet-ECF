@@ -12,10 +12,12 @@ $controller->route();
 
 
 // TEST
+/**
+*   $specificationsRepository = new GameRepository;
+*   $gameDetail = $specificationsRepository->findDetail(1);
 
-$specificationsRepository = new GameRepository;
-$gameDetail = $specificationsRepository->findDetail(1);
+*   var_dump($gameDetail);
+ */
 
-var_dump($gameDetail);
 
 ?>

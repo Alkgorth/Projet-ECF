@@ -73,16 +73,31 @@ class GameController extends Controller
 
     protected function jeuxGlobal()
     {
-        $this->render('games/jeuxGlobal', []);
+        $gameRepository = new GameRepository();
+        $game = $gameRepository->homeDisplay();
+
+        $this->render('games/jeuxGlobal', [
+            'games' => $game
+        ]);
     }
 
     protected function promos()
     {
-        $this->render('games/promos', []);
+        $gameRepository = new GameRepository();
+        $game = $gameRepository->promoDisplay();
+
+        $this->render('games/promos', [
+            'games' => $game
+        ]);
     }
 
     protected function derniersArrive()
     {
-        $this->render('games/derniersArrive', []);
+        $gameRepository = new GameRepository();
+        $game = $gameRepository->promoDisplay();
+
+        $this->render('games/derniersArrive', [
+            'games' => $game
+        ]);
     }
 }

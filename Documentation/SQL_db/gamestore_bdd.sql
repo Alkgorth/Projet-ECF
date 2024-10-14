@@ -20,6 +20,12 @@ CREATE TABLE `plateforme` (
   `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+CREATE TABLE `about`(
+   `id_about` int(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+   `developpeur` varchar(50) NOT NULL,
+   `editeur` varchar(50) NOT NULL,
+   `date_de__sortie` date NOT NULL,
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE `app_user` (
   `id_user` int(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -51,6 +57,7 @@ CREATE TABLE `games` (
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `id_pegi` int(11) UNSIGNED NOT NULL,
+  FOREIGN KEY(id_about) REFERENCES about(id_about) ON DELETE CASCADE ON UPDATE CASCADE,
   FOREIGN KEY(id_pegi) REFERENCES pegi(id_pegi) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

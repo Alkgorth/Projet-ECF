@@ -44,7 +44,7 @@ class PageController extends Controller
     protected function home()
     {
         $gameRepository = new GameRepository();
-        $game = $gameRepository->findOneById2();
+        $game = $gameRepository->homeDisplay();
 
         $this->render('pages/home', [
             'games' => $game
@@ -55,6 +55,7 @@ class PageController extends Controller
     // controller=page&action=about
     protected function creationCompte()
     {
+        
         $this->render('pages/creationCompte', []);
     }
 
