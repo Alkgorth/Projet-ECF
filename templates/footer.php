@@ -20,7 +20,7 @@
   </div>
 
 </footer>
-<script src="../Assets/Bootstrap/js/bootstrap.min.js"></script>
+<script src="..\assets\Bootstrap\js\bootstrap.bundle.min.js"></script>
 <script src="../Scripts/script.js"></script>
 </body>
 

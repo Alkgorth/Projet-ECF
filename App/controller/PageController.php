@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\GameRepository;
+use App\Repository\UserCreaRepository;
 
 class PageController extends Controller
 {
@@ -55,8 +56,12 @@ class PageController extends Controller
     // controller=page&action=about
     protected function creationCompte()
     {
-        
-        $this->render('pages/creationCompte', []);
+        $userCreaRepository = new UserCreaRepository();
+        $user = $userCreaRepository->createUser();
+
+        $this->render('pages/creationCompte', [
+            'user' => $user
+        ]);
     }
 
 

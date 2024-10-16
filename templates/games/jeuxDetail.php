@@ -3,7 +3,6 @@
 require_once _ROOTPATH_ . '\templates\head.php';
 require_once _ROOTPATH_ . '\templates\header.php';
 
-var_dump($gamesDetails);
 
 ?>
 
@@ -24,7 +23,7 @@ var_dump($gamesDetails);
             <p class="text-center fs-2"></p>
         </div>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 align-items-center">
-            <div class="dropdown text-center">
+            <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle fs-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Plateforme
                 </button>
