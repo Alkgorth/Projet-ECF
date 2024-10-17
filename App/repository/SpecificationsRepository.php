@@ -31,8 +31,5 @@ class SpecificationsRepository
                 return $specificationsEntity;
     }
 
-    public function findQuantityById(int $id)
-    {
-
-    }
+   
 }

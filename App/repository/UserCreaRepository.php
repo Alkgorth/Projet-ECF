@@ -7,7 +7,7 @@ use App\Db\Mysql;
 use App\Entity\Game;
 use App\Entity\User;
 
-class UserCreaRepository extends MainRepository
+class UserCreaRepositoryTests extends MainRepository
 {
     public function findOneById(int $id)
     {
@@ -75,7 +75,7 @@ class UserCreaRepository extends MainRepository
                             $query->bindParam(':name', $last_name, $this->pdo::PARAM_STR);
                             $query->bindParam(':prenom', $first_name, $this->pdo::PARAM_STR);
                             $query->bindParam(':adresse', $adresse, $this->pdo::PARAM_STR);
-                            $query->bindParam(':email', $mail, $this->pdo::PARAM_STR);
+                            $query->bindParam(':email', $_POST["mail"], $this->pdo::PARAM_STR);
                             $query->bindParam(':code_postal', $zip_code, $this->pdo::PARAM_STR);
                             $query->bindParam(':password', $hashedPassword, $this->pdo::PARAM_STR);
 
@@ -88,9 +88,11 @@ class UserCreaRepository extends MainRepository
                                 ':password' => $hashedPassword
                             ]);
 
+                            $user = $query->fetch($this->pdo::FETCH_ASSOC);
+                            $user = new User();
+
                             // Message de succès
                             echo "<div class='alert alert-success text-center'>Compte créé avec succès.</div>";
-
                         } catch (\Exception $e) {
                             if ($e->getCode() == 23000) {
                                 $errors[] = "Un compte avec cet email existe déjà.";
@@ -102,6 +104,7 @@ class UserCreaRepository extends MainRepository
                 }
             }
         }
+        return $user;
     }
 
     public function findUser(string $mail)
