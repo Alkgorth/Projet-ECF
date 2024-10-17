@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Repository\GameRepository;
 use App\Repository\UserCreaRepository;
+use App\Repository\UserCreaRepositoryTests;
+
 
 class PageController extends Controller
 {
@@ -57,7 +59,7 @@ class PageController extends Controller
     protected function creationCompte()
     {
         $userCreaRepository = new UserCreaRepository();
-        $user = $userCreaRepository->createUser();
+        $user = $userCreaRepository->createUser($_POST['last_name'], $_POST['first_name'], $_POST['adresse'], $_POST['zip_code'], $_POST['city'], $_POST['mail'], $_POST['password'], $_POST['passwordConfirm']);
 
         $this->render('pages/creationCompte', [
             'user' => $user
