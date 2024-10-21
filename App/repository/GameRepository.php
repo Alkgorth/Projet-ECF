@@ -46,7 +46,7 @@ class GameRepository extends MainRepository
             a.developpeur AS developpeur,
             a.editeur AS editeur,
             a.date_de_sortie AS date_de_sortie,
-            GROUP_CONCAT(DISTINCT ge.name) AS genre,
+            GROUP_CONCAT(DISTINCT ge.name SEPARATOR ", ") AS genre,
             g.id_jeu AS id
             FROM games AS g
             INNER JOIN specifications s ON g.id_jeu = s.id_jeu

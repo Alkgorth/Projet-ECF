@@ -3,8 +3,9 @@
 namespace App\Controller;
 
 use App\Repository\GameRepository;
-use App\Repository\UserCreaRepository;
-use App\Repository\UserCreaRepositoryTests;
+use App\Repository\UserRepository;
+use App\Entity\User;
+use App\Tools\UserValidator;
 
 
 class PageController extends Controller
@@ -58,12 +59,35 @@ class PageController extends Controller
     // controller=page&action=about
     protected function creationCompte()
     {
-        $userCreaRepository = new UserCreaRepository();
-        $user = $userCreaRepository->createUser($_POST['last_name'], $_POST['first_name'], $_POST['adresse'], $_POST['zip_code'], $_POST['city'], $_POST['mail'], $_POST['password'], $_POST['passwordConfirm']);
+        try {
+            $errors = [];
 
-        $this->render('pages/creationCompte', [
-            'user' => $user
-        ]);
+            $user = new User();
+
+            if(isset($_POST['saveUser'])) {
+                $user->hydrate($_POST);
+                $user->setRole(ROLE_USER);
+                $errors = UserValidator::validate();
+
+                if(empty($errors)) {
+                    $userCreaRepository = new UserRepository();
+                    $userCreaRepository->persist($user);
+
+                    header('Location: index.php?controller=connexions&action=connexion');
+                }
+            }
+            
+            $this->render('pages/creationCompte', [
+                'user' => '',
+                'creationCompte' => 'Créer mon compte',
+                'errors' => $errors
+            ]);
+
+        } catch (\Exception $e) {
+            $this->render('errors/default', [
+                'errors' => $e->getMessage()
+            ]);
+        }
     }
 
 
