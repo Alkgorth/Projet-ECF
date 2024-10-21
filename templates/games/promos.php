@@ -47,6 +47,7 @@ use App\Repository\SpecificationsRepository;
           <p class="card-text"><?= $game['plateforme_name'] ?></p>
           <p class="card-text"><i class="bi bi-exclamation-triangle text-warning pe-2"></i><?= $game['pegi_name'] ?></p>
           <p class="card-text"><?= $game['specification_price'] ?></p>
+          <p class="card-text"><?= $game['promo'] ?></p>
           <a href="#" class="btn btn-primary">Ajouter au panier</a>
         </div>
       </div>

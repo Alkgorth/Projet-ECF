@@ -4,10 +4,11 @@ require_once _ROOTPATH_ . '\templates\head.php';
 require_once _ROOTPATH_ . '\templates\header.php';
 
 
+
 ?>
 
 <main class="container mx-5">
-<form class="m-5 p-4 text-white" method="POST" action="">
+<form class="m-5 p-4 text-white" method="POST">
     <h1 class="text-center pb-4">Créer mon compte</h1>
     <div class="mb-3 text-center">
         <label for="last_name" class="form-label">Nom</label>
@@ -65,6 +66,16 @@ require_once _ROOTPATH_ . '\templates\header.php';
             <div class="invalid-feedback"><?=$errors['passwordConfirm'] ?></div>
         <?php } ?>
     </div>
+    <div class="mb-3 text-center">
+        <label for="fk_id_store" class="form-label">Magasin</label>
+        <select class="form-select" id="fk_id_store" name="fk_id_store" required>
+            <option selected>Choisir...</option>
+            <option value="1">Lille</option>
+            <option value="2">Nantes</option>
+            <option value="3">Bordeaux</option>
+            <option value="4">Toulouse</option>
+            <option value="5">Paris</option>
+        </select>
 
     <div class="text-center">
         <button type="submit" name="saveUser" class="btn btn-warning m-4">Valider</button>
@@ -76,5 +87,6 @@ require_once _ROOTPATH_ . '\templates\header.php';
 <?php
 
 require_once _ROOTPATH_ . '\templates\footer.php';
+
 
 ?>

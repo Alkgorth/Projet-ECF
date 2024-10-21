@@ -7,11 +7,9 @@ use App\Repository\UserRepository;
 
 class UserValidator extends User
 {
-    public static function validate(): array
+    public static function validate(User $user): array
     {
         $errors = [];
-
-        $user = new User();
 
         if(empty($user->getLastName())){
             $errors[] = "Veuillez renseigner votre nom";

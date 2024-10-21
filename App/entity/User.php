@@ -13,6 +13,8 @@ class User extends MainEntity
     protected string $city = '';
     protected string $password = '';
     protected string $role = '';
+    protected int $fk_id_store;
+
 
 
 
@@ -175,6 +177,24 @@ class User extends MainEntity
     public function setRole(string $role): self
     {
         $this->role = $role;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of fk_id_store
+     */
+    public function getFkIdStore(): int
+    {
+        return $this->fk_id_store;
+    }
+
+    /**
+     * Set the value of fk_id_store
+     */
+    public function setFkIdStore(int $fk_id_store): self
+    {
+        $this->fk_id_store = $fk_id_store;
 
         return $this;
     }
