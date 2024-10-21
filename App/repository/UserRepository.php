@@ -13,7 +13,7 @@ class UserRepository extends MainRepository
     {
         // requête qui récupère l'utilisateur
         $query = $this->pdo->prepare("SELECT * FROM app_user WHERE id = :id");
-        $query->bindParam(':id', $id, $this->pdo::PARAM_STR);
+        $query->bindValue(':id', $id, $this->pdo::PARAM_INT);
         $query->execute();
         $user = $query->fetch($this->pdo::FETCH_ASSOC);
         if ($user) {
@@ -29,27 +29,29 @@ class UserRepository extends MainRepository
         if ($user->getIdUser() !== null) {
             $query = $this->pdo->prepare(
                 "UPDATE app_user SET last_name = :last_name, first_name = :first_name, mail = :mail,
-                                        adresse = :adresse, zip_code = :zip_code, city = :city, password = :password, role = :role
+                                        adresse = :adresse, zip_code = :zip_code, city = :city, password = :password, fk_id_store = :fk_id_store
                                         WHERE id = :id"
             );
-            $query->bindParam(':id', $user->getIdUser(), $this->pdo::PARAM_INT);
+            $query->bindValue(':id', $user->getIdUser(), $this->pdo::PARAM_INT);
         } else {
             $query = $this->pdo->prepare(
-                "INSERT INTO app_user (last_name, first_name, mail, adresse, zip_code, city, password, role)
-                                        VALUES (:last_name, :first_name, :mail, :adresse, :zip_code, :city, :password, :role)"
+                "INSERT INTO app_user (last_name, first_name, mail, adresse, zip_code, city, password, role, fk_id_store)
+                                        VALUES (:last_name, :first_name, :mail, :adresse, :zip_code, :city, :password, :role, :fk_id_store)"
             );
-            $query->bindParam(':role', $user->getRole(), $this->pdo::PARAM_STR);
+            $query->bindValue(':role', $user->getRole(), $this->pdo::PARAM_STR);
         }
 
-        $query->bindParam(':last_name', $user->getLastName(), $this->pdo::PARAM_STR);
-        $query->bindParam(':first_name', $user->getFirstName(), $this->pdo::PARAM_STR);
-        $query->bindParam(':mail', $user->getMail(), $this->pdo::PARAM_STR);
-        $query->bindParam(':adresse', $user->getAdresse(), $this->pdo::PARAM_STR);
-        $query->bindParam(':zip_code', $user->getZipCode(), $this->pdo::PARAM_STR);
-        $query->bindParam(':city', $user->getCity(), $this->pdo::PARAM_STR);
-        $query->bindParam(':password', password_hash($user->getPassword(), PASSWORD_DEFAULT), $this->pdo::PARAM_STR);
+        $query->bindValue(':last_name', $user->getLastName(), $this->pdo::PARAM_STR);
+        $query->bindValue(':first_name', $user->getFirstName(), $this->pdo::PARAM_STR);
+        $query->bindValue(':mail', $user->getMail(), $this->pdo::PARAM_STR);
+        $query->bindValue(':adresse', $user->getAdresse(), $this->pdo::PARAM_STR);
+        $query->bindValue(':zip_code', $user->getZipCode(), $this->pdo::PARAM_INT);
+        $query->bindValue(':city', $user->getCity(), $this->pdo::PARAM_STR);
+        $query->bindValue(':password', password_hash($user->getPassword(), PASSWORD_DEFAULT), $this->pdo::PARAM_STR);
+        $query->bindValue(':fk_id_store', $user->getFkIdStore(), $this->pdo::PARAM_INT);
 
         return $query->execute();
+
     }
 
     /**
@@ -85,9 +87,9 @@ class UserRepository extends MainRepository
 
     public function findUser(string $mail)
     {
-        $query = $this->pdo->prepare('SELECT * FROM user WHERE mail = :mail');
+        $query = $this->pdo->prepare('SELECT * FROM app_user WHERE mail = :mail');
 
-        $query->bindParam(':mail', $mail, $this->pdo::PARAM_STR);
+        $query->bindValue(':mail', $mail, $this->pdo::PARAM_STR);
 
         $query->execute();
 

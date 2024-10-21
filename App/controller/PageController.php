@@ -60,18 +60,18 @@ class PageController extends Controller
     protected function creationCompte()
     {
         try {
-            $errors = [];
+            $error = [];
 
             $user = new User();
 
             if(isset($_POST['saveUser'])) {
                 $user->hydrate($_POST);
-                $user->setRole(ROLE_USER);
-                $errors = UserValidator::validate();
-
-                if(empty($errors)) {
-                    $userCreaRepository = new UserRepository();
-                    $userCreaRepository->persist($user);
+                $user->setRole('user');
+                $error = UserValidator::validate($user);
+                
+                if(empty($error)) {
+                    $userRepository = new UserRepository();
+                    $userRepository->persist($user);
 
                     header('Location: index.php?controller=connexions&action=connexion');
                 }
@@ -80,14 +80,15 @@ class PageController extends Controller
             $this->render('pages/creationCompte', [
                 'user' => '',
                 'creationCompte' => 'Créer mon compte',
-                'errors' => $errors
+                'error' => $error
             ]);
 
         } catch (\Exception $e) {
             $this->render('errors/default', [
-                'errors' => $e->getMessage()
+                'error' => $e->getMessage()
             ]);
         }
+        
     }
 
 

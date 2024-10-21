@@ -76,13 +76,16 @@ class GameRepository extends MainRepository
             p.label AS pegi_name,
             s.price AS specification_price,
             pl.name AS plateforme_name,
+            s.promo AS promo,
             g.id_jeu AS id
             FROM games AS g
             INNER JOIN specifications s ON g.id_jeu = s.id_jeu
             INNER JOIN plateforme pl ON s.id_plateforme = pl.id_plateforme
             INNER JOIN pegi p ON g.id_pegi = p.id_pegi
+            WHERE s.discounted = 1
             ORDER BY RAND()
-            LIMIT 6');
+            LIMIT 6
+            ');
 
 
         $query->execute();

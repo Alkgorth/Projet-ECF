@@ -112,7 +112,7 @@ require_once _ROOTPATH_ . '/templates/footer.php';
 
 
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['saveUser'])) {
             if (!empty($_POST)) {
                 if (
                     isset(
