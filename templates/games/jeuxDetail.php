@@ -84,7 +84,7 @@ require_once _ROOTPATH_ . '\templates\header.php';
     <div class="accordion container" id="accordionExample">
         <div class="accordion-item">
             <h2 class="accordion-header">
-                <button class="accordion-button tertiary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseTwo">
+                <button class="accordion-button tertiary fs-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseTwo">
                     Description
                 </button>
             </h2>
@@ -98,10 +98,10 @@ require_once _ROOTPATH_ . '\templates\header.php';
         <div class="container">
             <h2>A propos</h2>
             <p class="text-center fs-2">
-                Développeur:<?= $gamesDetails['developpeur'] ?><br>
-                Editeur: <?= $gamesDetails['editeur'] ?><br>
-                Date de sortie: <?= $gamesDetails['date_de_sortie'] ?><br>
-                Genre:<?= $gamesDetails['genre'] ?><br>
+                Développeur : <?= $gamesDetails['developpeur'] ?><br>
+                Editeur : <?= $gamesDetails['editeur'] ?><br>
+                Date de sortie : <?= $gamesDetails['date_de_sortie'] ?><br>
+                Genre : <?= $gamesDetails['genre'] ?><br>
             </p>
         </div>
 </section>
