@@ -14,11 +14,11 @@ require_once _ROOTPATH_ . '\templates\header.php';
         </section>
         <section class="listeMenu">
             <ul class="menu ">
-                <li ><a href="" class="text-white">Créer employé</a></li>
-                <li><a href="" class="text-white">Afficher les ventes</a></li>
-                <li><a href="" class="text-white">Créer article</a></li>
-                <li><a href="" class="text-white">Gérer les stocks</a></li>
-                <li><a href="" class="text-white">Tableau des ventes</a></li>
+                <li ><a href="index.php?controller=admin&action=creationEmploye" class="text-white">Créer employé</a></li>
+                <li><a href="index.php?controller=admin&action=adminAccueil" class="text-white">Afficher les ventes</a></li>
+                <li><a href="index.php?controller=admin&action=adminCreationArticle" class="text-white">Créer article</a></li>
+                <li><a href="index.php?controller=admin&action=gestionStocks" class="text-white">Gérer les stocks</a></li>
+                <li><a href="index.php?controller=admin&action=adminAccueil" class="text-white">Tableau des ventes</a></li>
             </ul>
         </section>
     </main>
