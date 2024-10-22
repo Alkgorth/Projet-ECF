@@ -7,7 +7,9 @@ class Game extends MainEntity
     protected ?int $id_jeu = null;
     protected string $name = '';
     protected string $description = '';
-    protected string $id_pegi = '';
+    protected int $id_pegi;
+    protected int $id_about;
+
 
 
 
@@ -79,6 +81,24 @@ class Game extends MainEntity
     public function setIdPegi(string $id_pegi): self
     {
         $this->id_pegi = $id_pegi;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id_about
+     */
+    public function getIdAbout(): int
+    {
+        return $this->id_about;
+    }
+
+    /**
+     * Set the value of id_about
+     */
+    public function setIdAbout(int $id_about): self
+    {
+        $this->id_about = $id_about;
 
         return $this;
     }
