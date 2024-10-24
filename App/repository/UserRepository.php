@@ -54,6 +54,14 @@ class UserRepository extends MainRepository
 
     }
 
+    public function delete(int $id)
+    {
+        // requête qui supprime l'utilisateur
+        $query = $this->pdo->prepare("DELETE FROM app_user WHERE id = :id");
+        $query->bindValue(':id', $id, $this->pdo::PARAM_INT);
+        return $query->execute();
+    }
+
     /**
      * if (!empty($_POST)) {
     *         if (isset(
