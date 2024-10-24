@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use APP\Repository\GameRepository;
-use APP\Repository\SpecificationsRepository;
+use App\Repository\GameRepository;
+use App\Repository\SpecificationsRepository;
 
 class GameController extends Controller
 {
