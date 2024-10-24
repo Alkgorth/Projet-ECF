@@ -34,7 +34,7 @@ class AdminCreaRepository extends MainRepository
     @price DECIMAL(10, 2),
     @quantity INT,
     @discounted BOOLEAN,
-    @promo DECIMAL(2, 2),
+    @promo DECIMAL(3, 2),
     @store VARCHAR(8)
 
     AS
@@ -42,29 +42,36 @@ class AdminCreaRepository extends MainRepository
         BEGIN TRANSACTION;
 
         INSERT INTO about (developpeur, editeur, date_de_sortie)
-            VALUES ('valeur1', 'valeur2', 'valeur13');
-                DECLARE @about_id INT = SCOPE_IDENTITY();
+            VALUES (@developpeur, @editeur, @date_de_sortie);
+                DECLARE @id_about INT = SCOPE_IDENTITY();
+
         INSERT INTO games (name, description, id_pegi, id_about)
-            VALUES ('valeur3', 'valeur4', @pegi, @about_id);
-                DECLARE @game_id INT = SCOPE_IDENTITY();
+            VALUES (@game_name, @description, @pegi, @id_about);
+                DECLARE @id_game INT = SCOPE_IDENTITY();
+
         INSERT INTO genre (name)
-            VALUES ('valeur5');
-                DECLARE @genre_id INT = SCOPE_IDENTITY();
+            VALUES (@genre);
+                DECLARE @id_genre INT = SCOPE_IDENTITY();
+
         INSERT INTO image (name, id_jeu)
-            VALUES ('valeur6', @game_name);
-                DECLARE @image_id INT = SCOPE_IDENTITY();
+            VALUES (@image, @id_game);
+                DECLARE @id_image INT = SCOPE_IDENTITY();
+
         INSERT INTO pegi (label)
-            VALUES ('valeur7');
-                DECLARE @pegi_id INT = SCOPE_IDENTITY();
+            VALUES (@pegi);
+                DECLARE @id_pegi INT = SCOPE_IDENTITY();
+
         INSERT INTO plateforme (name)
-            VALUES ('valeur8');
-                DECLARE @plateforme_id INT = SCOPE_IDENTITY();
+            VALUES (@plateforme);
+                DECLARE @id_plateforme INT = SCOPE_IDENTITY();
+
         INSERT INTO specifications (id_store, id_jeu, id_plateforme, price, quantity, discounted, promo)
-            VALUES ( @store, @game_name, @plateforme, 'valeur9', 'valeur10', 'valeur11', 'valeur12');
-                DECLARE @specifications_id INT = SCOPE_IDENTITY();
-        INSERT INTO image (city)
-            VALUES ('valeur14');
-                DECLARE @store_id INT = SCOPE_IDENTITY();
+            VALUES ( @store, @id_game, @id_plateforme, @price, @quantity, @discounted, @promo);
+                DECLARE @id_specifications INT = SCOPE_IDENTITY();
+                
+        INSERT INTO store (city)
+            VALUES (@store);
+                DECLARE @id_store VARCHAR = SCOPE_IDENTITY();
 
         COMMIT TRANSACTION;
     END;
