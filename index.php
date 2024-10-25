@@ -19,5 +19,5 @@ $controller->route();
 *   var_dump($gameDetail);
  */
 
-
+var_dump($_POST);
 ?>

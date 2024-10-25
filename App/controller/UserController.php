@@ -6,9 +6,10 @@ use App\Repository\GameRepository;
 use App\Repository\UserRepository;
 use App\Entity\User;
 use App\Tools\UserValidator;
+use App\Tools\Security;
 
 
-class PageController extends Controller
+class UserController extends Controller
 {
     
     public function route(): void
@@ -43,7 +44,6 @@ class PageController extends Controller
         }
     }
 
-    // exemple d'appel depuis l'url
     // controller=page&action=home
     protected function home()
     {
@@ -54,9 +54,8 @@ class PageController extends Controller
             'games' => $game
         ]);
     }
-
-    // exemple d'appel depuis l'url
-    // controller=page&action=about
+    
+    // controller=page&action=creationCompte
     protected function creationCompte()
     {
         try {
@@ -91,11 +90,11 @@ class PageController extends Controller
         
     }
 
-
+    // controller=page&action=espacePersonnel
     protected function espacePersonnel()
     {
-
-        $this->render('pages/espacePersonnel', []);
+        $this->render('pages/espacePersonnel', [
+        ]);
     }
 
     protected function panier()

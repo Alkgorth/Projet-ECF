@@ -41,21 +41,13 @@ class AdminCreaRepository extends MainRepository
     BEGIN
         BEGIN TRANSACTION;
 
-        INSERT INTO about (developpeur, editeur, date_de_sortie)
-            VALUES (@developpeur, @editeur, @date_de_sortie);
-                DECLARE @id_about INT = SCOPE_IDENTITY();
-
-        INSERT INTO games (name, description, id_pegi, id_about)
-            VALUES (@game_name, @description, @pegi, @id_about);
-                DECLARE @id_game INT = SCOPE_IDENTITY();
+        INSERT INTO store (city)
+            VALUES (@store);
+                DECLARE @id_store VARCHAR = SCOPE_IDENTITY();
 
         INSERT INTO genre (name)
             VALUES (@genre);
                 DECLARE @id_genre INT = SCOPE_IDENTITY();
-
-        INSERT INTO image (name, id_jeu)
-            VALUES (@image, @id_game);
-                DECLARE @id_image INT = SCOPE_IDENTITY();
 
         INSERT INTO pegi (label)
             VALUES (@pegi);
@@ -65,13 +57,21 @@ class AdminCreaRepository extends MainRepository
             VALUES (@plateforme);
                 DECLARE @id_plateforme INT = SCOPE_IDENTITY();
 
+        INSERT INTO about (developpeur, editeur, date_de_sortie)
+            VALUES (@developpeur, @editeur, @date_de_sortie);
+                DECLARE @id_about INT = SCOPE_IDENTITY();
+
+        INSERT INTO games (name, description, id_pegi, id_about)
+            VALUES (@game_name, @description, @pegi, @id_about);
+                DECLARE @id_game INT = SCOPE_IDENTITY();
+
+        INSERT INTO image (name, id_jeu)
+            VALUES (@image, @id_game);
+                DECLARE @id_image INT = SCOPE_IDENTITY();
+
         INSERT INTO specifications (id_store, id_jeu, id_plateforme, price, quantity, discounted, promo)
             VALUES ( @store, @id_game, @id_plateforme, @price, @quantity, @discounted, @promo);
                 DECLARE @id_specifications INT = SCOPE_IDENTITY();
                 
-        INSERT INTO store (city)
-            VALUES (@store);
-                DECLARE @id_store VARCHAR = SCOPE_IDENTITY();
-
         COMMIT TRANSACTION;
     END;

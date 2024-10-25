@@ -11,7 +11,7 @@ class Controller
             if (isset($_GET['controller'])) {
                 switch ($_GET['controller']) {
                     case 'pages':
-                        $pageController = new PageController();
+                        $pageController = new UserController();
                         // on appelle la méthode route du fichier PageController
                         $pageController->route();
                         break;
@@ -36,7 +36,7 @@ class Controller
                 }
             } else {
 
-                $pageController = new PageController();
+                $pageController = new UserController();
                 $pageController->home();
             }
         } catch (\Exception $e) {
