@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Repository\UserRepository;
+use App\Tools\Security;
+
 class ConnexionsController extends Controller
 {
     public function route(): void
@@ -40,8 +43,40 @@ class ConnexionsController extends Controller
 
     protected function connexion()
     {
-        $this->render('connexions/connexion', []);
+        
+        try {
+            $error = [];
+
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['connexion'])) {
+                if (isset($_POST['mail']) && isset($_POST['password'])) {
+                    $mail = $_POST['mail'];
+                    $password = $_POST['password'];
+    
+                    $user = new UserRepository();
+                    $user = $user->findUserByMail($mail);
+    
+                    if ($user) {
+                        if ($user && Security::Loggin($password, $user['password'])) {
+                            header('Location: index.php?controller=pages&action=espacePersonnel');
+                            return true;
+                        }
+                    }
+                }
+                $error[] = "Identifiant ou mot de passe incorrect";
+            }
+            $this->render('connexions/connexion', [
+                'user' => $user,
+                'error' => $error
+            ]);
+
+        } catch (\Exception $e) {
+            $this->render('errors/default', [
+                'error' => $e->getMessage()
+            ]);
+            
+        }
     }
+
 
     protected function mdpOublie()
     {

@@ -6,6 +6,8 @@ namespace App\Repository;
 use App\Db\Mysql;
 use App\Entity\Game;
 use App\Entity\User;
+use App\Tools\Security;
+use App\Tools\UserValidator;
 
 class UserRepository extends MainRepository
 {
@@ -17,7 +19,7 @@ class UserRepository extends MainRepository
         $query->execute();
         $user = $query->fetch($this->pdo::FETCH_ASSOC);
         if ($user) {
-            return User::createAndHydrate($user);
+            // return User::createAndHydrate($user);
         } else {
             return false;
         }
@@ -62,39 +64,11 @@ class UserRepository extends MainRepository
         return $query->execute();
     }
 
-    /**
-     * if (!empty($_POST)) {
-    *         if (isset(
-    *             $_POST['last_name'],
-    *             $_POST['first_name'],
-    *             $_POST['adresse'],
-    *             $_POST['mail'],
-    *             $_POST['zip_code'],
-    *             $_POST['password'],
-    *             $_POST['passwordConfirm']
-    *           )
-    *           && !empty($_POST['last_name'])
-    *           && !empty($_POST['first_name'])
-    *           && !empty($_POST['adresse'])
-    *           && !empty($_POST['mail'])
-    *           && !empty($_POST['zip_code'])
-    *           && !empty($_POST['password'])
-    *           && !empty($_POST['passwordConfirm'])
-    *       ) {
-    *       $last_name = htmlspecialchars(trim($_POST['last_name']));
-    *       $first_name = htmlspecialchars(trim($_POST['first_name']));
-    *       } else {
-    *       $errors[] = "Veuillez remplir tous les champs";
-    *       }
-    *   }
-    *}
-     * 
-     */
-
-
-
-    public function findUser(string $mail)
+    public function findUserByMail(string $mail)
     {
+        if(UserValidator::getCurrentUserMail($mail) == false){
+            return false;
+        }
         $query = $this->pdo->prepare('SELECT * FROM app_user WHERE mail = :mail');
 
         $query->bindValue(':mail', $mail, $this->pdo::PARAM_STR);

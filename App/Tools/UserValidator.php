@@ -34,4 +34,22 @@ class UserValidator extends User
         }
         return $errors;
     }
+
+    public static function getCurrentUserMail(): int|bool
+    {
+        if((isset($_SESSION['user']) && isset($_SESSION['user']['mail']))) {
+            return $_SESSION['user']['mail'];
+        } else {
+            return false;
+        }
+    }
+
+    public static function getCurrentUserId(): int|bool
+    {
+        if((isset($_SESSION['user']) && isset($_SESSION['user']['id']))) {
+            return $_SESSION['user']['id'];
+        } else {
+            return false;
+        }
+    }
 }

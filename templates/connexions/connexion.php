@@ -8,19 +8,20 @@ require_once _ROOTPATH_.'\templates\head.php';
     <a href="../index.php">
         <img src="../Images/Logo GameStore-2.png" alt="Logo GameStore" class="align-text-center w-100 pb-4">
     </a>
-    <form>
+    <form method="POST" action="index.php">
         <div class="mb-3 text-center">
             <label for="email" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" class="mail">
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
         <div class="mb-3 text-center">
             <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password">
+            <input type="password" class="form-control" id="password" name="password">
         </div>
 
+        <?php ?>
         <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-dark mb-4">Connexion</button>
+            <button type="submit" class="btn btn-dark mb-4" name="connexion">Connexion</button>
         </div>
 
         <div>
