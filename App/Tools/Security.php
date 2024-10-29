@@ -18,5 +18,8 @@ class Security
 
     }
 
-    // public static function logIn(string $mail, string $password): bool
+    public static function isLogged(): bool
+    {
+        return isset($_SESSION['user']);
+    }
 }

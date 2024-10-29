@@ -26,6 +26,9 @@ class ConnexionsController extends Controller
                     case 'reinitialiserMdp':
                         $this->reinitialiserMdp();
                         break;
+                    case 'deconnexion':
+                        $this->deconnexion();
+                        break;
                     default:
                         throw new \Exception("Cette action n'existe pas : " . $_GET['action']);
                         break;
@@ -44,45 +47,44 @@ class ConnexionsController extends Controller
     protected function connexion()
     {
 
-        
-            $error = [];
 
-            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['connexion'])) {
-                if (isset($_POST['mail']) && isset($_POST['password'])) {
-                    $mail = $_POST['mail'];
-                    $password = $_POST['password'];
-                    
-                    $userRepo = new UserRepository();
-                    $user = $userRepo->findUserByMail($mail);
-            
-                    if ($user && Security::verifyPassword($password, $user->getPassword())) {
-                        session_regenerate_id(true);
-                        echo "Connexion réussie premier message";
-                        var_dump($_SESSION['user']);
-                        $_SESSION['user'] = [
-                            'id' => $user->getIdUser(),
-                            'mail' => $user->getMail(),
-                            'last_name' => $user->getLastName(),
-                            'first_name' => $user->getFirstName(),
-                            'adresse' => $user->getAdresse(),
-                            'zip_code' => $user->getZipCode(),
-                            'city' => $user->getCity(),
-                            'fk_id_store' => $user->getFkIdStore(),
-                            'role' => $user->getRole()
-                        ];
-                        echo "Connexion réussie deuxieme message";
-                        header('Location: index.php?controller=pages&action=espacePersonnel');
-                    } else {
-                        echo "Identifiant ou mot de passe incorrect";
-                        $error[] = "Identifiant ou mot de passe incorrect";
-                    }
+        $error = [];
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['connexion'])) {
+            if (isset($_POST['mail']) && isset($_POST['password'])) {
+                $mail = $_POST['mail'];
+                $password = $_POST['password'];
+
+                $userRepo = new UserRepository();
+                $user = $userRepo->findUserByMail($mail);
+
+                if ($user && Security::verifyPassword($password, $user->getPassword())) {
+                    session_regenerate_id(true);
+                    echo "Connexion réussie premier message";
+                    var_dump($_SESSION['user']);
+                    $_SESSION['user'] = [
+                        'id' => $user->getIdUser(),
+                        'mail' => $user->getMail(),
+                        'last_name' => $user->getLastName(),
+                        'first_name' => $user->getFirstName(),
+                        'adresse' => $user->getAdresse(),
+                        'zip_code' => $user->getZipCode(),
+                        'city' => $user->getCity(),
+                        'fk_id_store' => $user->getFkIdStore(),
+                        'role' => $user->getRole()
+                    ];
+                    echo "Connexion réussie deuxieme message";
+                    header('Location: index.php?controller=pages&action=espacePersonnel');
+                } else {
+                    echo "Identifiant ou mot de passe incorrect";
+                    $error[] = "Identifiant ou mot de passe incorrect";
                 }
             }
-            $this->render('connexions/connexion', [
-                'user' => $user,
-                'error' => $error
-            ]);
-       
+        }
+        $this->render('connexions/connexion', [
+            'user' => $user,
+            'error' => $error
+        ]);
     }
 
 
@@ -99,5 +101,13 @@ class ConnexionsController extends Controller
     protected function reinitialiserMdp()
     {
         $this->render('connexions/reinitialiserMdp', []);
+    }
+
+    protected function deconnexion()
+    {
+        session_regenerate_id(true);
+        session_destroy();
+        unset($_SESSION);
+        header ('location: index.php?controller=connexions&action=connexion');
     }
 }

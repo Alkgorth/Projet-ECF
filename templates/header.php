@@ -1,3 +1,8 @@
+<?php
+
+use App\Tools\Navigation;
+
+?>
 <header>
 
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -14,7 +19,14 @@
             <a class="nav-link" href="index.php?controller=pages&action=panier"><i class="bi bi-cart-plus fs-2"></i></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.php?controller=connexions&action=connexion"><i class="bi bi-person-square fs-2"></i></a>
+            <?php if (isset($_SESSION['user'])) { ?>
+              <a class="nav-link" href="index.php?controller=connexions&action=deconnexion"><i class="bi bi-person-circle fs-2">Déconnexion</i></a>
+            <?php } else { ?>
+            <!-- <a class="nav-link" href="index.php?controller=connexions&action=connexion"><i class="bi bi-person-square fs-2"></i></a> -->
+            <a href="/index.php?controller=connexions&action=connexion" class="btn btn-outline-primary me-2 <?= Navigation::addActiveClass('connexions', 'connexion') ?>">Connexion</a>
+            <a href="/index.php?controller=pages&action=creationCompte" class="btn btn-outline-primary me-2 <?= Navigation::addActiveClass('pages', 'creationCompte') ?>">Inscription</a>
+            
+            <?php } ?>
           </li>
           <li class="nav-item">
             <form class="d-flex nav-link" role="search">
