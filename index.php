@@ -1,11 +1,24 @@
 <?php
+require_once __DIR__.'/config_const.php';
 
+session_set_cookie_params([
+    'lifetime' => 3600,
+    'path' => '/',
+    'domain' => $_SERVER['SERVER_NAME'],
+    'httponly' => true
+]);
+session_start();
+echo 'Session ID : '.session_id().'<br>';
+print_r($_SESSION);
 define('_ROOTPATH_', __DIR__);
-
+define('_TEMPLATEPATH_', __DIR__.'/templates');
 spl_autoload_register();
 
 use App\Controller\Controller;
-use App\Repository\GameRepository;
+use App\Entity\User;
+
+var_dump($_SESSION['user']);
+var_dump($user);
 
 $controller = new Controller;
 $controller->route();
@@ -19,5 +32,5 @@ $controller->route();
 *   var_dump($gameDetail);
  */
 
-var_dump($_POST);
+
 ?>

@@ -32,7 +32,7 @@ class UserRepository extends MainRepository
             $query = $this->pdo->prepare(
                 "UPDATE app_user SET last_name = :last_name, first_name = :first_name, mail = :mail,
                                         adresse = :adresse, zip_code = :zip_code, city = :city, password = :password, fk_id_store = :fk_id_store
-                                        WHERE id = :id"
+                                        WHERE id_user = :id"
             );
             $query->bindValue(':id', $user->getIdUser(), $this->pdo::PARAM_INT);
         } else {
@@ -59,14 +59,14 @@ class UserRepository extends MainRepository
     public function delete(int $id)
     {
         // requête qui supprime l'utilisateur
-        $query = $this->pdo->prepare("DELETE FROM app_user WHERE id = :id");
+        $query = $this->pdo->prepare("DELETE FROM app_user WHERE id_user = :id");
         $query->bindValue(':id', $id, $this->pdo::PARAM_INT);
         return $query->execute();
     }
 
     public function findUserByMail(string $mail)
     {
-        if(UserValidator::getCurrentUserMail($mail) == false){
+        if(!filter_var($mail, FILTER_VALIDATE_EMAIL)){
             return false;
         }
         $query = $this->pdo->prepare('SELECT * FROM app_user WHERE mail = :mail');
@@ -77,6 +77,10 @@ class UserRepository extends MainRepository
 
         $user = $query->fetch($this->pdo::FETCH_ASSOC);
 
-        return $user;
+        if($user){
+            return User::createAndHydrate($user);
+        } else {
+            return false;
+        }
     }
 }
