@@ -14,19 +14,9 @@ class Security
 
     public static function verifyPassword(string $password, string $hash): bool
     {
-        return password_verify($password, $hash);
+       return password_verify($password, $hash);
+
     }
 
-    public static function Loggin(string $password, string $user): bool
-    {
-        $user = new User();
-
-        if (self::verifyPassword($password, $user->getPassword())) {
-            $_SESSION['user'] = [
-                'id' => $user->getIdUser()
-            ];
-            return true;
-        }
-     return false;
-    }
+    // public static function logIn(string $mail, string $password): bool
 }

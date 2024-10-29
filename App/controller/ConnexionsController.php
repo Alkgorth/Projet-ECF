@@ -43,38 +43,46 @@ class ConnexionsController extends Controller
 
     protected function connexion()
     {
+
         
-        try {
             $error = [];
 
-            if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['connexion'])) {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['connexion'])) {
                 if (isset($_POST['mail']) && isset($_POST['password'])) {
                     $mail = $_POST['mail'];
                     $password = $_POST['password'];
-    
-                    $user = new UserRepository();
-                    $user = $user->findUserByMail($mail);
-    
-                    if ($user) {
-                        if ($user && Security::Loggin($password, $user['password'])) {
-                            header('Location: index.php?controller=pages&action=espacePersonnel');
-                            return true;
-                        }
+                    
+                    $userRepo = new UserRepository();
+                    $user = $userRepo->findUserByMail($mail);
+            
+                    if ($user && Security::verifyPassword($password, $user->getPassword())) {
+                        session_regenerate_id(true);
+                        echo "Connexion réussie premier message";
+                        var_dump($_SESSION['user']);
+                        $_SESSION['user'] = [
+                            'id' => $user->getIdUser(),
+                            'mail' => $user->getMail(),
+                            'last_name' => $user->getLastName(),
+                            'first_name' => $user->getFirstName(),
+                            'adresse' => $user->getAdresse(),
+                            'zip_code' => $user->getZipCode(),
+                            'city' => $user->getCity(),
+                            'fk_id_store' => $user->getFkIdStore(),
+                            'role' => $user->getRole()
+                        ];
+                        echo "Connexion réussie deuxieme message";
+                        header('Location: index.php?controller=pages&action=espacePersonnel');
+                    } else {
+                        echo "Identifiant ou mot de passe incorrect";
+                        $error[] = "Identifiant ou mot de passe incorrect";
                     }
                 }
-                $error[] = "Identifiant ou mot de passe incorrect";
             }
             $this->render('connexions/connexion', [
                 'user' => $user,
                 'error' => $error
             ]);
-
-        } catch (\Exception $e) {
-            $this->render('errors/default', [
-                'error' => $e->getMessage()
-            ]);
-            
-        }
+       
     }
 
 

@@ -93,6 +93,44 @@ class UserController extends Controller
     // controller=page&action=espacePersonnel
     protected function espacePersonnel()
     {
+        if(!isset($_SESSION['user'])) {
+            header('Location: index.php?controller=connexions&action=connexion');
+        }
+
+        if (isset($_POST['saveUser'])) {
+            $error = [];
+
+            $user = new User();
+            $user->hydrate($_POST);
+            $user->setIdUser($_SESSION['user']['id']);
+            $user->setRole($_SESSION['user']['role']);
+            $error = UserValidator::validate($user);
+
+            if(empty($error)) {
+                $userRepository = new UserRepository();
+                $userRepository->persist($user);
+
+                $_SESSION['user'] = [
+                    'id' => $user->getIdUser(),
+                    'mail' => $user->getMail(),
+                    'last_name' => $user->getLastName(),
+                    'first_name' => $user->getFirstName(),
+                    'adresse' => $user->getAdresse(),
+                    'zip_code' => $user->getZipCode(),
+                    'city' => $user->getCity(),
+                    'fk_id_store' => $user->getFkIdStore(),
+                    'role' => $user->getRole()
+                ];
+            }
+        }
+
+        if (isset($_POST['delete'])) {
+            $userRepository = new UserRepository();
+            $userRepository->delete($_SESSION['user']['id']);
+            session_destroy();
+            header('Location: index.php?controller=pages&action=home');
+        }
+        
         $this->render('pages/espacePersonnel', [
         ]);
     }

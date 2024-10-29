@@ -31,36 +31,36 @@ require_once _ROOTPATH_ . '\templates\header.php';
 </div>
 
 <main class="container mx-5">
-<form class="m-5 p-4 text-white" method="POST">
-    <h1 class="text-center pb-4">Créer mon compte</h1>
+<form class="m-5 p-4 text-white" method="POST" action="index.php?controller=pages&action=espacePersonnel">
+    <h1 class="text-center pb-4">Espace personnel</h1>
     <div class="mb-3 text-center">
         <label for="last_name" class="form-label">Nom</label>
-        <input type="text" class="form-control" id="last_name" name="last_name" autocomplete="<?php $user['last_name'] ?>">
+        <input type="text" class="form-control" id="last_name" name="last_name" value="<?= htmlspecialchars($_SESSION['user']['last_name']) ?>">
         
     </div>
     <div class="mb-3 text-center">
         <label for="first_name" class="form-label">Prénom</label>
-        <input type="text" class="form-control" id="first_name" name="first_name" autocomplete="<?php $user['last_name'] ?>">
+        <input type="text" class="form-control" id="first_name" name="first_name" value="<?= htmlspecialchars($_SESSION['user']['first_name']) ?>">
         
     </div>
     <div class="mb-3 text-center">
         <label for="adresse" class="form-label">Adresse</label>
-        <input type="text" class="form-control" id="adresse" name="adresse" autocomplete="<?php $user['last_name'] ?>">
+        <input type="text" class="form-control" id="adresse" name="adresse" value="<?= htmlspecialchars($_SESSION['user']['adresse']) ?>">
         
     </div>
     <div class="mb-3 text-center">
         <label for="zip_code" class="form-label">Code Postale</label>
-        <input type="text" pattern="[0-9, A-B]{5}" class="form-control" id="zip_code" name="zip_code" maxlength="5" autocomplete="<?php $user['last_name'] ?>">
+        <input type="text" pattern="[0-9, A-B]{5}" class="form-control" id="zip_code" name="zip_code" maxlength="5" value="<?= htmlspecialchars($_SESSION['user']['zip_code']) ?>">
        
     </div>
     <div class="mb-3 text-center">
         <label for="city" class="form-label">Ville</label>
-        <input type="text" class="form-control" id="city" name="city" autocomplete="<?php $user['last_name'] ?>">
+        <input type="text" class="form-control" id="city" name="city" value="<?= htmlspecialchars($_SESSION['user']['city']) ?>">
        
     </div>
     <div class="mb-3 text-center">
         <label for="mail" class="form-label">Email</label>
-        <input type="email" class="form-control" id="mail" name="mail" autocomplete="<?php $user['last_name'] ?>">
+        <input type="email" class="form-control" id="mail" name="mail" value="<?= htmlspecialchars($_SESSION['user']['mail']) ?>">
       
     </div>
     <div class="mb-3 text-center">
@@ -75,24 +75,26 @@ require_once _ROOTPATH_ . '\templates\header.php';
     </div>
     <div class="mb-3 text-center">
         <label for="fk_id_store" class="form-label">Magasin</label>
-        <select class="form-select" id="fk_id_store" name="fk_id_store" autocomplete="<?php $user['last_name'] ?>">
-            <option selected>Choisir...</option>
-            <option value="1">Lille</option>
-            <option value="2">Nantes</option>
-            <option value="3">Bordeaux</option>
-            <option value="4">Toulouse</option>
-            <option value="5">Paris</option>
+        <select class="form-select" id="fk_id_store" name="fk_id_store">
+            <option value="1" <?= (isset($_SESSION['user']['fk_id_store']) && $_SESSION['user']['fk_id_store'] == 1) ? 'selected' : '' ?>>Lille</option>
+            <option value="2" <?= (isset($_SESSION['user']['fk_id_store']) && $_SESSION['user']['fk_id_store'] == 2) ? 'selected' : '' ?>>Nantes</option>
+            <option value="3" <?= (isset($_SESSION['user']['fk_id_store']) && $_SESSION['user']['fk_id_store'] == 3) ? 'selected' : '' ?>>Bordeaux</option>
+            <option value="4" <?= (isset($_SESSION['user']['fk_id_store']) && $_SESSION['user']['fk_id_store'] == 4) ? 'selected' : '' ?>>Toulouse</option>
+            <option value="5" <?= (isset($_SESSION['user']['fk_id_store']) && $_SESSION['user']['fk_id_store'] == 5) ? 'selected' : '' ?>>Paris</option>
         </select>
 
     <div class="text-center">
         <button type="submit" name="saveUser" class="btn btn-warning m-4">Valider</button>
+    </div>
+    <div class="text-center">
+        <button type="submit" name="delete" class="btn btn-dark m-4">Supprimer mon compte</button>
     </div>
 
 </form>
 </main>
 <?php
 
-var_dump($_SESSION);
+
 
 require_once _ROOTPATH_ . '\templates\footer.php';
 
