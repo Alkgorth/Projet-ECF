@@ -17,8 +17,7 @@ spl_autoload_register();
 use App\Controller\Controller;
 use App\Entity\User;
 
-var_dump($_SESSION['user']);
-var_dump($user);
+
 
 $controller = new Controller;
 $controller->route();

@@ -40,7 +40,7 @@ use App\Repository\SpecificationsRepository;
     <?php foreach ($games as $game) { ?>
       <div class="card col-sm-6 mb-3 mb-sm-0 py-2">
         <a href="index.php?controller=games&action=jeuxDetail&id=<?= $game['id'] ?>" id="jeu_promo" class="text-decoration-none text-white">
-          <img src="../Images/Jeux/AC_Valhalla_panorama.jpg" class="card-img-top" alt="<?= $game['name'] ?>">
+          <img src="..\assets\images\Jeux\GodFall_panorama.jpg" class="card-img-top" alt="<?= $game['name'] ?>">
         </a>
         <div class="card-body hstack gap-4">
           <h5 class="card-title"><?= $game['name'] ?></h5>

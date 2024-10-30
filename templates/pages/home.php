@@ -10,7 +10,7 @@ require_once _ROOTPATH_ . '\templates\header.php';
 <main>
     <section>
         <div class="container">
-            <img src="..\Images\signal-5153517_1920.jpg" alt="" class="w-100 image-en-tete col-10">
+            <img src="..\assets\images\signal-5153517_1920.jpg" alt="" class="w-100 image-en-tete col-10">
         </div>
 
         <!-- Texte de présentation GameStore -->
@@ -39,7 +39,7 @@ require_once _ROOTPATH_ . '\templates\header.php';
                 <?php for ($i = 0; $i < 3; $i++) { ?>
                     <div class="carousel-item <?= $i === 0 ? 'active' : '' ?>">
                         <a href="index.php?controller=games&action=jeuxDetail&id=<?= $games[$i]['id'] ?>" id="jeu_carrousel" class="text-decoration-none text-white">
-                            <img src="..\Images\Jeux\AC_Valhalla_panorama.jpg" class="d-block w-100" alt="<?= $games[$i]['name'] ?>">
+                            <img src="..\assets\images\Jeux\AC_Valhalla_panorama.jpg" class="d-block w-100" alt="<?= $games[$i]['name'] ?>">
                                 <div class="hstack gap-3">
                                     <h1 class="p-2 mt-auto fs-2"><?= $games[$i]['name'] ?></h1>
                                     <p class="card-text ps-5 fs-2 mt-auto"><?= $games[$i]['plateforme_name'] ?></p>
@@ -82,7 +82,7 @@ require_once _ROOTPATH_ . '\templates\header.php';
                 <?php for ($i = 0; $i < 3; $i++) { ?>
                     <div class="carousel-item <?= $i === 0 ? 'active' : '' ?>">
                         <a href="index.php?controller=games&action=promos" id="jeu_carrousel" class="text-decoration-none text-white">
-                            <img src="..\Images\Jeux\AC_Valhalla_panorama.jpg" class="d-block w-100" alt="<?= $games[$i]['name'] ?>">
+                            <img src="..\assets\images\Jeux\AC_Valhalla_panorama.jpg" class="d-block w-100" alt="<?= $games[$i]['name'] ?>">
                                 <div class="hstack gap-3">
                                     <h1 class="p-2 mt-auto fs-2"><?= $games[$i]['name'] ?></h1>
                                     <p class="p-2 mt-auto ms-auto fs-2">

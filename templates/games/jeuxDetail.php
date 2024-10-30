@@ -11,7 +11,7 @@ require_once _ROOTPATH_ . '\templates\header.php';
     <div class="container mt-4">
 
 
-        <img src="..\Images\Jeux\AC_Valhalla_panorama.jpg" class="d-block w-100" alt="Assassin's Creed Valhalla">
+        <img src="..\assets\images\Jeux\far-cry-6.jpg" class="d-block w-100" alt="Assassin's Creed Valhalla">
     </div>
     <div class="container p-4">
         <div class="row row-cols-1 row-cols-md-2 align-items-center">
@@ -55,13 +55,13 @@ require_once _ROOTPATH_ . '\templates\header.php';
         <div id="carouselPrecommande" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="..\Images\Jeux\AC Valhalla\assassin-s-creed-valhalla-pc-jeu-ubisoft-connect-europe-wallpaper-1.jpg" class="d-block w-100" alt="<?= $gamesDetails['name'] ?>">
+                    <img src="..\assets\images\Jeux\AC Valhalla\assassin-s-creed-valhalla-pc-jeu-ubisoft-connect-europe-wallpaper-1.jpg" class="d-block w-100" alt="<?= $gamesDetails['name'] ?>">
                 </div>
                 <div class="carousel-item">
-                    <img src="..\Images\Jeux\AC Valhalla\assassin-s-creed-valhalla-pc-jeu-ubisoft-connect-europe-wallpaper-2.jpg" class="d-block w-100" alt="<?= $gamesDetails['name'] ?>">
+                    <img src="..\assets\images\Jeux\AC Valhalla\assassin-s-creed-valhalla-pc-jeu-ubisoft-connect-europe-wallpaper-2.jpg" class="d-block w-100" alt="<?= $gamesDetails['name'] ?>">
                 </div>
                 <div class="carousel-item">
-                    <img src="..\Images\Jeux\AC Valhalla\assassin-s-creed-valhalla-pc-jeu-ubisoft-connect-europe-wallpaper-3.jpg" class="d-block w-100" alt="<?= $gamesDetails['name'] ?>">
+                    <img src="..\assets\images\Jeux\AC Valhalla\assassin-s-creed-valhalla-pc-jeu-ubisoft-connect-europe-wallpaper-3.jpg" class="d-block w-100" alt="<?= $gamesDetails['name'] ?>">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselPrecommande" data-bs-slide="prev">
@@ -108,7 +108,7 @@ require_once _ROOTPATH_ . '\templates\header.php';
 
 <section class="container-fluid">
     <div class="col p-3">
-        <img src="..\Images\Jeux\Diverses\square-Enix-889x500.jpg" class="w-50" alt="">
+        <img src="..\assets\images\Jeux\Diverses\square-Enix-889x500.jpg" class="w-50" alt="">
         <p></p>
         <p></p>
 

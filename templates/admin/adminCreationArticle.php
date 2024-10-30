@@ -83,7 +83,7 @@ require_once _ROOTPATH_ . '\templates\header.php';
                 </div>
 
                 <div class="mb-3 text-center">
-                    <input type="button" value="Valider" class="btn btn-warning m-4">
+                    <input type="button" value="Valider" name="enregistrer" class="btn btn-warning m-4">
                 </div>
             </fieldset>
         </form>
