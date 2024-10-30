@@ -8,8 +8,6 @@ session_set_cookie_params([
     'httponly' => true
 ]);
 session_start();
-echo 'Session ID : '.session_id().'<br>';
-print_r($_SESSION);
 define('_ROOTPATH_', __DIR__);
 define('_TEMPLATEPATH_', __DIR__.'/templates');
 spl_autoload_register();

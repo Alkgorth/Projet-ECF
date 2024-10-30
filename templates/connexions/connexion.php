@@ -11,7 +11,7 @@ require_once _ROOTPATH_ . '\templates\head.php';
 <div class="container-fluid px-5 mt-5 flex">
     <h1 class="text-center pb-4">Connexion</h1>
     <a href="../index.php">
-        <img src="../Images/Logo GameStore-2.png" alt="Logo GameStore" class="align-text-center w-100 pb-4">
+        <img src="..\assets\images\Logo GameStore-2.png" alt="Logo GameStore" class="align-text-center w-100 pb-4">
     </a>
 
     <?php foreach ($error as $errors) { ?>

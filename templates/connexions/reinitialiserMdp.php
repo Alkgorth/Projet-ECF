@@ -6,7 +6,7 @@ require_once _ROOTPATH_ . '\templates\head.php';
 
 <div>
     <a href="index.html">
-        <img src="../Images/Logo GameStore-2.png" alt="Logo GameStore" class="align-text-center w-100 pb-4">
+        <img src="..\assets\images\Logo GameStore-2.png" alt="Logo GameStore" class="align-text-center w-100 pb-4">
     </a>
     <div class="text-center fs-2">
     <ul class="py-3">
