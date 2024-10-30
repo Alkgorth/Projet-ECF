@@ -82,7 +82,6 @@ class ConnexionsController extends Controller
             }
         }
         $this->render('connexions/connexion', [
-            'user' => $user,
             'error' => $error
         ]);
     }
