@@ -8,10 +8,10 @@ require_once _ROOTPATH_ . '\templates\header.php';
 
 <main>
     <div class="formulaire">
-        <form class="m-5 p-4 text-white" method="POST">
-            <h1 class="text-center pb-4">Création article</h1>
-
-            <fieldset>
+        <form class="m-5 p-4 text-white d-flex " method="POST">
+            
+            <fieldset class="col-sm-6 mb-3 mx-auto justify-content-center">
+                <legend class="text-center pb-4">Création article</legend>
 
                 <div class="mb-3 text-center">
 
