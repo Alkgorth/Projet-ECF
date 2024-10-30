@@ -34,8 +34,16 @@ class UserValidator extends User
         if(empty($user->getPassword())){
             $error[] = "Veuillez renseigner un mot de passe";
         }
-        if ($_POST['passwordConfirm'] != $_POST['password']) {
-            $error[] = 'Les mots de passe ne correspondent pas';
+        if ($_POST['password'] !== $_POST['passwordConfirm']) {
+            $error[] = "Les mots de passe ne correspondent pas.";
+        }
+        return $error;
+    }
+
+    public static function validatePasswords($password, $passwordConfirm) {
+        $error = [];
+        if ($password !== $passwordConfirm) {
+            $error[] = "Les mots de passe ne correspondent pas.";
         }
         return $error;
     }

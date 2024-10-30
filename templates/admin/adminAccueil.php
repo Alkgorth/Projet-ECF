@@ -9,7 +9,7 @@ require_once _ROOTPATH_ . '\templates\header.php';
 <main>
         <section>
             <div >
-              <img src="../Images/Admin.png" alt="" class="image-en-tete" width="700">
+              <img src="..\assets\images\Admin.png" alt="" class="image-en-tete" width="700">
             </div>
         </section>
         <section class="listeMenu">

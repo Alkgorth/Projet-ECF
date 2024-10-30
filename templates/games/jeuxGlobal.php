@@ -34,7 +34,7 @@ use App\Repository\SpecificationsRepository;
             <?php for ($i = 0; $i < 3; $i++) { ?>
                 <div class="carousel-item <?= $i === 0 ? 'active' : '' ?>">
                     <a href="index.php?controller=games&action=jeuxDetail&id=<?= $games[$i]['id'] ?>" id="jeu_carrousel" class="text-decoration-none text-white">
-                        <img src="..\Images\Jeux\AC_Valhalla_panorama.jpg" class="d-block w-100" alt="<?= $games[$i]['name'] ?>">
+                        <img src="..\assets\images\Jeux\AC_Valhalla_panorama.jpg" class="d-block w-100" alt="<?= $games[$i]['name'] ?>">
                         <div class="hstack gap-3">
                             <h3 class="p-2 mt-auto fs-2"><?= $games[$i]['name'] ?></h3>
                             <p class="p-2 mt-auto ms-auto fs-2">
@@ -71,7 +71,7 @@ use App\Repository\SpecificationsRepository;
             <?php for ($i = 0; $i < 3; $i++) { ?>
                 <div class="carousel-item <?= $i === 0 ? 'active' : '' ?>">
                     <a href="index.php?controller=games&action=jeuxDetail&id=<?= $games[$i]['id'] ?>" id="jeu_carrousel" class="text-decoration-none text-white">
-                        <img src="..\Images\Jeux\AC_Valhalla_panorama.jpg" class="d-block w-100" alt="<?= $games[$i]['name'] ?>">
+                        <img src="..\assets\images\Jeux\dark-souls-3.jpg" class="d-block w-100" alt="<?= $games[$i]['name'] ?>">
                         <div class="hstack gap-3">
                             <h3 class="p-2 mt-auto fs-2"><?= $games[$i]['name'] ?></h3>
                             <p class="p-2 mt-auto ms-auto fs-2">
@@ -108,7 +108,7 @@ use App\Repository\SpecificationsRepository;
             <?php for ($i = 0; $i < 3; $i++) { ?>
                 <div class="carousel-item <?= $i === 0 ? 'active' : '' ?>">
                     <a href="index.php?controller=games&action=jeuxDetail&id=<?= $games[$i]['id'] ?>" id="jeu_carrousel" class="text-decoration-none text-white">
-                        <img src="..\Images\Jeux\AC_Valhalla_panorama.jpg" class="d-block w-100" alt="<?= $games[$i]['name'] ?>">
+                        <img src="..\assets\images\Jeux\fallout-new-vegas.jpg" class="d-block w-100" alt="<?= $games[$i]['name'] ?>">
                         <div class="hstack gap-3">
                             <h3 class="p-2 mt-auto fs-2"><?= $games[$i]['name'] ?></h3>
                             <p class="p-2 mt-auto ms-auto fs-2">
