@@ -47,8 +47,34 @@ class AdminController extends Controller
 
     protected function adminCreationArticle()
     {
-
-        $this->render('admin/adminCreationArticle', []);
+            try {
+                $error = [];
+    
+                $user = new User();
+    
+                if(isset($_POST['saveUser'])) {
+                    $user->hydrate($_POST);
+                    $user->setRole('user');
+                    $error = UserValidator::validate($user);
+                    
+                    if(empty($error)) {
+                        $userRepository = new UserRepository();
+                        $userRepository->persist($user);
+    
+                        header('Location: index.php?controller=connexions&action=connexion');
+                    }
+                }
+                
+                $this->render('admin/adminCreationArticle', [
+                    
+                ]);
+    
+            } catch (\Exception $e) {
+                $this->render('errors/default', [
+                    'error' => $e->getMessage()
+                ]);
+            }
+        }
     }
 
     protected function creationEmploye()

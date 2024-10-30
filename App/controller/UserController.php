@@ -104,6 +104,7 @@ class UserController extends Controller
             $user->hydrate($_POST);
             $user->setIdUser($_SESSION['user']['id']);
             $user->setRole($_SESSION['user']['role']);
+            
             $error = UserValidator::validate($user);
 
             if(empty($error)) {
@@ -132,6 +133,7 @@ class UserController extends Controller
         }
         
         $this->render('pages/espacePersonnel', [
+            'error' => $error
         ]);
     }
 

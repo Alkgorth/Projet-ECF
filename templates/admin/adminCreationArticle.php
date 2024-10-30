@@ -21,6 +21,8 @@ require_once _ROOTPATH_ . '\templates\header.php';
                 <div class="alignementBtn">
                     <label for="imageEnTete" class="form-label">Choisissez une image de couverture</label>
                     <input type="file" class="form-control" name="imageEnTete" id="imageEnTete" accept="image/png, image/jpg"><br>
+                    <label for="imagesCarrousel" class="form-label">Choisissez les images du carrousel (maintenir la touche "ctrl" pour sélectionner plusieurs images)</label>
+                    <input type="file" class="form-control" name="imagesCarrousel" id="imagesCarrousel" accept="image/png, image/jpg" multiple><br>
                 </div>
 
                 <div class="mb-3 text-center">
