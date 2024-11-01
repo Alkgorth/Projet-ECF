@@ -16,6 +16,12 @@ class AdminController extends Controller
                     case 'adminCreationArticle':
                         $this->adminCreationArticle();
                         break;
+                    case 'jeuxPlateformes':
+                        $this->jeuxPlateformes();
+                        break;
+                    case 'jeuxMagasins':
+                        $this->jeuxMagasins();
+                        break;
                     case 'creationEmploye':
                         $this->creationEmploye();
                         break;
@@ -47,13 +53,20 @@ class AdminController extends Controller
 
     protected function adminCreationArticle()
     {
-         
-                
-                $this->render('admin/adminCreationArticle', [
-                    
-                ]);
-    
-      
+
+        $this->render('admin/adminCreationArticle', []);
+    }
+
+    protected function jeuxPlateformes()
+    {
+
+        $this->render('admin/jeuxPlateformes', []);
+    }
+
+    protected function jeuxMagasins()
+    {
+
+        $this->render('admin/jeuxMagasins', []);
     }
 
     protected function creationEmploye()

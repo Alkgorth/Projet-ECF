@@ -9,7 +9,7 @@ require_once _ROOTPATH_ . '\templates\header.php';
 <main>
     <div class="formulaire">
         <form class="m-5 p-4 text-white d-flex " method="POST">
-            
+
             <fieldset class="col-sm-6 mb-3 mx-auto justify-content-center">
                 <legend class="text-center pb-4">Création article</legend>
 
@@ -29,52 +29,18 @@ require_once _ROOTPATH_ . '\templates\header.php';
 
                     <input type="text" name="pegi" id="pegi" class="form-control" placeholder="PEGI"><br>
                 </div>
-                <div class="mb-3 text-center">
 
-                    <label class="form-label" for="plateforme">Plateforme :</label>
-
-                    <select class="form-select" name="plateforme" id="plateforme">
-                        <option value="">Plateforme</option>
-                        <option value="PC">PC</option>
-                        <option value="Playstation">Playstation</option>
-                        <option value="Xbox">X-box</option>
-                        <option value="Nintendo">Nintendo</option>
-                    </select><br>
-                </div>
-                <div class="mb-3 text-center">
-
-                    <input type="text" name="prix" id="prix" class="form-control" placeholder="Prix TTC"><br>
-                </div>
-
-                <div class="mb-3 text-center">
-
-                    <label class="form-label" for="promotion">Promotion :</label>
-
-                    <select class="form-select" name="promotion" id="promotion">
-                        <option value="">Promotion</option>
-                        <option value="-5%">-5%</option>
-                        <option value="-10%">-10%</option>
-                        <option value="-20%">-20%</option>
-                    </select><br>
-                </div>
-
-                <div class="mb-3 text-center">
-
-                    <input type="number" name="stock" id="stock" class="form-control" placeholder="Stock"><br>
-                </div>
-                <div class="mb-3 text-center">
-
-                    <label class="form-label" for="genre">Genre :</label>
-
-                    <select class="form-select" name="genre" id="genre">
-                        <option value="">Genre</option>
-                        <option value="Action">Action</option>
-                        <option value="Aventure">Aventure</option>
-                        <option value="RPG">RPG</option>
-                        <option value="MMO">MMO</option>
-                        <option value="Strategie">Stratégie</option>
-                        <option value="Casual">Casual</option>
-                    </select><br>
+                <div class="dropdown mb-3 text-center">
+                    <button class="btn btn-secondary dropdown-toggle" name="pegi" id="pegi" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        PEGI
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">3</a></li>
+                        <li><a class="dropdown-item" href="#">7</a></li>
+                        <li><a class="dropdown-item" href="#">12</a></li>
+                        <li><a class="dropdown-item" href="#">16</a></li>
+                        <li><a class="dropdown-item" href="#">18</a></li>
+                    </ul>
                 </div>
 
                 <div class="mb-3 text-center">
@@ -83,7 +49,48 @@ require_once _ROOTPATH_ . '\templates\header.php';
                 </div>
 
                 <div class="mb-3 text-center">
-                    <input type="button" value="Valider" name="enregistrer" class="btn btn-warning m-4">
+
+                    <input type="text" name="developpeur" id="developpeur" class="form-control" placeholder="Développeur"><br>
+                </div>
+                <div class="mb-3 text-center">
+
+                    <input type="text" name="editeur" id="editeur" class="form-control" placeholder="Éditeur"><br>
+                </div>
+                <div class="mb-3 text-center">
+
+                    <input type="date" name="dateDeSortie" id="dateDeSortie" class="form-control" placeholder="Date de sortie"><br>
+                </div>
+
+                <div class="mb-3 text-center">
+                    <label class="form-label" for="genre">Genre :</label>
+                    <select class="form-select" name="genre" id="genre">
+                        
+                        <option value="">Genre</option>
+                        <option value="action">Action</option>
+                        <option value="aventure">Aventure</option>
+                        <option value="rpg">RPG</option>
+                        <option value="mmo">MMO</option>
+                        <option value="strategie">Stratégie</option>
+                        <option value="casual">Casual</option>
+                    </select><br>
+                </div>
+
+                <div class="d-block">
+                    <label for="genre">Choisissez un style de jeu :</label>
+                    <input list="genre" id="genre" name="genre" />
+                    <datalist id="genre">
+                        <option value="Action"></option>
+                        <option value="Aventure"></option>
+                        <option value="RPG"></option>
+                        <option value="MMO"></option>
+                        <option value="Stratégie"></option>
+                    </datalist>
+                </div>
+
+                <div class="mb-3 text-center">
+                    <a href="index.php?controller=admin&action=jeuxPlateformes">
+                        <input type="button" value="Valider" name="enregistrer" class="btn btn-warning m-4">
+                    </a>
                 </div>
             </fieldset>
         </form>
