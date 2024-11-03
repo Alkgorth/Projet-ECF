@@ -43,14 +43,14 @@ class UserRepository extends MainRepository
             $query->bindValue(':role', $user->getRole(), $this->pdo::PARAM_STR);
         }
 
-        $query->bindValue(':last_name', $user->getLastName(), $this->pdo::PARAM_STR);
-        $query->bindValue(':first_name', $user->getFirstName(), $this->pdo::PARAM_STR);
-        $query->bindValue(':mail', $user->getMail(), $this->pdo::PARAM_STR);
-        $query->bindValue(':adresse', $user->getAdresse(), $this->pdo::PARAM_STR);
-        $query->bindValue(':zip_code', $user->getZipCode(), $this->pdo::PARAM_INT);
-        $query->bindValue(':city', $user->getCity(), $this->pdo::PARAM_STR);
-        $query->bindValue(':password', password_hash($user->getPassword(), PASSWORD_DEFAULT), $this->pdo::PARAM_STR);
-        $query->bindValue(':fk_id_store', $user->getFkIdStore(), $this->pdo::PARAM_INT);
+        $query->bindValue(':last_name', htmlspecialchars( $user->getLastName()), $this->pdo::PARAM_STR);
+        $query->bindValue(':first_name', htmlspecialchars($user->getFirstName()), $this->pdo::PARAM_STR);
+        $query->bindValue(':mail', htmlspecialchars($user->getMail()), $this->pdo::PARAM_STR);
+        $query->bindValue(':adresse', htmlspecialchars($user->getAdresse()), $this->pdo::PARAM_STR);
+        $query->bindValue(':zip_code', htmlspecialchars($user->getZipCode()), $this->pdo::PARAM_INT);
+        $query->bindValue(':city', htmlspecialchars($user->getCity()), $this->pdo::PARAM_STR);
+        $query->bindValue(':password', htmlspecialchars(password_hash($user->getPassword(), PASSWORD_DEFAULT)), $this->pdo::PARAM_STR);
+        $query->bindValue(':fk_id_store', htmlspecialchars($user->getFkIdStore()), $this->pdo::PARAM_INT);
 
         return $query->execute();
 
