@@ -80,7 +80,7 @@ class UserController extends Controller
                 }
             }
 
-            
+
 
             $this->render('pages/creationCompte', [
                 'user' => '',
@@ -98,24 +98,26 @@ class UserController extends Controller
     protected function espacePersonnel()
     {
         try {
+
+            $error = [];
+            $affichage = "Vos informations ont bien été modifiées";
+
             if (!isset($_SESSION['user'])) {
                 header('Location: index.php?controller=connexions&action=connexion');
             }
-    
+
             if (isset($_POST['saveUser'])) {
-                
-                $error = [];
-                $affichage = "Vos informations ont bien été modifiées";
+
                 $user = new User();
                 $user->hydrate($_POST);
                 $user->setIdUser($_SESSION['user']['id']);
                 $user->setRole($_SESSION['user']['role']);
                 $error = UserValidator::validate($user);
-    
+
                 if (empty($error)) {
                     $userRepository = new UserRepository();
                     $userRepository->persist($user);
-    
+
                     $_SESSION['user'] = [
                         'id' => $user->getIdUser(),
                         'mail' => $user->getMail(),
@@ -128,16 +130,15 @@ class UserController extends Controller
                         'role' => $user->getRole()
                     ];
                 }
-               
             }
-    
+
             if (isset($_POST['delete'])) {
                 $userRepository = new UserRepository();
                 $userRepository->delete($_SESSION['user']['id']);
                 session_destroy();
                 header('Location: index.php?controller=pages&action=home');
             }
-    
+
             $this->render('pages/espacePersonnel', [
                 'affichage' => $affichage,
                 'error' => $error
@@ -147,7 +148,6 @@ class UserController extends Controller
                 'error' => $e->getMessage()
             ]);
         }
-        
     }
 
     protected function panier()

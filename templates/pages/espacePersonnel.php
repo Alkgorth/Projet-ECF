@@ -33,7 +33,7 @@ require_once _ROOTPATH_ . '\templates\header.php';
 <main class="container mx-5">
   <form class="m-5 p-4 text-white" method="POST" action="index.php?controller=pages&action=espacePersonnel">
 
-    <?php if (empty($error)) { ?>
+    <?php if (empty($error) && isset($_POST['saveUser'])) { ?>
       <div class="alert alert-primary" role="alert">
         <?= $affichage; ?>
       </div>
