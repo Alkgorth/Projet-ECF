@@ -53,8 +53,12 @@ class AdminController extends Controller
 
     protected function adminCreationArticle()
     {
+        $error = [];
+        
 
-        $this->render('admin/adminCreationArticle', []);
+        $this->render('admin/adminCreationArticle', [
+            'error' => $error
+        ]);
     }
 
     protected function jeuxPlateformes()
