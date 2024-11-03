@@ -68,13 +68,19 @@ class UserController extends Controller
                 $user->setRole('user');
                 $error = UserValidator::validate($user);
 
+                var_dump($user->getMail());
+
                 if (empty($error)) {
                     $userRepository = new UserRepository();
                     $userRepository->persist($user);
 
+                    Security::mailCreateUser($user->getLastName(), $user->getFirstName(), $user->getMail());
+
                     header('Location: index.php?controller=connexions&action=connexion');
                 }
             }
+
+            
 
             $this->render('pages/creationCompte', [
                 'user' => '',

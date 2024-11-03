@@ -55,6 +55,9 @@ class AdminController extends Controller
     {
         $error = [];
         
+        if (isset($_POST['enregistrer'])){
+            
+        }
 
         $this->render('admin/adminCreationArticle', [
             'error' => $error

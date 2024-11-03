@@ -6,7 +6,7 @@ class AdminCreaRepository extends MainRepository
 {
     public function createArticle(array $data)
     {
-        if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enregistrer'])) {
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $query = $this->pdo->prepare("
         CREATE PROCEDURE inserer_dans_plusieurs_tables
         @developpeur VARCHAR(50),
