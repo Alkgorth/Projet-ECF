@@ -10,9 +10,11 @@ use App\Entity\User;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+use App\Tools\configSecu;
 
 //Load Composer's autoloader
 require 'vendor\autoload.php';
+
 
 class Security
 {
@@ -42,7 +44,7 @@ class Security
             $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
             $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
             $mail->Username   = 'ap.percheron@gmail.com';                     //SMTP username
-            $mail->Password   = 'gmdv obcj ubmf kgxy';                               //SMTP password
+            $mail->Password   = ConfigSecu::$smtpPassword;                               //SMTP password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
             $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
