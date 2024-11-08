@@ -50,7 +50,7 @@ class Security
 
             //Recipients
             $mail->setFrom('ap.percheron@gmail.com', 'Mailer');
-            $mail->addAddress($email, $last_name. ' ' .$first_name);     //Add a recipient
+            $mail->addAddress($email, $last_name . ' ' . $first_name);     //Add a recipient
             $mail->addReplyTo('ap.percheron@gmail.com', 'Information');
 
             //Attachments
@@ -61,8 +61,10 @@ class Security
             $mail->isHTML(true);                                  //Set email format to HTML
             $mail->CharSet = 'UTF-8';
             $mail->ContentType = 'text/html; charset=UTF-8';
-            $mail->Subject = 'Here is the subject';
-            $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+            $mail->Subject = 'Confirmation de la création de votre compte client';
+            $mail->Body    = '<h2>Bonjour</h2>
+                            <p>Bienvenue' . $last_name . ' ' . $first_name . ' chez GameStore !</p>
+                            <a href="http://localhost:3000/index.php?controller=connexions&action=connexion">Pour vous connecter cliquez ici</a>';
             $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
             $mail->send();

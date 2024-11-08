@@ -69,6 +69,16 @@ class GameRepository extends MainRepository
         return false;
     }
 
+    public function getAllGenre()
+    {
+        $query = $this->pdo->prepare('SELECT id_genre, name FROM genre');
+        $query->execute();
+        $genres = $query->fetchAll($this->pdo::FETCH_ASSOC);
+
+        return $genres;
+        
+    }
+
     public function promoDisplay()
     {
         $query = $this->pdo->prepare('SELECT

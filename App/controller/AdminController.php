@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Repository\GameRepository;
+
 class AdminController extends Controller
 {
     public function route(): void
@@ -54,12 +56,16 @@ class AdminController extends Controller
     protected function adminCreationArticle()
     {
         $error = [];
+
+        $genreRepository = new GameRepository();
+        $genres = $genreRepository->getAllGenre();
         
         if (isset($_POST['enregistrer'])){
             
         }
 
         $this->render('admin/adminCreationArticle', [
+            'genres' => $genres,
             'error' => $error
         ]);
     }
