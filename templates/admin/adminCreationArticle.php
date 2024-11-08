@@ -3,7 +3,7 @@
 require_once _ROOTPATH_ . '\templates\head.php';
 require_once _ROOTPATH_ . '\templates\header.php';
 
-
+var_dump($genres[0]);
 ?>
 
 <main>
@@ -63,29 +63,18 @@ require_once _ROOTPATH_ . '\templates\header.php';
 
                 <div class="mb-3 text-center">
                     <label class="form-label" for="genre">Genre :</label>
-                    <select class="form-select" name="genre" id="genre">
-                        
+                    <select class="form-select" name="genre2" id="genre2">
                         <option value="">Genre</option>
-                        <option value="action">Action</option>
-                        <option value="aventure">Aventure</option>
-                        <option value="rpg">RPG</option>
-                        <option value="mmo">MMO</option>
-                        <option value="strategie">Stratégie</option>
-                        <option value="casual">Casual</option>
+                        <?php foreach ($genres as $genre) : ?>
+                            <option value="<?php $genre['id_genre'] ?>"><?= $genre['name'] ?></option>
+                        <?php endforeach; ?>
                     </select><br>
                 </div>
-
-                <div class="d-block">
-                    <label for="genre">Choisissez un style de jeu :</label>
-                    <input list="genre" id="genre" name="genre" />
-                    <datalist id="genre">
-                        <option value="Action"></option>
-                        <option value="Aventure"></option>
-                        <option value="RPG"></option>
-                        <option value="MMO"></option>
-                        <option value="Stratégie"></option>
-                    </datalist>
-                </div>
+                <select name="genre" id="genre2">
+                    <?php foreach ($genres as $genre) : ?>
+                        <option value="<?php $genre['id_genre'] ?>"><?= $genre['name'] ?></option>
+                    <?php endforeach; ?>
+                </select>
 
                 <div class="mb-3 text-center">
                     <a href="index.php?controller=admin&action=jeuxPlateformes">
@@ -101,5 +90,13 @@ require_once _ROOTPATH_ . '\templates\header.php';
 <?php
 
 require_once _ROOTPATH_ . '\templates\footer.php';
+
+/**
+ *   <select class="js-example-basic-multiple" name="states[]" multiple="multiple">
+ *   <option value="AL">Alabama</option>
+ *   ...
+ *   <option value="WY">Wyoming</option>
+ *   </select>
+ */
 
 ?>
