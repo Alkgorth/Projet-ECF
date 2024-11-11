@@ -3,7 +3,11 @@
 namespace App\Controller;
 
 use App\Repository\UserRepository;
+use App\Entity\User;
+use App\Entity\Token as TableToken;
 use App\Tools\Security;
+use App\Tools\Token;
+use App\Tools\UserValidator;
 
 class ConnexionsController extends Controller
 {
@@ -60,8 +64,6 @@ class ConnexionsController extends Controller
 
                 if ($user && Security::verifyPassword($password, $user->getPassword())) {
                     session_regenerate_id(true);
-                    echo "Connexion réussie premier message";
-                    var_dump($_SESSION['user']);
                     $_SESSION['user'] = [
                         'id' => $user->getIdUser(),
                         'mail' => $user->getMail(),
@@ -73,10 +75,8 @@ class ConnexionsController extends Controller
                         'fk_id_store' => $user->getFkIdStore(),
                         'role' => $user->getRole()
                     ];
-                    echo "Connexion réussie deuxieme message";
                     header('Location: index.php?controller=pages&action=espacePersonnel');
                 } else {
-                    echo "Identifiant ou mot de passe incorrect";
                     $error[] = "Identifiant ou mot de passe incorrect";
                 }
             }
@@ -89,7 +89,40 @@ class ConnexionsController extends Controller
 
     protected function mdpOublie()
     {
-        $this->render('connexions/mdpOublie', []);
+        try {
+            $error = [];
+            
+            $tokenTable = new TableToken();
+
+            if (isset($_POST['resetPassword']) && isset($_POST['mail'])) {
+                $mail = $_POST['mail'];
+
+                $userRepo = new UserRepository();
+                $user = $userRepo->findUserByMail($mail);
+
+                print_r($user->getIdUser());
+
+
+                if ($mail === $user->getMail()) {
+                    $token = new Token();
+                    $token->generateToken();
+
+                    var_dump($token);
+                    $tokenRepository = new UserRepository();
+                    $tokenRepository->forgottenPassword($mail);
+                    
+                }
+            }
+
+            $this->render('connexions/mdpOublie', [
+                'error' => $error
+            ]);
+
+        } catch (\Exception $e) {
+            $this->render('errors/default', [
+                'error' => $e->getMessage()
+            ]);
+        }
     }
 
     protected function mdpReinitialise()
@@ -107,6 +140,6 @@ class ConnexionsController extends Controller
         session_regenerate_id(true);
         session_destroy();
         unset($_SESSION);
-        header ('location: index.php?controller=connexions&action=connexion');
+        header('location: index.php?controller=connexions&action=connexion');
     }
 }

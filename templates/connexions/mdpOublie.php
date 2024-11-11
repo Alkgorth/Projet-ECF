@@ -11,20 +11,23 @@ require_once _ROOTPATH_ . '\templates\head.php';
         </a>
         <form method="POST" class="col-sm-6 mb-3 mx-auto justify-content-center">
             <div class="mb-3 text-center">
-                <label for="email" class="form-label pb-2">Demande de réinitialisation de mot de passe</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                <label for="mail" class="form-label pb-2 text-white">Demande de réinitialisation de mot de passe</label>
+                <input type="email" class="form-control <?= (isset($errors['mail']) ? 'is-invalid' : '') ?>" id="mail" aria-describedby="emailHelp" name="mail">
+                <?php if (isset($errors['mail'])) { ?>
+                    <div class="invalid-feedback"><?= $errors['mail'] ?></div>
+                <?php } ?>
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
                 </div>
 
                 <div class="d-flex justify-content-center p-4">
-                    <button type="submit" class="btn btn-dark">
-                        <a href="index.php?controller=connexions&action=mdpReinitialise">
+                    <button type="submit" class="btn btn-warning mb-4" name="resetPassword">
+                        <!-- <a href="index.php?controller=connexions&action=mdpReinitialise"> -->
                             Envoyer
                         </a>
                     </button>
                 </div>
-                <button>
-                    <a href="index.php?controller=connexions&action=connexion">Annuler</a>
+                <button class="mb-3 btn btn-dark text-center">
+                    <a href="index.php?controller=connexions&action=connexion" class="text-white">Annuler</a>
                 </button>
 
         </form>

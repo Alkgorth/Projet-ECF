@@ -83,4 +83,11 @@ class UserRepository extends MainRepository
             return false;
         }
     }
+
+    public function forgottenPassword(User $user) {
+
+        if($user->getIdUser() !== null){
+            $query = $this->pdo->prepare('UPDATE tokens SET token = $token, date_time = NOW() WHERE fk_id_user = id_user');
+        }
+    }
 }
