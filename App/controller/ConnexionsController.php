@@ -6,6 +6,7 @@ use App\Repository\UserRepository;
 use App\Entity\User;
 use App\Entity\Token as TableToken;
 use App\Tools\Security;
+use App\Tools\SendMail;
 use App\Tools\Token;
 use App\Tools\UserValidator;
 
@@ -91,8 +92,6 @@ class ConnexionsController extends Controller
     {
         try {
             $error = [];
-            
-            $tokenTable = new TableToken();
 
             if (isset($_POST['resetPassword']) && isset($_POST['mail'])) {
                 $mail = $_POST['mail'];
@@ -100,16 +99,14 @@ class ConnexionsController extends Controller
                 $userRepo = new UserRepository();
                 $user = $userRepo->findUserByMail($mail);
 
-                print_r($user->getIdUser());
-
-
                 if ($mail === $user->getMail()) {
-                    $token = new Token();
-                    $token->generateToken();
-
-                    var_dump($token);
+                    $tokenGenerate = new Token();
+                    $token = $tokenGenerate->generateToken();
+                    
                     $tokenRepository = new UserRepository();
-                    $tokenRepository->forgottenPassword($mail);
+                    $tokenTable = $tokenRepository->forgottenPassword($user, $token);
+
+                    SendMail::mailForgottenPassword($user->getLastName(), $user->getFirstName(), $user->getMail());
                     
                 }
             }
