@@ -20,6 +20,9 @@ class MainEntity
             foreach ($data as $key => $value) {
                 $method = 'set' . StringTools::toPascalCase($key);
                 if (method_exists($this, $method)) {
+                    if ($key == 'date_time') {
+                        $value = new \DateTime($value);
+                    }
                     $this->$method($value);
                 }
             }

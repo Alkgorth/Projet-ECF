@@ -6,8 +6,11 @@ namespace App\Repository;
 use App\Db\Mysql;
 use App\Entity\Game;
 use App\Entity\User;
+use App\Entity\Token as TableToken;
 use App\Tools\Security;
 use App\Tools\UserValidator;
+use App\Tools\Token;
+
 
 class UserRepository extends MainRepository
 {
@@ -84,10 +87,46 @@ class UserRepository extends MainRepository
         }
     }
 
-    public function forgottenPassword(User $user) {
+    public function forgottenPassword(User $user, string $tokenValue) {
+
+        $idUser = $user->getIdUser();
+        $tokenTable = new TableToken();
+        $fkIdUser = $tokenTable->getFkIdUser();
 
         if($user->getIdUser() !== null){
-            $query = $this->pdo->prepare('UPDATE tokens SET token = $token, date_time = NOW() WHERE fk_id_user = id_user');
+
+            if($fkIdUser === $idUser){
+
+                
+                //Update du token en cas d'id user déjà présente
+                $query = $this->pdo->prepare(
+                    "UPDATE tokens SET date_time = date_time:, token = :token WHERE $fkIdUser = $idUser"
+                );
+
+                $query->bindValue(':date_time', htmlspecialchars(date('Y-m-d H:i:s')), $this->pdo::PARAM_STR);
+                $query->bindValue(':token', htmlspecialchars($tokenValue), $this->pdo::PARAM_STR);
+
+            } else {
+                
+
+                $query = $this->pdo->prepare(
+                    "INSERT INTO tokens (date_time, token, fk_id_user) VALUES (:date_time, :token, :idUser)"
+                );
+    
+                $query->bindValue(':date_time', htmlspecialchars(date('Y-m-d H:i:s')), $this->pdo::PARAM_STR);
+                $query->bindValue(':token', htmlspecialchars($tokenValue), $this->pdo::PARAM_STR);
+                $query->bindValue(':idUser', htmlspecialchars($idUser), $this->pdo::PARAM_INT);
+            }
+
+            $query->execute();
+    
+            $token = $query->fetch($this->pdo::FETCH_ASSOC);
+
+            if($token){
+                return TableToken::createAndHydrate($token);
+            } else {
+                return false;
+            }
         }
     }
 }

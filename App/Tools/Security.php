@@ -65,7 +65,7 @@ class Security
             $mail->Body    = '<h2>Bonjour</h2>
                             <p>Bienvenue' . $last_name . ' ' . $first_name . ' chez GameStore !</p>
                             <a href="http://localhost:3000/index.php?controller=connexions&action=connexion">Pour vous connecter cliquez ici</a>';
-            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients'; // pour les boites mail plus anciennes
 
             $mail->send();
             echo 'Message has been sent';
