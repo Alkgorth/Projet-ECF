@@ -46,7 +46,7 @@ class UserRepository extends MainRepository
             $query->bindValue(':role', $user->getRole(), $this->pdo::PARAM_STR);
         }
 
-        $query->bindValue(':last_name', htmlspecialchars( $user->getLastName()), $this->pdo::PARAM_STR);
+        $query->bindValue(':last_name', htmlspecialchars($user->getLastName()), $this->pdo::PARAM_STR);
         $query->bindValue(':first_name', htmlspecialchars($user->getFirstName()), $this->pdo::PARAM_STR);
         $query->bindValue(':mail', htmlspecialchars($user->getMail()), $this->pdo::PARAM_STR);
         $query->bindValue(':adresse', htmlspecialchars($user->getAdresse()), $this->pdo::PARAM_STR);
@@ -56,7 +56,6 @@ class UserRepository extends MainRepository
         $query->bindValue(':fk_id_store', htmlspecialchars($user->getFkIdStore()), $this->pdo::PARAM_INT);
 
         return $query->execute();
-
     }
 
     public function delete(int $id)
@@ -69,64 +68,66 @@ class UserRepository extends MainRepository
 
     public function findUserByMail(string $mail)
     {
-        if(!filter_var($mail, FILTER_VALIDATE_EMAIL)){
+        if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
             return false;
         }
         $query = $this->pdo->prepare('SELECT * FROM app_user WHERE mail = :mail');
 
-        $query->bindValue(':mail', $mail, $this->pdo::PARAM_STR);
+        $query->bindValue(':mail', htmlspecialchars($mail), $this->pdo::PARAM_STR);
 
         $query->execute();
 
         $user = $query->fetch($this->pdo::FETCH_ASSOC);
 
-        if($user){
+        if ($user) {
             return User::createAndHydrate($user);
         } else {
             return false;
         }
     }
 
-    public function forgottenPassword(User $user, string $tokenValue) {
+    public function forgottenPassword(User $user, string $tokenValue)
+    {
 
         $idUser = $user->getIdUser();
-        $tokenTable = new TableToken();
-        $fkIdUser = $tokenTable->getFkIdUser();
-        var_dump($fkIdUser);
-        if($idUser !== null){
 
-            if($fkIdUser !== null && $fkIdUser === $idUser){
+        $query = $this->pdo->prepare('SELECT * FROM tokens WHERE fk_id_user = :fk_id_user');
 
-                
-                //Update du token en cas d'id user déjà présente
-                $query = $this->pdo->prepare(
-                    "UPDATE tokens SET date_time = :date_time, token = :token WHERE fk_id_user = :fk_id_user"
-                );
+        $query->bindValue(':fk_id_user', htmlspecialchars($idUser), $this->pdo::PARAM_INT);
 
-                $query->bindValue(':date_time', htmlspecialchars(date('Y-m-d H:i:s')), $this->pdo::PARAM_STR);
-                $query->bindValue(':token', htmlspecialchars($tokenValue), $this->pdo::PARAM_STR);
+        $query->execute();
 
-            } else {
-                
+        $existingToken = $query->fetch($this->pdo::FETCH_ASSOC);
 
-                $query = $this->pdo->prepare(
-                    "INSERT INTO tokens (date_time, token, fk_id_user) VALUES (:date_time, :token, :idUser)"
-                );
-    
-                $query->bindValue(':date_time', htmlspecialchars(date('Y-m-d H:i:s')), $this->pdo::PARAM_STR);
-                $query->bindValue(':token', htmlspecialchars($tokenValue), $this->pdo::PARAM_STR);
-                $query->bindValue(':idUser', htmlspecialchars($idUser), $this->pdo::PARAM_INT);
-            }
+        if ($existingToken) {
 
-            $query->execute();
-    
-            $token = $query->fetch($this->pdo::FETCH_ASSOC);
+            //Update du token en cas d'id user déjà présente
+            $query = $this->pdo->prepare(
+                "UPDATE tokens SET date_time = :date_time, token = :token WHERE fk_id_user = :fk_id_user"
+            );
+        } else {
 
-            if($token){
-                return TableToken::createAndHydrate($token);
-            } else {
-                return false;
-            }
+            $query = $this->pdo->prepare(
+                "INSERT INTO tokens (date_time, token, fk_id_user) VALUES (:date_time, :token, :fk_id_user)"
+            );
         }
+
+        $query->bindValue(':date_time', htmlspecialchars(date('Y-m-d H:i:s')), $this->pdo::PARAM_STR);
+        $query->bindValue(':token', htmlspecialchars($tokenValue), $this->pdo::PARAM_STR);
+        $query->bindValue(':fk_id_user', htmlspecialchars($idUser), $this->pdo::PARAM_INT);
+
+        $query->execute();
+
+
+        if ($existingToken) {
+            $newToken = $existingToken;
+        } else {
+            $newToken = [
+                'date_time' => date('Y-m-d H:i:s'),
+                'token' => $tokenValue,
+                'fk_id_user' => $idUser
+            ];
+        }
+        return TableToken::createAndHydrate($newToken);
     }
 }
