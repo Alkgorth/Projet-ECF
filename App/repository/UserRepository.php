@@ -92,15 +92,15 @@ class UserRepository extends MainRepository
         $idUser = $user->getIdUser();
         $tokenTable = new TableToken();
         $fkIdUser = $tokenTable->getFkIdUser();
+        var_dump($fkIdUser);
+        if($idUser !== null){
 
-        if($user->getIdUser() !== null){
-
-            if($fkIdUser === $idUser){
+            if($fkIdUser !== null && $fkIdUser === $idUser){
 
                 
                 //Update du token en cas d'id user déjà présente
                 $query = $this->pdo->prepare(
-                    "UPDATE tokens SET date_time = date_time:, token = :token WHERE $fkIdUser = $idUser"
+                    "UPDATE tokens SET date_time = :date_time, token = :token WHERE fk_id_user = :fk_id_user"
                 );
 
                 $query->bindValue(':date_time', htmlspecialchars(date('Y-m-d H:i:s')), $this->pdo::PARAM_STR);
