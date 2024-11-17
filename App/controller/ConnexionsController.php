@@ -99,9 +99,13 @@ class ConnexionsController extends Controller
                 $userRepo = new UserRepository();
                 $user = $userRepo->findUserByMail($mail);
 
+                var_dump($mail);
+
                 if ($mail === $user->getMail()) {
                     $tokenGenerate = new Token();
                     $token = $tokenGenerate->generateToken();
+
+                    var_dump($token);
                     
                     $tokenRepository = new UserRepository();
                     $tokenTable = $tokenRepository->forgottenPassword($user, $token);

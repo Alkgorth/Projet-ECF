@@ -84,5 +84,4 @@ class Token extends MainEntity
     }
 }
 
-
 ?>
