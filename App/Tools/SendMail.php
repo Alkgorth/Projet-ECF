@@ -5,13 +5,15 @@ namespace App\Tools;
 
 use App\Repository\UserRepository;
 use App\Entity\User;
+use App\Controller\ConnexionsController;
+use App\Tools\configSecu;
 
 //Import PHPMailer classes into the global namespace
 //These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-use App\Tools\configSecu;
+
 
 //Load Composer's autoloader
 require 'vendor\autoload.php';
@@ -19,7 +21,7 @@ require 'vendor\autoload.php';
 class SendMail
 {
 
-    public static function mailForgottenPassword($last_name, $first_name, $email)
+    public static function mailForgottenPassword($last_name, $first_name, $email, $tokenValue)
     {
         //Create an instance; passing `true` enables exceptions
         $mail = new PHPMailer(true);
@@ -48,10 +50,19 @@ class SendMail
             $mail->CharSet = 'UTF-8';
             $mail->ContentType = 'text/html; charset=UTF-8';
             $mail->Subject = 'Demande de réinitiamisation de mot de passe';
+
+            $resetPasswordUrl = 'http://localhost:3000/index.php?controller=connexions&action=reinitialiserMdp&token=' . urlencode($tokenValue);
+
             $mail->Body    = '<h2>Réinitialisation de mot de passe</h2>
-                            <p>Bonjour' . $last_name . ' ' . $first_name . ' vous avez fait une demande pour un mot de passe oublié !</p>
-                            <a href="http://localhost:3000/index.php?controller=connexions&action=reinitialiserMdp">Pour réinitialiser votre mot de passe, cliquez ici</a>';
-            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients'; // pour les boites mail plus anciennes
+                            <p>Bonjour' . $last_name . ' ' . $first_name . ' Vous avez fait une demande pour réinitialiser votre mot de passe.</p>
+                            <p>Pour réinitialiser votre mot de passe, veuillez cliquer sur le lien suivant :</p>
+                            <a href="' . $resetPasswordUrl . '">Réinitialiser votre mot de passe</a>
+                            <p>Ce lien expirera dans 1 heure.</p>';
+
+            $mail->AltBody = 'Bonjour, vous avez fait une demande pour réinitialiser votre mot de passe. 
+                            Pour réinitialiser votre mot de passe, veuillez cliquer sur le lien suivant :
+                            ' . $resetPasswordUrl . '
+                            Ce lien expirera dans 1 heure.'; // pour les boites mail plus anciennes
 
             $mail->send();
             echo 'Message has been sent';

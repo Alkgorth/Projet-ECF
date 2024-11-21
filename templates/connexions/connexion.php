@@ -8,8 +8,8 @@ require_once _ROOTPATH_ . '\templates\head.php';
 ?>
 
 
-<div class="container-fluid px-5 mt-5 row d-flex justify-content-center">
-    <h1 class="text-center pb-4">Connexion</h1>
+<div class="container-fluid px-5 mt-4 row d-flex justify-content-center">
+    <h1 class="text-center pb-2">Connexion</h1>
     <a href="../index.php" class="text-center">
         <img src="..\assets\images\Logo GameStore-2.png" alt="Logo GameStore" class="pb-4" width="400">
     </a>
@@ -21,18 +21,18 @@ require_once _ROOTPATH_ . '\templates\head.php';
     <?php } ?>
 
     <form method="POST" class="col-sm-6 mb-3 mx-auto justify-content-center">
-        <div class="mb-3 text-center">
-            <label for="mail" class="form-label text-white">Email address</label>
+        <div class="mb-2 text-center">
+            <label for="mail" class="form-label text-white">Adresse mail</label>
             <input type="email" class="form-control" id="mail" aria-describedby="emailHelp" name="mail">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            <div id="emailHelp" class="form-text">Nous ne partagerons jamais votre e-mail avec quelqu'un d'autre.</div>
         </div>
-        <div class="mb-3 text-center">
-            <label for="password" class="form-label text-white">Password</label>
+        <div class="mb-2 text-center">
+            <label for="password" class="form-label text-white">Mot de passe</label>
             <input type="password" class="form-control" id="password" name="password">
         </div>
 
-        <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-warning mb-4" name="connexion">Connexion</button>
+        <div class="d-flex justify-content-center p-2">
+            <button type="submit" class="btn btn-warning mb-2" name="connexion">Connexion</button>
         </div>
 
         <div>

@@ -20,7 +20,10 @@ class MainEntity
             foreach ($data as $key => $value) {
                 $method = 'set' . StringTools::toPascalCase($key);
                 if (method_exists($this, $method)) {
-                    if ($key == 'date_time') {
+                    if ($key == 'creation_date') {
+                        $value = new \DateTime($value);
+                    }
+                    if ($key == 'expiration_date') {
                         $value = new \DateTime($value);
                     }
                     $this->$method($value);

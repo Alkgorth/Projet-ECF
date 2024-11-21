@@ -21,9 +21,7 @@ require_once _ROOTPATH_ . '\templates\head.php';
 
                 <div class="d-flex justify-content-center p-4">
                     <button type="submit" class="btn btn-warning mb-4" name="resetPassword">
-                        <!-- <a href="index.php?controller=connexions&action=mdpReinitialise"> -->
                             Envoyer
-                        </a>
                     </button>
                 </div>
                 <button class="mb-3 btn btn-dark text-center">

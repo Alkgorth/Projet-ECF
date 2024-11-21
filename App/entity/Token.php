@@ -7,9 +7,12 @@ use DateTime;
 class Token extends MainEntity
 {
     protected ?int $id_token = null;
-    protected DateTime $date_time;
+    protected DateTime $creation_date;
+    protected DateTime $expiration_date;
     protected string $token = '';
     protected int $fk_id_user;
+
+
 
     /**
      * Get the value of id_token
@@ -30,19 +33,37 @@ class Token extends MainEntity
     }
 
     /**
-     * Get the value of date_time
+     * Get the value of creation_date
      */
-    public function getDateTime(): DateTime
+    public function getCreationDate(): DateTime
     {
-        return $this->date_time;
+        return $this->creation_date;
     }
 
     /**
-     * Set the value of date_time
+     * Set the value of creation_date
      */
-    public function setDateTime(DateTime $date_time): self
+    public function setCreationDate(DateTime $creation_date): self
     {
-        $this->date_time = $date_time;
+        $this->creation_date = $creation_date;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of expiration_date
+     */
+    public function getExpirationDate(): DateTime
+    {
+        return $this->expiration_date;
+    }
+
+    /**
+     * Set the value of expiration_date
+     */
+    public function setExpirationDate(DateTime $expiration_date): self
+    {
+        $this->expiration_date = $expiration_date;
 
         return $this;
     }
