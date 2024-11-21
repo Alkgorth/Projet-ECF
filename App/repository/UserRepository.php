@@ -10,7 +10,8 @@ use App\Entity\Token as TableToken;
 use App\Tools\Security;
 use App\Tools\UserValidator;
 use App\Tools\Token;
-
+use DateInterval;
+use DateTime;
 
 class UserRepository extends MainRepository
 {
@@ -93,41 +94,43 @@ class UserRepository extends MainRepository
 
         $query = $this->pdo->prepare('SELECT * FROM tokens WHERE fk_id_user = :fk_id_user');
 
-        $query->bindValue(':fk_id_user', htmlspecialchars($idUser), $this->pdo::PARAM_INT);
+        $query->bindValue(':fk_id_user', $idUser, $this->pdo::PARAM_INT);
 
         $query->execute();
 
         $existingToken = $query->fetch($this->pdo::FETCH_ASSOC);
 
+        $expirationDateTime = new DateTime();
+        $expirationDateTime->add(new DateInterval('PT1H'));
+
         if ($existingToken) {
 
             //Update du token en cas d'id user déjà présente
-            $query = $this->pdo->prepare(
-                "UPDATE tokens SET date_time = :date_time, token = :token WHERE fk_id_user = :fk_id_user"
-            );
+            $request =
+                "UPDATE tokens SET creation_date = NOW(), token = :token, expiration_date = :expiration_date WHERE fk_id_user = :fk_id_user";
         } else {
 
-            $query = $this->pdo->prepare(
-                "INSERT INTO tokens (date_time, token, fk_id_user) VALUES (:date_time, :token, :fk_id_user)"
-            );
+            $request =
+                "INSERT INTO tokens (creation_date, token, expiration_date, fk_id_user) VALUES (NOW(), :token, :expiration_date, :fk_id_user)";
         }
 
-        $query->bindValue(':date_time', htmlspecialchars(date('Y-m-d H:i:s')), $this->pdo::PARAM_STR);
-        $query->bindValue(':token', htmlspecialchars($tokenValue), $this->pdo::PARAM_STR);
-        $query->bindValue(':fk_id_user', htmlspecialchars($idUser), $this->pdo::PARAM_INT);
+        $query = $this->pdo->prepare($request);
+
+        $query->bindValue(':token', $tokenValue, $this->pdo::PARAM_STR);
+        $query->bindValue(':expiration_date', $expirationDateTime->format('Y-m-d H:i:s'), $this->pdo::PARAM_STR);
+        $query->bindValue(':fk_id_user', $idUser, $this->pdo::PARAM_INT);
 
         $query->execute();
 
 
-        if ($existingToken) {
-            $newToken = $existingToken;
-        } else {
-            $newToken = [
-                'date_time' => date('Y-m-d H:i:s'),
-                'token' => $tokenValue,
-                'fk_id_user' => $idUser
-            ];
-        }
+
+        $newToken = [
+            'creation_date' => date('Y-m-d H:i:s'),
+            'token' => $tokenValue,
+            'expiration_date' => $expirationDateTime->format('Y-m-d H:i:s'),
+            'fk_id_user' => $idUser
+        ];
+
         return TableToken::createAndHydrate($newToken);
     }
 }

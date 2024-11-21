@@ -17,7 +17,7 @@ require_once _ROOTPATH_ . '\templates\head.php';
         </div>
         <div class="mb-3 text-center">
             <label for="passwordConfirm" class="form-label text-white">Confirmer mot de passe</label>
-            <input type="passwordConfirm" class="form-control" id="passwordConfirm" name="passwordConfirm">
+            <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm">
         </div>
 
         <div class="d-flex justify-content-center">

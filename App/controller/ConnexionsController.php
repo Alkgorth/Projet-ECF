@@ -110,7 +110,7 @@ class ConnexionsController extends Controller
                     $tokenRepository = new UserRepository();
                     $tokenTable = $tokenRepository->forgottenPassword($user, $token);
 
-                    SendMail::mailForgottenPassword($user->getLastName(), $user->getFirstName(), $user->getMail());
+                    SendMail::mailForgottenPassword($user->getLastName(), $user->getFirstName(), $user->getMail(), $tokenTable->getToken());
                     
                 }
             }

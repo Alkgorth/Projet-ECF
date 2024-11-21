@@ -24,7 +24,7 @@ CREATE TABLE `about`(
    `id_about` int(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
    `developpeur` varchar(50) NOT NULL,
    `editeur` varchar(50) NOT NULL,
-   `date_de__sortie` date NOT NULL,
+   `date_de_sortie` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE `app_user` (
@@ -32,8 +32,7 @@ CREATE TABLE `app_user` (
   `last_name` varchar(255) NOT NULL,
   `first_name` varchar(255) NOT NULL,
   `mail` varchar(255) NOT NULL UNIQUE,
-  `street` varchar(255) NOT NULL,
-  `number_street` int(11) NOT NULL,
+  `adresse` varchar(255) NOT NULL,
   `zip_code` char(5) NOT NULL,
   `city` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -57,6 +56,7 @@ CREATE TABLE `games` (
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `id_pegi` int(11) UNSIGNED NOT NULL,
+  `id_about` int(11) UNSIGNED NOT NULL,
   FOREIGN KEY(id_about) REFERENCES about(id_about) ON DELETE CASCADE ON UPDATE CASCADE,
   FOREIGN KEY(id_pegi) REFERENCES pegi(id_pegi) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -64,13 +64,13 @@ CREATE TABLE `games` (
 CREATE TABLE `image` (
   `id_image` int(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `id_jeu` int(11) DEFAULT NULL,
+  `id_jeu` int(11) UNSIGNED NULL,
   FOREIGN KEY(id_jeu) REFERENCES games(id_jeu) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE `style` (
-  `id_jeu` int(11) UNSIGNED NOT NULL PRIMARY KEY,
-  `id_genre` int(11) UNSIGNED NOT NULL PRIMARY KEY,
+  `id_jeu` int(11) UNSIGNED NOT NULL,
+  `id_genre` int(11) UNSIGNED NOT NULL,
   FOREIGN KEY(id_genre) REFERENCES genre(id_genre) ON DELETE CASCADE ON UPDATE CASCADE,
   FOREIGN KEY(id_jeu) REFERENCES games(id_jeu) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -101,7 +101,7 @@ CREATE TABLE `specifications` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE INDEX idx_store ON specifications (id_store, id_jeu);
-CREATE INDEX idx_store ON specifications (id_plateforme, id_jeu);
+CREATE INDEX idx_plateforme ON specifications (id_plateforme, id_jeu);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
