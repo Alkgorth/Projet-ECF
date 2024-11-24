@@ -150,7 +150,7 @@ class ConnexionsController extends Controller
                 $tokenIsValidate = new Token();
                 $tokenIsValidate->isTokenValid($token);
 
-                if(!$tokenIsValidate){
+                if(!$tokenIsValidate->isTokenValid($token)){
                     throw new \Exception("Le token a expiré.");
                 }
 
@@ -170,6 +170,8 @@ class ConnexionsController extends Controller
                     if(empty($error)){
                         $user->setPassword($password);
                         $userRepo->updatePassword($user);
+
+                        $tokenRepo->deleteToken($tokenValue);
 
                         header('Location: index.php?controller=connexions&action=connexion');
                     }

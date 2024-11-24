@@ -18,7 +18,7 @@ class Token {
         if (!is_object($token) || !method_exists($token, 'getExpirationDate')) {
             throw new \InvalidArgumentException("Le token fourni est invalide.");
         }
-        
+
         $now = new DateTime();
         return $token->getExpirationDate() > $now;
     }
