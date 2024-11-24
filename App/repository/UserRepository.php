@@ -127,4 +127,18 @@ class UserRepository extends MainRepository
 
         return TableToken::createAndHydrate($newToken);
     }
+
+    public function updatePassword(User $user)
+    {
+        if ($user->getIdUser() !== null) {
+            $query = $this->pdo->prepare('UPDATE app_user SET password = :password WHERE id_user = :id');
+        } else {
+            throw new \Exception("Aucun utilisateur rattaché à ce mail.");
+        }
+
+        $query->bindValue(':id', $user->getIdUser(), $this->pdo::PARAM_INT);
+        $query->bindValue(':password', htmlspecialchars(password_hash($user->getPassword(), PASSWORD_DEFAULT)), $this->pdo::PARAM_STR);
+
+        return $query->execute();
+    }
 }
