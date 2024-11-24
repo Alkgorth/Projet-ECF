@@ -6,6 +6,7 @@ use App\Repository\GameRepository;
 use App\Repository\UserRepository;
 use App\Entity\User;
 use App\Tools\UserValidator;
+use App\Tools\SendMail;
 use App\Tools\Security;
 
 
@@ -72,13 +73,11 @@ class UserController extends Controller
                     $userRepository = new UserRepository();
                     $userRepository->persist($user);
 
-                    Security::mailCreateUser($user->getLastName(), $user->getFirstName(), $user->getMail());
+                    SendMail::mailCreateUser($user->getLastName(), $user->getFirstName(), $user->getMail());
 
                     header('Location: index.php?controller=connexions&action=connexion');
                 }
             }
-
-
 
             $this->render('pages/creationCompte', [
                 'user' => '',
