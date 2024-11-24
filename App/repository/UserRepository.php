@@ -18,12 +18,32 @@ class UserRepository extends MainRepository
     public function findOneById(int $id)
     {
         // requête qui récupère l'utilisateur
-        $query = $this->pdo->prepare("SELECT * FROM app_user WHERE id = :id");
+        $query = $this->pdo->prepare("SELECT * FROM app_user WHERE id_user = :id");
         $query->bindValue(':id', $id, $this->pdo::PARAM_INT);
         $query->execute();
         $user = $query->fetch($this->pdo::FETCH_ASSOC);
         if ($user) {
-            // return User::createAndHydrate($user);
+            return User::createAndHydrate($user);
+        } else {
+            return false;
+        }
+    }
+
+    public function findUserByMail(string $mail)
+    {
+        if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+            return false;
+        }
+        $query = $this->pdo->prepare('SELECT * FROM app_user WHERE mail = :mail');
+
+        $query->bindValue(':mail', htmlspecialchars($mail), $this->pdo::PARAM_STR);
+
+        $query->execute();
+
+        $user = $query->fetch($this->pdo::FETCH_ASSOC);
+
+        if ($user) {
+            return User::createAndHydrate($user);
         } else {
             return false;
         }
@@ -67,26 +87,6 @@ class UserRepository extends MainRepository
         return $query->execute();
     }
 
-    public function findUserByMail(string $mail)
-    {
-        if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-            return false;
-        }
-        $query = $this->pdo->prepare('SELECT * FROM app_user WHERE mail = :mail');
-
-        $query->bindValue(':mail', htmlspecialchars($mail), $this->pdo::PARAM_STR);
-
-        $query->execute();
-
-        $user = $query->fetch($this->pdo::FETCH_ASSOC);
-
-        if ($user) {
-            return User::createAndHydrate($user);
-        } else {
-            return false;
-        }
-    }
-
     public function forgottenPassword(User $user, string $tokenValue)
     {
 
@@ -104,12 +104,9 @@ class UserRepository extends MainRepository
         $expirationDateTime->add(new DateInterval('PT1H'));
 
         if ($existingToken) {
-
-            //Update du token en cas d'id user déjà présente
             $request =
                 "UPDATE tokens SET creation_date = NOW(), token = :token, expiration_date = :expiration_date WHERE fk_id_user = :fk_id_user";
         } else {
-
             $request =
                 "INSERT INTO tokens (creation_date, token, expiration_date, fk_id_user) VALUES (NOW(), :token, :expiration_date, :fk_id_user)";
         }
@@ -121,9 +118,6 @@ class UserRepository extends MainRepository
         $query->bindValue(':fk_id_user', $idUser, $this->pdo::PARAM_INT);
 
         $query->execute();
-
-
-
         $newToken = [
             'creation_date' => date('Y-m-d H:i:s'),
             'token' => $tokenValue,
