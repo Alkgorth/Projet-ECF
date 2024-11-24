@@ -141,26 +141,39 @@ class ConnexionsController extends Controller
                 $tokenRepo = new TokenRepository();
                 $token = $tokenRepo->findToken($tokenValue);
 
-                if (!$token) {
+                if(!$token){
                     throw new \Exception("Le token est invalide ou a expiré.");
                 }
 
-        var_dump($token);
-        echo '<br>';
-                
                 $userId = $token->getFkIdUser();
 
-        var_dump($userId);
-                
                 $tokenIsValidate = new Token();
                 $tokenIsValidate->isTokenValid($token);
 
-                if (!$tokenIsValidate) {
+                if(!$tokenIsValidate){
                     throw new \Exception("Le token a expiré.");
                 }
 
                 $userRepo = new UserRepository();
                 $user = $userRepo->findOneById($userId);
+
+                if(!$user){
+                    throw new \Exception("Aucun utilisateur rattaché à ce mail.");
+                }
+
+                if(isset($_POST['resetPassword'])){
+
+                    $password = $_POST['password'];
+                    $passwordConfirm = $_POST['passwordConfirm'];
+                    $error = UserValidator::validatePasswords($password, $passwordConfirm);
+
+                    if(empty($error)){
+                        $user->setPassword($password);
+                        $userRepo->updatePassword($user);
+
+                        header('Location: index.php?controller=connexions&action=connexion');
+                    }
+                }
             }
 
 
