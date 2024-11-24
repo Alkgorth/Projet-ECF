@@ -173,7 +173,7 @@ class ConnexionsController extends Controller
 
                         $tokenRepo->deleteToken($tokenValue);
 
-                        header('Location: index.php?controller=connexions&action=connexion');
+                        header('Location: index.php?controller=connexions&action=mdpReinitialise');
                     }
                 }
             }

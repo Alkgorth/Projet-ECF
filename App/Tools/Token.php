@@ -22,7 +22,6 @@ class Token {
         $now = new DateTime();
         return $token->getExpirationDate() > $now;
     }
-
 }
 
 ?>
