@@ -9,14 +9,14 @@ require_once _ROOTPATH_ . '\templates\header.php';
 
 <main>
     <section>
-        <div class="container">
+        <div class="background-container">
             <img src="..\assets\images\signal-5153517_1920.jpg" alt="" class="w-100 image-en-tete col-10">
         </div>
 
         <!-- Texte de présentation GameStore -->
 
-        <div class="bienvenue container">
-            <p class="text-align-center">GameStore, fondée en 2020, est votre destination idéale
+        <div class="bienvenue container p-4">
+            <p class="text-align-center fs-4">GameStore, fondée en 2020, est votre destination idéale
                 pour tous vos besoins en jeux vidéo. Avec une vaste sélection pour toutes les plateformes,
                 nous offrons également des événements et des tournois pour les passionnés. Rejoignez-nous
                 et plongez dans le monde du jeu avec GameStore!</p>

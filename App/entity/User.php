@@ -16,9 +16,6 @@ class User extends MainEntity
     protected int $fk_id_store;
 
 
-
-
-
     /**
      * Get the value of id_user
      */

@@ -176,6 +176,8 @@ class ConnexionsController extends Controller
                         header('Location: index.php?controller=connexions&action=mdpReinitialise');
                     }
                 }
+            } else {
+                header('Location: index.php');
             }
 
 
