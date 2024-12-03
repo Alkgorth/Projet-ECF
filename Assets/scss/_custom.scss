@@ -5,14 +5,30 @@
 
 $primary : #2a2aa9;
 $secondary: #FFB600;
-$tertiary: #090958; 
+$dark: #090958;
+ 
 
-.body{
-    background-image: 
-    rotate(42deg)
-    opacity(0.5)
-    url(C:\Users\apper\Documents\Projet-ECF\images\Background_test_2.jpg)
-}  
+.bienvenue {
+    color: white;
+}
+
+.background-container {
+    width: 200%;
+    height: 200%;
+    background-image: url('../images/Background_test_2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    transform: rotate(42deg);
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+
+
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
