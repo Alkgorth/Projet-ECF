@@ -100,6 +100,15 @@ CREATE TABLE `specifications` (
   FOREIGN KEY(id_store) REFERENCES store(id_store) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+CREATE TABLE `tokens` (
+  `id_token` int(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `creation_date` datetime NOT NULL,
+  `expiration_date` datetime NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `fk_id_user` int(11) UNSIGNED NOT NULL,
+   FOREIGN KEY(fk_id_user) REFERENCES app_user(id_user),
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 CREATE INDEX idx_store ON specifications (id_store, id_jeu);
 CREATE INDEX idx_plateforme ON specifications (id_plateforme, id_jeu);
 
