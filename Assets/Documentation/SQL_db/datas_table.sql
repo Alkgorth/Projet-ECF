@@ -1,8 +1,8 @@
 INSERT INTO `app_user` 
-(`last_name`, `first_name`, `mail`, `street`, `number_street`, `zip_code`, `city`, `password`, `role`, `fk_id_store`) 
+(`id_user`, `last_name`, `first_name`, `mail`, `adresse`, `zip_code`, `city`, `password`, `role`, `fk_id_store`) 
 VALUES
-('Percheron', 'Arnaud', 'mailtest@test.com', 'rue du lac', 10, '01234', 'Maville', '', 'user', 1),
-('Garcia', 'José', 'patron@test.com', 'rue du bout', 12, '43321', 'Laville', '', 'admin', 2);
+(5, 'Garcia', 'José', 'patron@test.com', '12 rue du bout', '43321', 'Laville', '', 'admin', 2),
+(6, 'Percheron', 'Arnaud', 'ap.percheron@gmail.com', '42 de chez moi', '59000', 'Lille', '$2y$10$MuK1086C/bj87HxqEou5aOuGLA5H1r8OEkioEA3JCiLfwFxQ/J.ha', 'user', 1);
 
 
 INSERT INTO `contenu` (`id_order`, `id_jeu`, `quantity`, `price_total`) VALUES
