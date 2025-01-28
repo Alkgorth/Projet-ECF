@@ -34,7 +34,7 @@ require_once _ROOTPATH_ . '\templates\header.php';
             </h1>
         </a>
 
-        <div id="carouselNews" class="carousel slide mt-4" data-bs-ride="carousel">
+        <div id="carouselNews" class="carousel slide mt-4 col-10" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <?php for ($i = 0; $i < 3; $i++) { ?>
                     <div class="carousel-item <?= $i === 0 ? 'active' : '' ?>">
@@ -77,7 +77,7 @@ require_once _ROOTPATH_ . '\templates\header.php';
             </h1>
         </a>
 
-        <div id="carouselPromotions" class="carousel slide mt-4" data-bs-ride="carousel">
+        <div id="carouselPromotions" class="carousel slide mt-4 col-10" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <?php for ($i = 0; $i < 3; $i++) { ?>
                     <div class="carousel-item <?= $i === 0 ? 'active' : '' ?>">
